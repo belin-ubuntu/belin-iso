@@ -1,0 +1,44 @@
+language: generic
+dist: bionic
+addons:
+  apt:
+    sources:
+      - ppa:belin/stable
+    update: true
+    packages:
+      - ubuntu-defaults-builder
+      - docker-ce
+      - docker-compose
+      - git
+      - git-lfs
+git:
+  depth: 22
+services:
+- docker
+jobs:
+  include:
+  - stage: amd64
+    script:
+      - docker build belin-iso/belin-manufacture:latest
+      - docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged belin-iso/belin-manufacture /bin/bash -c "./build.sh"
+  - stage: i386
+    script:
+      - docker build -t belin-iso/belin-manufacture:latest
+      - docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name build-i386 --privileged belin-iso_belin-manufacture:latest /bin/bash -c "./build.sh"
+
+before_deploy:
+  - git config --local user.name "Attila Hammer"
+  - git config --local user.email "hammera@pickup.hu"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+  - export iso_file=$(ls *.iso"
+  - echo "deploying $iso_file with github releases"
+  - cp log.txt /home/travis/log.txt
+
+deploy:
+  provider: releases
+  file_glob: true
+  file: "${iso_file}"
+  on:
+    all_branches: true
+    tags: true
