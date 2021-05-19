@@ -1,0 +1,7 @@
+belin-manufacture:
+  build: .
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup
+    - ./:/repo
+  working_dir: /repo
+
