@@ -1,4 +1,4 @@
-ghcr.io/beliniso/belin-manufacture:
+belin-image-builder:
   build: .
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup
