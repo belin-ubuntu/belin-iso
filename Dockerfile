@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
-FROM ghcr.io/belin-ubuntu/belin-iso:1.0
+from ubuntu:18.04
 MAINTAINER Attila Hammer <hammera@pickup.hu>
-LABEL org.opencontainers.image.source https://github.com/belin-ubuntu/belin-iso
+LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
 env DEBIAN_FRONTEND=noninteractive
 add pinning /etc/apt/preferences.d
 run DEBIAN_FRONTEND=noninteractive && apt-get update ||true && \
