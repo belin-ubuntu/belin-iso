@@ -1,48 +1,49 @@
-{
-  "language": "bash",
-  "os": [
-    "linux"
-  ],
-  "dist": "bionic",
-  "addons": {
-    "apt": {
-      "sources": [
-        {
-          "name": "ppa:belin/stable"
-        }
-      ],
-      "update": true,
-      "packages": [
-        "ubuntu-defaults-builder",
-        "docker-ce",
-        "docker-compose",
-        "git",
-        "git-lfs"
-      ]
-    }
-  },
-  "git": {
-    "depth": 22
-  },
-  "services": [
-    "docker"
-  ],
-  "jobs": {
-    "include": [
-      {
-        "stage": "amd64",
-        "script": [
-          "docker pull ghcr.io/belin-ubuntu/belin-iso:1.0",
-          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0 /bin/bash -c \"./build.sh amd64\""
-        ]
-      },
-      {
-        "stage": "i386",
-        "script": [
-          "docker pull ghcr.io/belin-ubuntu/belin-iso:1.0",
-          "docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0 /bin/bash -c \"./build.sh i386\""
-        ]
-      }
-    ]
-  }
-}
+language: bash
+os:
+- linux
+dist: bionic
+addons:
+  apt:
+    sources:
+    - name: ppa:belin/stable
+    update: true
+    packages:
+    - ubuntu-defaults-builder
+    - docker-ce
+    - docker-compose
+    - git
+    - git-lfs
+git:
+  depth: 22
+services:
+- docker
+jobs:
+  include:
+  - stage: amd64
+    script:
+    - docker pull ghcr.io/belin-ubuntu/belin-iso:1.0
+    - docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v
+      `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0
+      /bin/bash -c "./build.sh amd64"
+  - stage: i386
+    script:
+    - docker pull ghcr.io/belin-ubuntu/belin-iso:1.0
+    - docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v
+      `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0
+      /bin/bash -c "./build.sh i386"
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "Attila Hammer"
+  - git config --local user.email "hammera@pickup.hu"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date}
+  - git tag $TRAVIS_TAG
+
+provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+    secure: K0Ol2zpekOgQR+P+5graocAtzjPuVuK2p32qj8CRTiWOewcPtIZa/+aeaY8vhF4uemEFPKSfbcAt/19aqDLwBXv7h+yD2p9LYoyfJX9/oGI9R+Iv3nkqkrHQmSR81V+tzUEf1po4skca8uF+AyL3AyO1ividOP+PRNlCaQCAvE4a7rrLcDPFKvsLh+VdFNWVTyjp64QfmgFQsDe+dK+GEKfBevAdWqIvaaPbmcLAeVEdg6R1gXpQ/mhHGyYKC40tTubvs+wbVNL1P1ASNXOFwH/gskRCVL1wkaubafe8NlTR45CE+/TX2babA9/RMNDWvCaH4MU8krNLWCA2KYHRK/lV/cMFVNoIHg4nl+HoMspru9wuWKkjwL86tgXUeFGp6eTRGc+O8HTP9OvON050Gq35UUWBMI9NuyHepVqoME8I9O2d2+3M9g2CsS5Vto6pjmpzddWT06rxCvZKj5yaqljITG4jz1qJh3ZPdogtuu4ElC0wLZgVJCe8Bl4vxlKt6x68CmLjFpO5RiPUT9UYZcRHfifjZhK8CNaRrCgnPDwDh+Auo6f3uWYoi8cuKPGhuPB5s+9tG9V4zm8GgmJHPQ3QXZJVegh6sohkTevcsu4L1uinqDQexnW4GBXgkX+y8szXJ1h0mvrVZE3FMaNJL2IO69xkcUXvG/VedtxwCxY=
+  file_glob: true
+  file: "*/*.iso
+  skip_cleanup: true
+  on:
+    tags: true
+
