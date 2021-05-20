@@ -1,29 +1,48 @@
-language: generic
-dist: bionic
-addons:
-  apt:
-    sources:
-      - ppa:belin/stable
-    update: true
-    packages:
-      - ubuntu-defaults-builder
-      - docker-ce
-      - docker-compose
-      - git
-      - git-lfs
-git:
-  depth: 22
-services:
-- docker
-jobs:
-  include:
-  - stage: amd64
-    script:
-      - docker build belin-iso/belin-manufacture:latest
-      - docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged belin-iso/belin-manufacture /bin/bash -c "./build.sh"
-  - stage: i386
-    script:
-      - docker build -t belin-iso/belin-manufacture:latest
-      - docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name build-i386 --privileged belin-iso_belin-manufacture:latest /bin/bash -c "./build.sh"
-
-
+{
+  "language": "generic",
+  "os": [
+    "linux"
+  ],
+  "dist": "bionic",
+  "addons": {
+    "apt": {
+      "sources": [
+        {
+          "name": "ppa:belin/stable"
+        }
+      ],
+      "update": true,
+      "packages": [
+        "ubuntu-defaults-builder",
+        "docker-ce",
+        "docker-compose",
+        "git",
+        "git-lfs"
+      ]
+    }
+  },
+  "git": {
+    "depth": 22
+  },
+  "services": [
+    "docker"
+  ],
+  "jobs": {
+    "include": [
+      {
+        "stage": "amd64",
+        "script": [
+          "docker build belin-iso/belin-manufacture:latest",
+          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged belin-iso/belin-manufacture /bin/bash -c \"./build.sh\""
+        ]
+      },
+      {
+        "stage": "i386",
+        "script": [
+          "docker build -t belin-iso/belin-manufacture:latest",
+          "docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name build-i386 --privileged belin-iso_belin-manufacture:latest /bin/bash -c \"./build.sh\""
+        ]
+      }
+    ]
+  }
+}
