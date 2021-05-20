@@ -1,4 +1,4 @@
-belin-manufacture:
+ghcr.io/beliniso/belin-manufacture:
   build: .
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup

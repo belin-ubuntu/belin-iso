@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as builder
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 env DEBIAN_FRONTEND=noninteractive
 run DEBIAN_FRONTEND=noninteractive && apt-get update ||true && \

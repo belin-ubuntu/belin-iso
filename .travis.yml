@@ -1,5 +1,5 @@
 {
-  "language": "generic",
+  "language": "bash",
   "os": [
     "linux"
   ],
@@ -32,15 +32,15 @@
       {
         "stage": "amd64",
         "script": [
-          "docker build belin-iso/belin-manufacture:latest",
-          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged belin-iso/belin-manufacture /bin/bash -c \"./build.sh\""
+          "docker pull ghcr.io/belin-ubuntu/belin-iso:1.0",
+          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0 /bin/bash -c \"./build.sh amd64\""
         ]
       },
       {
         "stage": "i386",
         "script": [
-          "docker build -t belin-iso/belin-manufacture:latest",
-          "docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name build-i386 --privileged belin-iso_belin-manufacture:latest /bin/bash -c \"./build.sh\""
+          "docker pull ghcr.io/belin-ubuntu/belin-iso:1.0",
+          "docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0 /bin/bash -c \"./build.sh i386\""
         ]
       }
     ]
