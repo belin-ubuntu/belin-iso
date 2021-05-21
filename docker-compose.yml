@@ -2,6 +2,11 @@ belin-image-builder:
   build: .
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup
+    - /run:/run
+    - /tmp:/tmp
+    - /run/systemd/system:/run/systemd/system
+    - "/var/run/dbus/system_bus_socket"
+
     - ./:/repo
   working_dir: /repo
 
