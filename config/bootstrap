@@ -118,11 +118,11 @@ LB_ARCHIVES=""
 
 # $LB_ARCHIVE_AREAS: select archive areas to use
 # (Default: main restricted)
-LB_ARCHIVE_AREAS="main restricted"
+LB_ARCHIVE_AREAS="main restricted universe multiverse"
 
 # $LB_PARENT_ARCHIVE_AREAS: select archive areas to use
 # (Default: main restricted)
-LB_PARENT_ARCHIVE_AREAS="main restricted"
+LB_PARENT_ARCHIVE_AREAS="main restricted universe multiverse"
 
 # $LB_BOOTSTRAP_QEMU_ARCHITECTURES: architectures to use foreign bootstrap
 # (Default: )
