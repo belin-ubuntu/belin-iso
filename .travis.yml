@@ -37,7 +37,7 @@
           "The home directory is $PWD",
           "whoami",
           "echo now running the amd64 build",
-          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -v /sys/fs/cgroup:/sys/fs/cgroup:ro -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso /bin/bash -c \"./build.sh amd64\""
+          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -v /sys/fs/cgroup:/sys/fs/cgroup:ro -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso /bin/bash -c \"./build.sh\""
         ]
       },
       {
