@@ -69,7 +69,7 @@ LB_INITRAMFS="auto"
 
 # $LB_INITRAMFS_COMPRESSION: set initramfs compression
 # (Default: )
-LB_INITRAMFS_COMPRESSION=""
+LB_INITRAMFS_COMPRESSION="lzma"
 
 # $LB_INITSYSTEM: set init system
 # (Default: )
