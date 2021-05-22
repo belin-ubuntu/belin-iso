@@ -36,8 +36,8 @@ LB_APT_SOURCE_ARCHIVES="true"
 LB_BOOTSTRAP="debootstrap"
 
 # $LB_CACHE: control cache
-# (Default: false)
-LB_CACHE="false"
+# (Default: true)
+LB_CACHE="true"
 
 # $LB_CACHE_INDICES: control if downloaded package indices should be cached
 # (Default: false)
@@ -61,19 +61,19 @@ LB_DEBCONF_NOWARNINGS="yes"
 
 # $LB_DEBCONF_PRIORITY: set debconf(1) priority to use
 # (Default: critical)
-LB_DEBCONF_PRIORITY="low"
+LB_DEBCONF_PRIORITY="critical"
 
 # $LB_INITRAMFS: set initramfs hook
 # (Default: auto)
 LB_INITRAMFS="auto"
 
 # $LB_INITRAMFS_COMPRESSION: set initramfs compression
-# (Default: lzma)
-LB_INITRAMFS_COMPRESSION="lzma"
+# (Default: )
+LB_INITRAMFS_COMPRESSION=""
 
 # $LB_INITSYSTEM: set init system
-# (Default: systemd)
-LB_INITSYSTEM="systemd"
+# (Default: )
+LB_INITSYSTEM=""
 
 # $LB_FDISK: set fdisk program
 # (Default: autodetected)
@@ -84,8 +84,8 @@ LB_FDISK="fdisk"
 LB_LOSETUP="losetup"
 
 # $LB_MODE: set distribution mode
-# (Default: ubuntu-mate)
-LB_MODE="ubuntu-mate"
+# (Default: ubuntu)
+LB_MODE="ubuntu"
 
 # $LB_SYSTEM: set system type
 # (Default: live)
@@ -127,15 +127,15 @@ LB_TEMPLATES="/usr/share/live/build/templates"
 
 # $_QUIET: enable quiet
 # (Default: false)
-_QUIET="true"
+_QUIET="false"
 
 # $_VERBOSE: enable verbose
 # (Default: false)
 #_VERBOSE="false"
 
 # Internal stuff (FIXME)
-APT_OPTIONS="-qq --yes -o dpkg::options::='--force-confnew'"
-APTITUDE_OPTIONS="--assume-yes -o dpkg::options::='--force-confnew'"
+APT_OPTIONS="--yes"
+APTITUDE_OPTIONS="--assume-yes"
 GZIP_OPTIONS="-6 --rsyncable"
 ISOHYBRID_OPTIONS=""
 GENISOIMAGE_OPTIONS_EXTRA=""

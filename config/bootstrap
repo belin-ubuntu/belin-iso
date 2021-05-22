@@ -18,7 +18,7 @@ LB_BOOTSTRAP_FLAVOUR=""
 
 # $LB_BOOTSTRAP_KEYRING: set distribution keyring
 # (Default: empty)
-LB_BOOTSTRAP_KEYRING="ubuntu-keyring"
+LB_BOOTSTRAP_KEYRING=""
 
 # $LB_DISTRIBUTION: select distribution to use
 # (Default: bionic)
@@ -41,28 +41,28 @@ LB_PARENT_MIRROR_BOOTSTRAP="http://archive.ubuntu.com/ubuntu/"
 LB_PARENT_MIRROR_CHROOT="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_CHROOT_SECURITY: set security parent mirror to fetch packages from
-# (Default: )
-LB_PARENT_MIRROR_CHROOT_SECURITY="http://securyty.ubuntu.com/ubuntu/"
+# (Default: http://security.ubuntu.com/ubuntu/)
+LB_PARENT_MIRROR_CHROOT_SECURITY="http://security.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_CHROOT_VOLATILE: set volatile parent mirror to fetch packages from
-# (Default: none)
-LB_PARENT_MIRROR_CHROOT_VOLATILE="none"
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_PARENT_MIRROR_CHROOT_VOLATILE="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_CHROOT_BACKPORTS: set backports parent mirror to fetch packages from
 # (Default: none)
-LB_PARENT_MIRROR_CHROOT_BACKPORTS="http://archive.ubuntu.com/ubuntu"/"
+LB_PARENT_MIRROR_CHROOT_BACKPORTS="none"
 
 # $LB_PARENT_MIRROR_BINARY: set parent mirror which ends up in the image
-# (Default: )
-LB_PARENT_MIRROR_BINARY=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_PARENT_MIRROR_BINARY="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_BINARY_SECURITY: set security parent mirror which ends up in the image
-# (Default: )
-LB_PARENT_MIRROR_BINARY_SECURITY=""
+# (Default: http://security.ubuntu.com/ubuntu/)
+LB_PARENT_MIRROR_BINARY_SECURITY="http://security.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_BINARY_VOLATILE: set volatile parent mirror which ends up in the image
-# (Default: none)
-LB_PARENT_MIRROR_BINARY_VOLATILE="none"
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_PARENT_MIRROR_BINARY_VOLATILE="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_PARENT_MIRROR_BINARY_BACKPORTS: set backports parent mirror which ends up in the image
 # (Default: none)
@@ -73,56 +73,56 @@ LB_PARENT_MIRROR_BINARY_BACKPORTS="none"
 LB_PARENT_MIRROR_DEBIAN_INSTALLER="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_BOOTSTRAP: set mirror to bootstrap from
-# (Default: )
-LB_MIRROR_BOOTSTRAP=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_BOOTSTRAP="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_CHROOT: set mirror to fetch packages from
-# (Default: )
-LB_MIRROR_CHROOT=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_CHROOT="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_CHROOT_SECURITY: set security mirror to fetch packages from
-# (Default: )
-LB_MIRROR_CHROOT_SECURITY=""
+# (Default: http://security.ubuntu.com/ubuntu/)
+LB_MIRROR_CHROOT_SECURITY="http://security.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_CHROOT_VOLATILE: set volatile mirror to fetch packages from
-# (Default: none)
-LB_MIRROR_CHROOT_VOLATILE="none"
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_CHROOT_VOLATILE="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_CHROOT_BACKPORTS: set backports mirror to fetch packages from
 # (Default: none)
 LB_MIRROR_CHROOT_BACKPORTS="none"
 
 # $LB_MIRROR_BINARY: set mirror which ends up in the image
-# (Default: )
-LB_MIRROR_BINARY=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_BINARY="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_BINARY_SECURITY: set security mirror which ends up in the image
-# (Default: )
-LB_MIRROR_BINARY_SECURITY=""
+# (Default: http://security.ubuntu.com/ubuntu/)
+LB_MIRROR_BINARY_SECURITY="http://security.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_BINARY_VOLATILE: set volatile mirror which ends up in the image
-# (Default: )
-LB_MIRROR_BINARY_VOLATILE=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_BINARY_VOLATILE="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_MIRROR_BINARY_BACKPORTS: set backports mirror which ends up in the image
 # (Default: none)
 LB_MIRROR_BINARY_BACKPORTS="none"
 
 # $LB_MIRROR_DEBIAN_INSTALLER: set debian-installer mirror
-# (Default: )
-LB_MIRROR_DEBIAN_INSTALLER=""
+# (Default: http://archive.ubuntu.com/ubuntu/)
+LB_MIRROR_DEBIAN_INSTALLER="http://archive.ubuntu.com/ubuntu/"
 
 # $LB_ARCHIVES: enable available third-party archives
 # (Default: empty)
 LB_ARCHIVES=""
 
 # $LB_ARCHIVE_AREAS: select archive areas to use
-# (Default: main)
-LB_ARCHIVE_AREAS="main restricted universe multiverse"
+# (Default: main restricted)
+LB_ARCHIVE_AREAS="main restricted"
 
 # $LB_PARENT_ARCHIVE_AREAS: select archive areas to use
-# (Default: main)
-LB_PARENT_ARCHIVE_AREAS="main restricted universe multiverse"
+# (Default: main restricted)
+LB_PARENT_ARCHIVE_AREAS="main restricted"
 
 # $LB_BOOTSTRAP_QEMU_ARCHITECTURES: architectures to use foreign bootstrap
 # (Default: )
