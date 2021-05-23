@@ -26,7 +26,7 @@ LB_BOOTAPPEND_FAILSAFE="memtest noapic noapm nodma nomce nolapic nomodeset nosmp
 
 # $LB_BOOTLOADER: set bootloader
 # (Default: syslinux)
-LB_BOOTLOADER="grub"
+LB_BOOTLOADER="grub-efi"
 
 # $LB_CHECKSUMS: set checksums
 # (Default: sha256)

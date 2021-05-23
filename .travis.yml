@@ -32,7 +32,7 @@
       {
         "stage": "amd64",
         "script": [
-          "docker pull ghcr.io/belin-ubuntu/belin-iso:1.0",
+          "docker pull ghcr.io/belin-ubuntu/belin-iso:latest",
           "The actual user directory is $HOME",
           "The home directory is $PWD",
           "whoami",

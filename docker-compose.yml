@@ -6,7 +6,6 @@ belin-image-builder:
     - /tmp:/tmp
     - /run/systemd/system:/run/systemd/system
     - "/var/run/dbus/system_bus_socket"
-
     - ./:/repo
   working_dir: /repo
 
