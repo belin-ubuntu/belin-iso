@@ -1,59 +1,7 @@
-{
-  "language": "shell",
-  "os": [
-    "linux"
-  ],
-  "dist": "bionic",
-  "addons": {
-    "apt": {
-      "sources": [
-        {
-          "name": "ppa:belin/stable"
-        }
-      ],
-      "update": true,
-      "packages": [
-        "ubuntu-defaults-builder",
-        "docker-ce",
-        "docker-compose",
-        "git",
-        "git-lfs"
-      ]
-    }
-  },
-  "git": {
-    "depth": 22
-  },
-  "services": [
-    "docker"
-  ],
-  "jobs": {
-    "include": [
-      {
-        "stage": "amd64",
-        "script": [
-          "docker pull ghcr.io/belin-ubuntu/belin-iso:latest",
-          "The actual user directory is $HOME",
-          "The home directory is $PWD",
-          "whoami",
-          "echo now running the amd64 build",
-          "docker run --env BUILDARCH=amd64 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -v /sys/fs/cgroup:/sys/fs/cgroup:ro -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso /bin/bash -c \"./build.sh\""
-        ]
-      },
-      {
-        "stage": "i386",
-        "script": [
-          "docker pull ghcr.io/belin-ubuntu/belin-iso",
-          "docker run --env BUILDARCH=i386 --env BUILDFLAVOUR=mate-nightly --rm -it -v `pwd`:`pwd` -v /sys/fs/cgroup:/sys/fs/cgroup:ro -w `pwd` --name buildamd64 --privileged ghcr.io/belin-ubuntu/belin-iso:1.0 /bin/bash -c \"./build.sh i386\""
-        ]
-      }
-    ]
-  },
-  "before_deploy": [
-    "git config --local user.name \"Attila Hammer\"",
-    "git config --local user.email \"hammera@pickup.hu\"",
-    "export TRAVIS_TAG=${TRAVIS_TAG:-$(date}",
-    "git tag $TRAVIS_TAG"
-  ]
-}
+language: bash
+dist: bionic
+services:
+  - docker
+script:
+  - docker version
 

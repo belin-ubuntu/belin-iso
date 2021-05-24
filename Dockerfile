@@ -19,7 +19,7 @@ add-apt-repository -y -s universe && \
 add-apt-repository -y -s multiverse && \
 add-apt-repository -y -s ppa:belin/stable && \
 dpkg --add-architecture i386 && \
-DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build cdebootstrap ubuntu-defaults-builder syslinux-utils genisoimage memtest86+ syslinux syslinux-themes-ubuntu-xenial gfxboot-theme-ubuntu livecd-rootfs  dirmngr && \
+DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-boot live-config live-tools live-wrapper livecd-rootfs cdebootstrap ubuntu-defaults-builder syslinux-utils genisoimage memtest86+ syslinux syslinux-themes-ubuntu-xenial gfxboot-theme-ubuntu livecd-rootfs  dirmngr && \
 apt-get clean && \
 apt-get autoclean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
