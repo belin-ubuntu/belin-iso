@@ -1,7 +1,21 @@
 language: bash
+os: linux
 dist: bionic
 services:
-  - docker
+- docker
 script:
-  - docker version
-
+- docker version
+before_deploy:
+  git config --local user.name "Attila Hammer"
+  git config user.email hammera@pickup.hu
+  export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format %h-1)}
+  git tag $TRAVIS_TAG
+deploy:
+  provider: releases
+  api_key:
+    secure: ecm3wkTZMCW6Rqhk6kXN10pREy0Y1d4N6BYKvLFENg9mskzTYhmfRUytoGtib/0/C4qI9mAhiVnMeoxSLWHJOhjMpnXp/CftdWQ7kL0ndJfy1YGZqodpixeGy+TyKr4o982H/5Jt3eq58bzlvBeu1iyf1rWSwlG8iK/LphUyLh5ZnxOrpYt9K3niLUG19rdk3TokIydcnDojgoEZI9Ku1GZ7AwbHP1NBTgOxoOEkHHUGAuI6RWbOJSIZqHamuk0dKEnG+YwfY80uSSVAmRFQZCmT3N1p6/3GoZepKUq6ZVc9pdmhv1PcJSHsbBljCCh1KY6Dj4yBozzFG2FObEANtalJpI6uDOcpr77mRashJX/egqzryU3YrnE1QnznFQ/alhLIrpVHBXGeUTL4iMI9sxLwMOyIuNxIuUnl74eUhw4vQLoB8tooFDFbS78bbtQOO4YP4pxigwzXJxhNIxUtD/uU2Br2H1MfISse/P3zLWHebCdZz8A93uTP8ryqBjs2J5GNULjcEt7sQPM3R3ILCnAbAusJfqFiz52QNqxQeG1qQMQR6Qgl7qSEbGwt56SdQC57+flr4dS7xa9nAzFktV8tLolAGydxqF+92QAIuUV22BqKNkGnfdBELITuKnN0JC8gVJii/Fp8hCs8L3saS/YxXxJo39KcTK0hrdyVcqk=
+  file: Readme.txt
+  cleanup: true
+  on:
+    tags: true
+    all_branches: true
