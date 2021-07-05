@@ -2,7 +2,7 @@ version: "2"
 services:
 belin-manufacture:
   build: .
-    container_name: belin_manufacture
+    container_name: manufacture
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup
     - /run:/run
