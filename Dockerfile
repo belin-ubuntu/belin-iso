@@ -42,15 +42,5 @@ apt-get autoclean && \
 rm -rf /etc/localtime && \
 ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata && \
 echo Europe/Budapest >/etc/timezone && \
-dpkg-reconfigure -f noninteractive tzdata && \
-echo "locales	locales/locales_to_be_generated	multiselect	en_US.UTF-8 UTF-8, hu_HU.UTF-8 UTF-8" |debconf-set-selections && \
-echo "locales	locales/default_environment_locale	select	hu_HU.UTF-8" |debconf-set-selections && \
-dpkg-reconfigure -f noninteractive locales && \
-update-locale LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8 LC_ADDRESS=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8 LC_COLLATE=hu_HU.UTF-8 LC_CTYPE=hu_HU.UTF-8 LC_IDENTIFICATION=hu_HU.UTF-8 LC_MEASUREMENT=hu_HU.UTF-8 LC_MESSAGES=hu_HU.UTF-8 LC_MONETARY=hu_HU.UTF-8 LC_NAME=hu_HU.UTF-8 LC_NUMERIC=hu_HU.UTF-8 LC_PAPER=hu_HU.UTF-8 LC_RESPONSE=hu_HU.UTF-8 LC_TELEPHONE=hu_HU.UTF-8 LC_TIME=hu_HU.UTF-8 && \
-apt-get autoremove --purge && \
-apt-get update
-volume ["/run"]
-volume ["/tmp"]
-volume ["/run/systemd/system"]
-volume ["/var/run/dbus/system_bus_socket"]
-entrypoint "/sbin/entrypoint.sh"
+dpkg-reconfigure -f noninteractive tzdata
+
