@@ -43,7 +43,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-bo
 apt-get clean && \
 apt-get autoclean && \
 rm -rf /etc/localtime && \
-ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata 
+ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata && \
 echo Europe/Budapest >/etc/timezone && \
 dpkg-reconfigure -f noninteractive tzdata && \
 echo "locales	locales/locales_to_be_generated	multiselect	en_US.UTF-8 UTF-8, hu_HU.UTF-8 UTF-8" |debconf-set-selections && \
