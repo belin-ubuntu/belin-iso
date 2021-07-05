@@ -27,7 +27,7 @@ RUN chmod 755 /sbin/entrypoint.sh
 EXPOSE 3142/tcp
 add belin-archive-keyring_1.4_all.deb /
 run apt-get update && \
-run apt-get -y install apt-transport-https ca-certificates dirmngr apt-utils dpkg && \
+apt-get -y install apt-transport-https ca-certificates dirmngr apt-utils dpkg && \
 dpkg -i /belin-archive-keyring_1.4_all.deb && \
 user root
 run DEBIAN_FRONTEND=noninteractive && apt-get update ||true && \
