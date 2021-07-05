@@ -68,4 +68,4 @@ volume ["/run"]
 volume ["/tmp"]
 volume ["/run/systemd/system"]
 volume ["/var/run/dbus/system_bus_socket"]
-CMD ["/lib/systemd/systemd"]
+entrypoint "/sbin/entrypoint.sh"
