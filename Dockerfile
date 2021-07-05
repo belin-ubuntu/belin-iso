@@ -31,8 +31,9 @@ apt-get update ||true && \
 apt-get -y dist-upgrade && \
 apt-get -y install software-properties-common tzdata locales apt-cacher-ng git live-build cdebootstrap simple-cdd live-build curl git live-build live-boot live-config live-tools cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd && \
 apt-get update  && \
-apt-get install -y systemd systemd-sysv  software-properties-common && \
-add-apt-repository -y -s main && \
+apt-get install -y systemd systemd-sysv  software-properties-common
+env LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8
+run add-apt-repository -y -s main && \
 add-apt-repository -y -s contrib && \
 add-apt-repository -y -s non-free && \
 dpkg --add-architecture i386 && \
@@ -43,4 +44,24 @@ rm -rf /etc/localtime && \
 ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata && \
 echo Europe/Budapest >/etc/timezone && \
 dpkg-reconfigure -f noninteractive tzdata
+add locale etc/default
+add locales.cfg /
+run debconf-set-selections /locales.cfg && \
+echo "en_US.UTF-8 UTF-8" >/etc/locale.gen && \
+echo "hu_HU.UTF-8 UTF-8" >>/etc/locale.gen && \
+locale-gen en_US.UTF-8 && \
+locale-gen hu_HU.UTF-8 && \
+dpkg-reconfigure -f noninteractive locales && \
+update-locale LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8 LC_ADDRESS=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8 LC_COLLATE=hu_HU.UTF-8 LC_CTYPE=hu_HU.UTF-8 LC_IDENTIFICATION=hu_HU.UTF-8 LC_MEASUREMENT=hu_HU.UTF-8 LC_MESSAGES=hu_HU.UTF-8 LC_MONETARY=hu_HU.UTF-8 LC_NAME=hu_HU.UTF-8 LC_NUMERIC=hu_HU.UTF-8 LC_PAPER=hu_HU.UTF-8 LC_RESPONSE=hu_HU.UTF-8 LC_TELEPHONE=hu_HU.UTF-8 LC_TIME=hu_HU.UTF-8
+env LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8
+ENV container manufacture
+ENV DEBIAN_FRONTEND noninteractive
+ENV TZ europe/Budapest
+ENV LC_ALL hu_HU.UTF-8
+run apt-get autoremove --purge && \
+apt-get clean && \
+apt-get update
+entrypoint "/sbin/entrypoint.sh"
+add . /repo
+workdir /repo
 
