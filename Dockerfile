@@ -3,9 +3,6 @@ from debian:bullseye
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
 ENV container manufacture
-ENV LC_ALL hu_HU.UTF-8
-env LANG=hu_HU.UTF-8
-ENV LANGUAGE=hu_HU.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ europe/Budapest
 user root
