@@ -32,7 +32,7 @@ apt-get -y install apt-transport-https ca-certificates dirmngr apt-utils dpkg &&
 dpkg -i /belin-archive-keyring_1.4_all.deb && \
 apt-get update ||true && \
 apt-get -y dist-upgrade && \
-apt-get -y install software-properties-common tzdata locales apt-cacher-ng git live-build cdebootstrap simple-cdd live-build curl git live-build live-boot live-config live-tools live-wrapper cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd && \
+apt-get -y install software-properties-common tzdata locales apt-cacher-ng git live-build cdebootstrap simple-cdd live-build curl git live-build live-boot live-config live-tools cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd && \
 apt-get update  && \
 apt-get install -y systemd systemd-sysv  software-properties-common && \
 add-apt-repository -y -s main && \
