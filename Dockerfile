@@ -2,7 +2,7 @@ ARG VER=bullseye
 from debian:bullseye as ghcr.io/belin-ubuntu/belin-iso:latest
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
-ENV container belin_manufacture
+ENV container manufacture
 ENV LC_ALL hu_HU.UTF-8
 env LANG=hu_HU.UTF-8
 ENV LANGUAGE=hu_HU.UTF-8
