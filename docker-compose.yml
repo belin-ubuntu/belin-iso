@@ -1,4 +1,6 @@
 ghcr.io/belin-ubuntu/belin-iso:latest:
+services:
+  api:
   build: .
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup
@@ -8,4 +10,4 @@ ghcr.io/belin-ubuntu/belin-iso:latest:
     - "/var/run/dbus/system_bus_socket"
     - ./:/repo
   working_dir: /repo
-
+  command: /bin/sh -c "entrypoint.sh"
