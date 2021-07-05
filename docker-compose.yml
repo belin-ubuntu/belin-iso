@@ -1,7 +1,8 @@
-ghcr.io/belin-ubuntu/belin-iso:latest:
+version: "2"
 services:
-  api:
+belin-manufacture:
   build: .
+    container_name: belin_manufacture
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup
     - /run:/run
