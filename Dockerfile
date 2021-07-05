@@ -39,11 +39,11 @@ add-apt-repository -y -s main && \
 add-apt-repository -y -s contrib && \
 add-apt-repository -y -s non-free && \
 dpkg --add-architecture i386 && \
-DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-boot live-config live-tools live-wrapper cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd debconf-utils debconf && \
+DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-boot live-config live-tools cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd debconf-utils debconf && \
 apt-get clean && \
 apt-get autoclean && \
 rm -rf /etc/localtime && \
-ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata && \
+ln -sf usr/share/zoneinfo/Europe/Budapest /etc/tzdata 
 echo Europe/Budapest >/etc/timezone && \
 dpkg-reconfigure -f noninteractive tzdata && \
 echo "locales	locales/locales_to_be_generated	multiselect	en_US.UTF-8 UTF-8, hu_HU.UTF-8 UTF-8" |debconf-set-selections && \
