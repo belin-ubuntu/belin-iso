@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+apt-get -qq update
+apt-get install apt-transport-https ca-certificates openssl
+dpkg --add-architecture i386
+dpkg --add-architecture amd64
+apt-get -qq update
+apt-get install belin-archive-keyring apt-transport-https debconf debconf-utils
+export LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8
+ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
+echo Europe/Budapest >/etc/timezone
+debconf-set-selections /config.cfg
+dpkg-reconfigure -f noninteractive tzdata
+apt-get dist-upgrade

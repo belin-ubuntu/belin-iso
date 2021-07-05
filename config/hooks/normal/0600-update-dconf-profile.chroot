@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+cd /usr/share/glib-2.0/schemas
+glib-compile-schemas .
+cd /
+debconf-set-selections /config-preseed/preseed.cfg
+dpkg --configure -a
+rm /etc/apt/apt.conf.d/71debconf
+dconf update

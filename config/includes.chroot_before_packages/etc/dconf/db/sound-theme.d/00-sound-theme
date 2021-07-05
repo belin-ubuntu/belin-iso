@@ -1,0 +1,5 @@
+[org/mate/desktop/sound]
+input-feedback-sounds=true
+theme-name='linux-a11y'
+event-sounds=true
+

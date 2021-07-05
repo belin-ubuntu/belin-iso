@@ -1,0 +1,2 @@
+deb http://belin-ubuntu.github.io/belin/debian bullseye main
+deb-src http://belin-ubuntu.github.io/belin/debian bullseye main
