@@ -8,6 +8,7 @@ env LANG=hu_HU.UTF-8
 ENV LANGUAGE=hu_HU.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ europe/Budapest
+user root
 run rm /etc/apt/sources.list && \
 touch /etc/apt/sources.list
 add official.list /etc/apt/sources.list.d
@@ -29,8 +30,7 @@ add belin-archive-keyring_1.4_all.deb /
 run apt-get update && \
 apt-get -y install apt-transport-https ca-certificates dirmngr apt-utils dpkg && \
 dpkg -i /belin-archive-keyring_1.4_all.deb && \
-user root
-run DEBIAN_FRONTEND=noninteractive && apt-get update ||true && \
+apt-get update ||true && \
 apt-get -y dist-upgrade && \
 apt-get -y install software-properties-common tzdata locales apt-cacher-ng git live-build cdebootstrap simple-cdd live-build curl git live-build live-boot live-config live-tools live-wrapper cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd && \
 apt-get update  && \
