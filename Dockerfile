@@ -1,5 +1,5 @@
 ARG VER=bullseye
-from debian:bullseye as ghcr.io/belin-ubuntu/belin-iso:latest
+from debian:bullseye
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
 ENV container manufacture
