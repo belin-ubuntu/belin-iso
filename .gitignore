@@ -1,18 +1,31 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+binary/
+binary*.iso
+binary*.img
+binary*.tar*
+binary*.contents
+binary*.packages
+binary*.zsync
 
-# Other files and folders
-.settings/
+.build/
+build.log
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+cache/
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+chroot/
+chroot.packages.*
+
+config/binary
+config/bootstrap
+config/chroot
+config/common
+config/source
+
+config/control
+
+source/
+source*.iso
+source*.img
+source*.tar*
+source*.contents
+source*.packages
+source*.zsync

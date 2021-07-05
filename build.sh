@@ -1,6 +1,5 @@
 #! /bin/sh
 set -e
-export BUILDARCH=amd64
-export BUILDFLAVOUR=mate
-export BUILDLOG=quiet
+lb clean --purge
+lb config bullseye amd64 belin-7.0-standard "BeLin-7.0-standard.iso"
 lb build

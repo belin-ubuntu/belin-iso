@@ -1,4 +1,4 @@
-belin-image-builder:
+ghcr.io/belin-ubuntu/belin-iso:latest:
   build: .
   volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup

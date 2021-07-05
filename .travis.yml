@@ -4,7 +4,7 @@ dist: bionic
 services:
 - docker
 script:
-- docker version
+- docker-compose up
 before_deploy:
   git config --local user.name "Attila Hammer"
   git config user.email hammera@pickup.hu
