@@ -67,6 +67,10 @@ ENV LC_ALL hu_HU.UTF-8
 run apt-get autoremove --purge && \
 apt-get clean && \
 apt-get update
+add etc/live/build.conf etc/live
+add etc/live/belin.conf etc/live
+add etc/live/preseed.conf etc/live
+add etc/live /etc
 workdir /repo
-entrypoint "/sbin/entrypoint.sh"
+entrypoint "/bin/bash"
 
