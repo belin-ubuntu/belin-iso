@@ -1,5 +1,5 @@
 ARG VER=bullseye
-from debian:bullseye
+from debian:bullseye as builder
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
 ENV container manufacture
@@ -62,6 +62,4 @@ run apt-get autoremove --purge && \
 apt-get clean && \
 apt-get update
 entrypoint "/sbin/entrypoint.sh"
-add . /repo
-workdir /repo
 
