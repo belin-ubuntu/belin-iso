@@ -1,8 +1,16 @@
-manufacture:
-  build: .
-  container_name: live-build
-  user: root
-  volumes:
-    - ./:/repo
-  working_dir: /repo
-  command: "/sbin/entrypoint.sh"
+version: '2.2'
+services:
+  live-build:
+    build: .
+    image: "quay.io/belin/live-build"
+    container_name: live-manufacture
+    user: root
+    volumes:
+      - .:/repo
+      - /var/cache/apt-cacher-ng
+    working_dir: /repo
+    domainname: belin-live.com
+    hostname: belin-live
+    privileged: true
+    cap_add: ["all"]
+    command: /bin/sh -c "entrypoint.sh"

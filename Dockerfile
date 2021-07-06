@@ -1,5 +1,8 @@
 ARG VER=bullseye
-from debian:bullseye as builder
+# syntax=docker/dockerfile:1
+# Build: docker build -t qay.io/belin/live-build
+# Run: docker run -d -p 3142:3142 --name live-build qay.io/live-build
+from debian:bullseye as live-build
 MAINTAINER Attila Hammer <hammera@pickup.hu>
 LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
 ENV container manufacture
@@ -9,23 +12,18 @@ user root
 run rm /etc/apt/sources.list && \
 touch /etc/apt/sources.list
 add official.list /etc/apt/sources.list.d
-add 00aptproxy /etc/apt/apt.conf.d
 add apt-cacher-ng.conf /
+run apt-get update && \
+DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y avahi-daemon apt-cacher-ng squid-deb-proxy-client auto-apt-proxy ca-certificates wget
+add acng.conf /etc/apt-cacher-ng
 ENV APT_CACHER_NG_CACHE_DIR=/var/cache/apt-cacher-ng \
     APT_CACHER_NG_LOG_DIR=/var/log/apt-cacher-ng \
     APT_CACHER_NG_USER=apt-cacher-ng
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-      apt-cacher-ng ca-certificates wget
-add acng.conf /etc/apt-cacher-ng
-sed 's/# ForeGround: 0/ForeGround: 1/' -i /etc/apt-cacher-ng/acng.conf \
- && sed 's/# PassThroughPattern:.*this would allow.*/PassThroughPattern: .* #/' -i /etc/apt-cacher-ng/acng.conf \
- && rm -rf /var/lib/apt/lists/*
-
+run sed 's/# ForeGround: 0/ForeGround: 1/' -i /etc/apt-cacher-ng/acng.conf \
+ && sed 's/# PassThroughPattern:.*this would allow.*/PassThroughPattern: .* #/' -i /etc/apt-cacher-ng/acng.conf
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
-
-EXPOSE 3142/tcp
+EXPOSE 3142:3142
 add belin-archive-keyring_1.4_all.deb /
 run apt-get update && \
 apt-get -y install apt-transport-https ca-certificates dirmngr apt-utils dpkg && \
@@ -40,7 +38,7 @@ run add-apt-repository -y -s main && \
 add-apt-repository -y -s contrib && \
 add-apt-repository -y -s non-free && \
 dpkg --add-architecture i386 && \
-DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-boot live-config live-tools cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd debconf-utils debconf && \
+DEBIAN_FRONTEND=noninteractive apt-get install --yes curl git live-build live-boot live-config live-tools cdebootstrap syslinux-utils genisoimage memtest86+ syslinux dirmngr simple-cdd debconf-utils debconf  net-tools && \
 apt-get clean && \
 apt-get autoclean && \
 rm -rf /etc/localtime && \
@@ -50,7 +48,7 @@ dpkg-reconfigure -f noninteractive tzdata
 add locale etc/default
 add locales.cfg /
 run debconf-set-selections /locales.cfg && \
-run debconf-set-selections /apt-cacher-ng.conf && \
+debconf-set-selections /apt-cacher-ng.conf && \
 rm /*.conf && \
 rm /*.cfg && \
 echo "en_US.UTF-8 UTF-8" >/etc/locale.gen && \
@@ -69,8 +67,11 @@ apt-get clean && \
 apt-get update
 add etc/live/build.conf etc/live
 add etc/live/belin.conf etc/live
-add etc/live/preseed.conf etc/live
+add etc/live/preseed.cfg etc/live
 add etc/live /etc
+VOLUME ["/var/cache/apt-cacher-ng"]
+run dpkg-reconfigure -f noninteractive apt-cacher-ng
+run apt-get update
 workdir /repo
-entrypoint "/bin/bash"
+ CMD      chmod  777  /var/cache/apt-cacher-ng  &&  /etc/init .d /apt-cacher-ng  start &&  tail  -f  /var/log/apt-cacher-ng/ *
 
