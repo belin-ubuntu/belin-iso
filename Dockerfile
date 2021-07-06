@@ -9,13 +9,16 @@ user root
 run rm /etc/apt/sources.list && \
 touch /etc/apt/sources.list
 add official.list /etc/apt/sources.list.d
+add 00aptproxy /etc/apt/apt.conf.d
+add apt-cacher-ng.conf /
 ENV APT_CACHER_NG_CACHE_DIR=/var/cache/apt-cacher-ng \
     APT_CACHER_NG_LOG_DIR=/var/log/apt-cacher-ng \
     APT_CACHER_NG_USER=apt-cacher-ng
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-      apt-cacher-ng ca-certificates wget \
- && sed 's/# ForeGround: 0/ForeGround: 1/' -i /etc/apt-cacher-ng/acng.conf \
+      apt-cacher-ng ca-certificates wget
+add acng.conf /etc/apt-cacher-ng
+sed 's/# ForeGround: 0/ForeGround: 1/' -i /etc/apt-cacher-ng/acng.conf \
  && sed 's/# PassThroughPattern:.*this would allow.*/PassThroughPattern: .* #/' -i /etc/apt-cacher-ng/acng.conf \
  && rm -rf /var/lib/apt/lists/*
 
@@ -47,6 +50,9 @@ dpkg-reconfigure -f noninteractive tzdata
 add locale etc/default
 add locales.cfg /
 run debconf-set-selections /locales.cfg && \
+run debconf-set-selections /apt-cacher-ng.conf && \
+rm /*.conf && \
+rm /*.cfg && \
 echo "en_US.UTF-8 UTF-8" >/etc/locale.gen && \
 echo "hu_HU.UTF-8 UTF-8" >>/etc/locale.gen && \
 locale-gen en_US.UTF-8 && \
@@ -61,5 +67,6 @@ ENV LC_ALL hu_HU.UTF-8
 run apt-get autoremove --purge && \
 apt-get clean && \
 apt-get update
+workdir /repo
 entrypoint "/sbin/entrypoint.sh"
 

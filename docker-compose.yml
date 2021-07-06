@@ -1,15 +1,8 @@
-version: "2"
-
-services:
-  belin-manufacture:
-    build: .
-    container_name: manufacture
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup
-      - /run:/run
-      - /tmp:/tmp
-      - /run/systemd/system:/run/systemd/system
-      - "/var/run/dbus/system_bus_socket"
-      - ./:/repo
-    working_dir: /repo
-    command: /bin/sh -c "entrypoint.sh"
+manufacture:
+  build: .
+  container_name: live-build
+  user: root
+  volumes:
+    - ./:/repo
+  working_dir: /repo
+  command: "/sbin/entrypoint.sh"
