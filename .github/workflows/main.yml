@@ -15,5 +15,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
         - run: sh ${{ github.workspace }}/build.sh
-
+      run: sh ${{ github.workspace }}/build.sh
       - run: echo "🍏 This job's status is ${{ job.status }}."
