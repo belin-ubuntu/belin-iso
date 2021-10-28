@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+
+serverName     ='' 
+serverUserName = ''
+serverPassword = ''
+serverPort     = '0'
+mailFrom       = ''
+mailTo         =''
+
+
+ #
+ # Copyright (C) 2010 Eric Bishop (ericpaulbishop@gmail.com)
+ #
+ # This file is part of the Salamander modification for Ubiquity.
+ #
+ # Salamander is free software; you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 2 of the License, or
+ # (at your option) any later version.
+ #
+ # Salamander is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with Salamander.  If not, see <http://www.gnu.org/licenses/>.
+
+
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
+import sys
+import os
+import re
+
+def mail(serverName, serverUserName, serverPassword, serverPort, mailFrom, mailTo, subject, text):
+	
+	toList = re.split("[\t\r\n, ]+", mailTo)
+	
+	for to in toList:
+		msg = MIMEMultipart()
+		msg['From'] = mailFrom
+		msg['To'] = to
+		msg['Subject'] = subject
+		msg.attach(MIMEText(text))
+
+		mailServer = smtplib.SMTP(serverName, int(serverPort), "localhost", 30)
+		mailServer.connect()
+		mailServer.ehlo()
+		if mailServer.has_extn('STARTTLS'):
+			mailServer.starttls()
+			mailServer.ehlo()
+		mailServer.login(serverUserName, serverPassword)
+		mailServer.sendmail(mailFrom, to, msg.as_string())
+		mailServer.close()
+
+
+def main(argv):
+	event      = argv[0]
+	raid_disk  = argv[1]
+	phys_disk  = "" 
+
+	if  len(argv) > 2:
+		phys_disk = argv[2]
+
+	subject = "RAID Alert: " + raid_disk	
+	if os.path.isfile("/etc/hostname"):
+		hf = open("/etc/hostname", "r")
+		hostname = hf.read().rstrip("\r\n")
+		subject = "RAID Alert on "+ hostname + ": " + raid_disk
+
+	message = ""
+	if event == "Fail":
+		message = "Disk " + phys_disk + " has Failed on RAID array " + raid_disk
+	else:
+		message = event + " event detected on RAID array " + raid_disk
+		if phys_disk != "":
+			message = message + ", disk " + phys_disk
+
+	mail(serverName, serverUserName, serverPassword, serverPort, mailFrom, mailTo, subject, message)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+

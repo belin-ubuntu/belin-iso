@@ -374,46 +374,46 @@ help=_("Do online build from the scratch"))
 if options.arch==None:
     options.arch='i386'
 print(options.arch)
-workdir=getVar('/etc/cdmanufacture.conf', 'work', 'workdir')
-wouldlikedistupgrade=getVar('/etc/cdmanufacture.conf', 'work', 'wouldlikedistupgrade')
+workdir=getVar('etc/cdmanufacture.conf', 'work', 'workdir')
+wouldlikedistupgrade=getVar('etc/cdmanufacture.conf', 'work', 'wouldlikedistupgrade')
 if options.isolabel!=None:
     options.isolabel=options.isolabel+'-'+options.arch
     print('Iso name: '+options.isolabel)
     isovolumename=options.isolabel
 else:
-    isovolumename=getVar('/etc/cdmanufacture.conf', 'iso', 'isovolume')+'-'+options.arch
-isopath=getVar('/etc/cdmanufacture.conf', 'iso', 'isopath')
-wouldlikefinalburn=getVar('/etc/cdmanufacture.conf', 'iso', 'wouldlikefinalburn')
+    isovolumename=getVar('etc/cdmanufacture.conf', 'iso', 'isovolume')+'-'+options.arch
+isopath=getVar('etc/cdmanufacture.conf', 'iso', 'isopath')
+wouldlikefinalburn=getVar('etc/cdmanufacture.conf', 'iso', 'wouldlikefinalburn')
 if options.language!=None:
     print(options.language)
     defaultlanguage=options.language
 else:
-    defaultlanguage=getVar('/etc/cdmanufacture.conf', 'iso', 'defaultlanguage')
+    defaultlanguage=getVar('etc/cdmanufacture.conf', 'iso', 'defaultlanguage')
 if options.installpackagelist!=None:
     print(options.installpackagelist)
     needinstallpackages=options.installpackagelist
 else:
-    needinstallpackages=getVar('/etc/cdmanufacture.conf', 'work', 'needinstallpackages')
+    needinstallpackages=getVar('etc/cdmanufacture.conf', 'work', 'needinstallpackages')
 if options.removepackagelist!=None:
     print(options.removepackagelist)
     needremovepackages=options.removepackagelist
 else:
-    needremovepackages=getVar('/etc/cdmanufacture.conf', 'work', 'needremovepackages')
-needppalist=getVar('/etc/cdmanufacture.conf', 'work', 'needaddingppalist')
-cddir=getVar('/etc/cdmanufacture.conf', 'work', 'cddir')
-mountdir=getVar('/etc/cdmanufacture.conf', 'work', 'mountdir')
+    needremovepackages=getVar('etc/cdmanufacture.conf', 'work', 'needremovepackages')
+needppalist=getVar('etc/cdmanufacture.conf', 'work', 'needaddingppalist')
+cddir=getVar('etc/cdmanufacture.conf', 'work', 'cddir')
+mountdir=getVar('etc/cdmanufacture.conf', 'work', 'mountdir')
 if options.chrootstructuredir!=None:
     chrootextrafiles=options.chrootstructuredir
 else:
-    chrootextrafiles=getVar('/etc/cdmanufacture.conf', 'work', 'chrootextrafiles')
+    chrootextrafiles=getVar('etc/cdmanufacture.conf', 'work', 'chrootextrafiles')
 if options.cdstructuredir!=None:
     optionalfileswithcdstructure=options.cdstructuredir
 else:
-    optionalfileswithcdstructure=getVar('/etc/cdmanufacture.conf', 'work', 'optionalfileswithcdstructure')
+    optionalfileswithcdstructure=getVar('etc/cdmanufacture.conf', 'work', 'optionalfileswithcdstructure')
 if options.extracommandslist!=None:
     extra_commands=options.extracommandslist
 else:
-    extra_commands=getVar('/etc/cdmanufacture.conf', 'work', 'extra_commands')
+    extra_commands=getVar('etc/cdmanufacture.conf', 'work', 'extra_commands')
 if isopath=='':
     isopath=os.getenv('HOME')+'/'
 else:

@@ -1,0 +1,96 @@
+#!/usr/bin/python
+
+#raidMb =
+#rootMb =
+#swapMb =
+
+
+ #
+ # Copyright (C) 2010 Eric Bishop (ericpaulbishop@gmail.com)
+ #
+ # This file is part of the Salamander modification for Ubiquity.
+ #
+ # Salamander is free software; you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 2 of the License, or
+ # (at your option) any later version.
+ #
+ # Salamander is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with Salamander.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+import re
+import os
+import subprocess
+import sys
+
+
+
+
+def run_shell(command):
+	result = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True).communicate()[0]
+	return result
+
+def repair_raid(diskDev):
+
+
+	#at this point drive should NOT be part of raid... but just be sure
+	os.system("sudo mdadm --manage /dev/md0 --fail "   + diskDev + "1 >/dev/null 2>&1")
+	os.system("sudo mdadm --manage /dev/md0 --remove " + diskDev + "1 >/dev/null 2>&1")
+	os.system("sudo mdadm --manage /dev/md1 --fail "   + diskDev + "2 >/dev/null 2>&1")
+	os.system("sudo mdadm --manage /dev/md1 --remove " + diskDev + "2 >/dev/null 2>&1")
+	
+	print("parted -s " + diskDev + " mklabel msdos")
+	os.system("sudo parted -s " + diskDev + " mklabel msdos  >/dev/null 2>&1")
+
+
+	#parted takes numbers in MB, where it thinks 1MB is exactly 10^7 bytes
+	gapMb = (5*1024*1024)/(1000.0*1000.0)
+	rootPartStartEnd = str(gapMb) + " " + str(gapMb+rootMb)
+	swapPartStartEnd = str(gapMb+rootMb) + " " + str(gapMb+rootMb+swapMb)
+
+	#create partitions to be included in raid array
+	print("parted -s " + diskDev + " mkpart primary " + rootPartStartEnd)
+	os.system("sudo parted -s " + diskDev + " mkpart primary " + rootPartStartEnd + " >/dev/null 2>&1")
+	print("parted -s " + diskDev + " set 1 raid on")
+	os.system("sudo parted -s " + diskDev + " set 1 raid on  >/dev/null 2>&1")
+	if swapMb > 0:
+		print("parted -s " + diskDev + " mkpart primary " + swapPartStartEnd)
+		os.system("sudo parted -s " + diskDev + " mkpart primary " + swapPartStartEnd + " >/dev/null 2>&1")
+		print("parted -s " + diskDev + " set 2 raid on")
+		os.system("sudo parted -s " + diskDev + " set 2 raid on  >/dev/null 2>&1")
+
+	#install grub2 to MBR of this drive
+	print("grub-install " + diskDev)
+	os.system("sudo grub-install " + diskDev + " >/dev/null 2>&1")
+
+
+	#add partitions back to raid array
+	print("mdadm --manage /dev/md0 --add " + diskDev + "1")
+	os.system("sudo mdadm --manage /dev/md0 --add " + diskDev + "1  >/dev/null 2>&1")
+	if swapMb > 0: 
+		print("mdadm --manage /dev/md1 --add " + diskDev + "2")
+		os.system("sudo mdadm --manage /dev/md1 --add " + diskDev + "2  >/dev/null 2>&1")
+	
+
+	print("\n\nRAID disk added back to array. Degraded array should now be rebuilding\n")
+
+
+def main(argv):
+	if len(argv) == 0:
+		print("ERROR: You must specify disk to format and add back to RAID array ")
+		print("       e.g. raid-prepare /dev/sdb")
+		print("       Also, this script must be run with root priviledges (use sudo)\n")
+	else:
+		diskDev=argv[0]
+		repair_raid(diskDev)
+
+
+if __name__ == "__main__":
+	main(sys.argv[1:])
