@@ -1,0 +1,2 @@
+deb http://ftp.hu.debian.org/debian experimental main contrib non-free
+deb-src http://ftp.hu.debian.org/debian experimental main contrib non-free
