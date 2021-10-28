@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="http://txt2tags.org">
+<TITLE>Tilitoli (Sliding puzzle) dokumentáció</TITLE>
+</HEAD><BODY BGCOLOR="white" TEXT="black">
+<CENTER>
+<H1>Tilitoli (Sliding puzzle) dokumentáció</H1>
+<FONT SIZE="4"><I>Készítette: Ócsvári Áron</I></FONT><BR>
+</CENTER>
+
+
+<H1>1. Bevezetés</H1>
+
+<H2>1.1. Tilitoli szabályai</H2>
+
+<P>
+A „Tilitoli” egy egyszemélyes logikai játék, amit 3x3, 4x4, vagy 5x5-ös méretû táblán játszanak. A táblán a mérettõl függõen, 9-25 mezõ található. A mezõkön egészszámok találhatóak, (1-8 1-15, 1-24) között, ezen felül egy üres mezõ. Az üres mezõvel felcserélhetõek a körülötte lévõ mezõk. A játék kezdetekor a mezõk elhelyezkedése véletlenszerû. A feladat az, hogy a számokat sorfolytonosan rendezze úgy, hogy az üres mezõ a tábla jobb alsó sarkában helyezkedjen el. 
+</P>
+
+<H2>1.2. A játékról</H2>
+
+<P>
+Az alapvetõ szabályok itt is megmaradtak, vagyis csak az üres mezõ mozgatásával lehet sorba rendezni a mezõket. A programban alapértelmezetten háromféle méretû tábla található. Ezekhez egy-egy teszt pálya tartozik, a többi a felhasználók által készült, amire ez a dokumentáció nem tér ki.
+</P>
+<P>
+A 3X3 táblán az 1-8 közötti számok találhatóak, összekeverve. A kilencedik mezõ az a bizonyos üres mezõ, aminek mozgatásával sorba kell rendezni a mezõkön található számokat. A négyszer négyes és ötször ötös táblák sem sokban különböznek az elsõtõl, a négyszer négyesen 15, az ötször ötösön 24 számot kell sorba rendezni.
+</P>
+<P>
+Plusz kiegészítés, hogy a játékos is létrehozhat táblákat. Ehhez csak egy XML fájlt kell készítenie, megadott szabályok szerint. Az egyes mezõkön nem csak számok szerepelhetnek, hanem bármilyen szöveg/hang, amihez valamilyen sorrendet lehet társítani. Jó alternatív példa erre Budapest kerületeinek neve, ahol a sorrendet a kerület száma adja meg. De egy dallam is kirakható sorrendet képez.
+</P>
+<P>
+A tábla maximum ötször ötös lehet, ennél nagyobb játéktér már átláthatatlan lenne. Ha az XML fájl kevesebb, mint 24 elemet tartalmaz, a táblára felkerül megfelelõ számú joker mezõ, ami a hiányzó elemek kiegészítésére szolgál. A sorba rendezéskor csak arra kell figyelni, hogy az utolsó normál mezõ után a jokerek következzenek és mindenképp a tábla utolsó eleme legyen az üres mezõ. Könnyítés viszont, hogy ha több joker mezõ is található a táblán, azokat nem kell sorrendbe állítani, a fõ kritérium csak annyi, hogy egymást kövessék, és a sorba rendezendõ mezõk után következzenek.
+</P>
+<P>
+A mezõk értékei hangfájlokban tárolódnak, így új típusú tábla létrehozásakor a játékosnak minden értéket rögzítenie kell egy-egy hangfájlban. Ugyanígy a játék üzenetei is egy-egy hangfájlban találhatóak, ezért nyitott a lehetõség a Tilitoli más nyelvekre való lefordítására, vagy a háttérzene és egyéb hangok megváltoztatására. 
+</P>
+
+<H1>2. A program használata</H1>
+
+<H2>2.1. Rendszerkövetelmények</H2>
+
+<P>
+Az egyik talán legfontosabb kellék, a sztereo hangszóró, vagy fül/fejhallgató, ez elengedhetetlen a játékhoz. Fontos még minimum 50 megabájtnyi memória, és minimum 1 ghz processzor.
+</P>
+<P>
+Windows XP használatakor a játék csak akkor indul el, ha fel van telepítve a <A HREF="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=29">Microsoft Visual C++ 2008 Redistributable Package</A>.
+</P>
+
+<H2>2.2. Telepítés</H2>
+
+<H3>2.2.1. Windows</H3>
+
+<P>
+A telepítõ üzeneteit végigolvasva feltelepíthetõ a játék. Kiválasztható a parancsikonok létrehozása az asztalon, megváltoztatható a program fõkönyvtára is. A telepítés után a parancsikonok segítségével elindítható a játék.
+</P>
+
+<H3>2.2.2. Linux</H3>
+
+<P>
+A játékhoz elengedhetetlen a Python és a Pygame ugyanezen verzióinak megléte, a telepítést a terminálban a sudo apt-get install python, és sudo apt-get install python-pygame parancsokkal teheti meg.
+</P>
+<P>
+A letöltött zip fájlt az unzip tilitoli0.x.x.zip paranccsal tömörítheti ki (a .x.x az aktuális verziószámot jelzi).
+</P>
+<P>
+Miután belépett a játék mappájába (cd mappanév), a python tilitoli.py parancs kiadásával indíthatja el a játékot.
+</P>
+
+<H2>2.3. Fõmenü</H2>
+
+<P>
+A játék indulásakor egy intró köszönti a játékost, amin bármely billentyû lenyomásával továbbugorhat. Ekkor felhangzik a fõmenü zenéje, és az elsõ menüpont neve (Új játék). A menüben a fel és le nyilakkal mozoghat, ami ugyan a képernyõn nem látszik, de a „virtuális kurzor” mozog. Egy menüpontot enterrel nyithat meg. A fõmenüben öt menüpont található:
+</P>
+
+<UL>
+<LI>Új játék: Ha erre egy entert nyom, a pályaválasztó menübe jut (errõl a következõ fejezetben írok).
+<LI>Hangszóró teszt: A játékban fontos, hogy tudjuk, merrõl szól a bal, és a jobb hangszóró. Ez fõleg fülhallgatónál lehet fontos, ahol könnyen összecserélhetõ a két oldal.
+<LI>Nyelvválasztás: Itt a nyelvet állíthatja át másikra, ami a játék bezárásáig vagy az újbóli megváltoztatásig érvényben marad.
+<LI>Az elmentett játék visszatöltése: Ha elmentett egy állást, a menüpont aktiválásával visszatöltheti.
+<LI>Kilépés: A menüpont aktiválásakor lehalkul a zene, és bezárul a program.
+</UL>
+
+<H2>2.4. Pályaválasztó menü</H2>
+
+<P>
+Az „Új játék” menüpont aktiválásával az elérhetõ pályák listája „jelenik” meg. Itt is a fel és le nyíllal mozoghat, az enterrel indíthatja el a játékot. Ekkor a menü zenéje elhalkul, és betöltõdik a pálya. 
+</P>
+
+<H2>2.5. A nyelvválasztó menü</H2>
+
+<P>
+A menüpont aktiválásakor megjelenik az elérhetõ nyelvek listája. Itt a fel és le nyilakkal mozoghat, egy nyelvet az enter billentyûvel aktiválhat. Ekkor visszatér a fõmenübe, és a játék az adott nyelven fog megszólalni. A beállítás a játék bezárásáig vagy annak megváltoztatásáig érvényes, az újbóli indításkor az operációs rendszer alapértelmezett nyelvén szólal meg.
+</P>
+
+<H2>2.6. A pályákról</H2>
+
+<P>
+A táblán való mozgás a kurzormozgató billentyûkkel lehetséges. A fel és le nyíllal soronként, a bal és jobbra nyíllal oszloponként mozog a virtuális kurzor. Igyekeztem ezt hanghatásokkal is szimulálni, így ha jobbra-balra mozog, az egyes oldalon a hangszórók hangereje változik, vagyis pl. teljesen baloldalon csak a bal hangszóróból jön a hang.
+Az üres mezõt egy élesebb hanggal jelölöm, így egyértelmûen meg lehet különböztetni a többitõl. Ha az üres mezõ valamelyik szomszédján áll a „virtuális kurzor”, az enter lenyomására helyet cserél az üres mezõvel. A sikeres cserét egy jól megkülönböztethetõ hang jelzi, ezzel segítve a felhasználót. Ha a tábla szélén mozog, egy élesebb, csappanó hangot hall. Ez a háromszor hármas táblánál zavaró lehet, de ötször ötösnél nagyon hasznos.
+</P>
+<P>
+Ha sikeresen kirakta a jó sorrendet, a végén megtudhatja hány lépésbõl sikerült megcsinálni. A lépések számát meghallgathatja az s billentyû lenyomásával is.
+</P>
+<P>
+Ha még nem végzett a játékkal, de szeretné máskor folytatni, a v billentyû lenyomásával elmentheti azt. Figyelem, egyszerre csak egy tábla állásait tárolja a program!
+</P>
+
+<H1>3. XML fájl elkészítése</H1>
+
+<P>
+Az XML fájlok minden nyelv mappájában (pl. locale\hu, locale\en, stb.) az xmls mappában találhatók. Minden fájlhoz hozzátartozik egy ugyanolyan nevû .ogg fájl is, ami a pálya nevét tartalmazza. Ha valamelyik fájl nem található, a pálya nem kerül bele a pályák listájába.
+</P>
+<P>
+Jelenleg a program az XML fájlból csak az ID és a Sound mezõket használja. A sound értéke a pálya könyvtára/a mezõ neve, pl. a háromszor hármasnál &lt;sound&gt;3x3/3.ogg&lt;/sound&gt;. Fontos, hogy a Python a \ helyett /-t vár könyvtár elválasztó jelként.
+</P>
+
+<H1>4. Billentyûparancsok a játékban</H1>
+
+<P>
+Az átláthatóság kedvéért, itt megtalálható az összes billentyûparancs, ami használható a játékban.
+</P>
+
+<TABLE BORDER="1" CELLPADDING="4">
+<TR>
+<TH>Billentyûparancs</TH>
+<TH>leírás</TH>
+</TR>
+<TR>
+<TD>Home</TD>
+<TD>A menükben a legfelsõ menüpontra ugrik, a táblán a bal szélsõ oszlopra.</TD>
+</TR>
+<TR>
+<TD>end</TD>
+<TD>A menükben a legutolsó elemre ugrik, a táblán a jobb szélsõ oszlopra.</TD>
+</TR>
+<TR>
+<TD>enter</TD>
+<TD>A menükben aktiválja a kijelölt menüpontot, a játékban az üres és az adott mezõt kicseréli, ha lehetséges.</TD>
+</TR>
+<TR>
+<TD>Fel nyíl</TD>
+<TD>Felfelé mozog a menüben és a játéktáblán.</TD>
+</TR>
+<TR>
+<TD>Le nyíl</TD>
+<TD>Lefelé mozog a menüben és a játéktáblán.</TD>
+</TR>
+<TR>
+<TD>Balra nyíl</TD>
+<TD>A játéktáblán az oszlopokon lépked bal irányban.</TD>
+</TR>
+<TR>
+<TD>Jobbra nyíl</TD>
+<TD>A játéktáblán az oszlopokon lépked jobb irányban.</TD>
+</TR>
+<TR>
+<TD>Page up</TD>
+<TD>A játéktáblán a legfelsõ sorra ugrik.</TD>
+</TR>
+<TR>
+<TD>Page down</TD>
+<TD>A játéktáblán a legalsó sorra ugrik</TD>
+</TR>
+<TR>
+<TD>r</TD>
+<TD>Elhangzik a tábla azon sorának száma, ahol a „virtuális kurzor áll.</TD>
+</TR>
+<TR>
+<TD>c</TD>
+<TD>Elhangzik a tábla azon oszlopának száma, ahol a „virtuális kurzor áll.</TD>
+</TR>
+<TR>
+<TD>e</TD>
+<TD>Megismétli a „virtuális kurzornál” lévõ mezõ értékét.</TD>
+</TR>
+<TR>
+<TD>s</TD>
+<TD>Bemondja az eddigi cserék számát.</TD>
+</TR>
+<TR>
+<TD>o</TD>
+<TD>Végigmondja az elemeket, a helyes sorrendben.</TD>
+</TR>
+<TR>
+<TD>v</TD>
+<TD>Elmenti a pálya aktuális állását.</TD>
+</TR>
+<TR>
+<TD>f2</TD>
+<TD>Megállítja a háttérzene lejátszását.</TD>
+</TR>
+<TR>
+<TD>F3</TD>
+<TD>Folytatja a háttérzene lejátszását.</TD>
+</TR>
+<TR>
+<TD>Escape</TD>
+<TD>Bezárja a pályát, a fõmenüben megnyomva kilép a játékból.</TD>
+</TR>
+</TABLE>
+
+<H1>5. Továbbfejlesztési lehetõségek</H1>
+
+<P>
+Rengeteg ötletem van még, amivel fejleszthetném a játékot, viszont tanulmányaimból kifolyólag ezek eddig még nem valósultak meg. Felmerült a játékosok versenyeztetése,  vagyis a program egy sikeres játék után elküldené egy szervernek az eredményeket (hány lépésbõl rakta ki a felhasználó, mennyi idõ alatt, stb), amit egy program kiértékelne.
+</P>
+<P>
+Az 5.1-es hangzás ötlete is felvetõdött, így a nagyobb pályákon való mozgáskor még jobb hanghatásokat lehetne vele elérni. Ezt már elõkészíti a hang lejátszó függvény, így a közeljövõben szeretném ezt megvalósítani.
+</P>
+<P>
+A könnyebb pályaszerkesztés segítésére tervben van egy xml szerkesztõ beleépítése a játékba, így akik nem ismerik ezt a nyelvet, õk is nagyon egyszerûen tudnának pályákat készíteni.
+</P>
+<P>
+Mivel a felhasználókra van bízva a pályák elkészítése, szeretnék egy interaktív weboldalt is csinálni, ahova feltölthetik a játékosok a saját készítésû pályákat, így másoknak nem kellene feleslegesen dolgozniuk.
+</P>
+
+<H1>6. Elérhetõségek</H1>
+
+<P>
+A Tilitoli legfrissebb verzióját <A HREF="http://audiopuzzle.googlecode.com">innen töltheti le.</A>
+</P>
+<P>
+E-mail: <A HREF="mailto:oaron1@gmail.com">oaron1@gmail.com</A>
+</P>
+
+<!-- html code generated by txt2tags 2.6 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -\-target html hu.txt -->
+</BODY></HTML>

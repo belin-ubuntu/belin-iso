@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Beszédbeállítások</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="preferences_voice.html" title="Hangbeállítások">Előző</a><a class="nextlinks-next" href="preferences_braille.html" title="Braille beállítások">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">Beszédbeállítások</span></h1></div>
+<div class="region">
+<div class="contents"></div>
+<div id="enable_speech" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Beszéd engedélyezése</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Ez a jelölőnégyzet szabályozza, hogy az <span class="app">Orka</span> használja-e a beszédszintetizátort. A csak Braille-kijelzőt használó felhasználók töröljék a jelölőnégyzetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="verbosity" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Részletesség</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Részletesség</span> beállításával megadható az egyes szituációkban kimondandó információk mennyisége. Ha például a részletes lehetőség van beállítva, és a nyílbillentyűkkel egy elgépelt szóra mozgatja a kurzort, akkor az <span class="app">Orka</span> jelezni fogja Önnek az elgépelést. Ha a Tömör lehetőség van beállítva, ez az információ nem kerül kimondásra.</p>
+<p class="p">Alapbeállítás: <span class="gui">Részletes</span></p>
+</div></div>
+</div></div>
+<div id="punctuation_level" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Központozás szintje</span></h2></div>
+<div class="region">
+<div class="contents">
+<p class="p">A <span class="gui">Központozás szintje</span> választógomb-csoport meghatározza a beszédszintetizátor által használandó központozási szintet. Az elérhető szintek: Nincs, Néhány, Legtöbb és Mindent.</p>
+<p class="p">Alapbeállítás: <span class="gui">Legtöbb</span></p>
+</div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Nincs</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Ha a <span class="gui">Nincs</span> központozási szintet választja, semmilyen írásjel kimondása nem történik meg. Kivételt képeznek ez alól a speciális szimbólumok, például a felső és alsó indexben lévő számok, Unicode jelek és felsorolásjelek, noha egyesek ezeket a szimbólumokat is központozási jeleknek tekintik.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Néhány</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Ha a <span class="gui">Néhány</span> központozási szintet választja, minden előzőleg írt szimbólum kimondásra kerül. Továbbá, az <span class="app">Orka</span> ki fogja mondani az ismert matematikai szimbólumokat, pénznemeket, valamint a „^”, „@”, „/”, „&amp;”, „#” szimbólumokat is.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Legtöbb</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Ha a <span class="gui">Legtöbb</span> központozási szintet választja, minden előzőleg írt szimbólum kimondásra kerül. Továbbá, az <span class="app">Orka</span> ki fog mondani minden más ismert írásjelet, <span class="em">kivéve</span> a „!”, „'”, „,”, „.”, „?” írásjeleket.</p></div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Mindent</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Ha a <span class="gui">Mindent</span> központozási szintet választja, az <span class="app">Orka</span> minden ismert írásjelet és szimbólumot ki fog mondani.</p></div></div>
+</div></div>
+</div>
+</div></div>
+<div id="spoken_context" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Kimondott szövegkörnyezet</span></h2></div>
+<div class="region">
+<div class="contents"><p class="p">A következő kiegészítő lehetőségekkel irányíthatja a fókuszban levő objektumról elhangzó „rendszer” üzenetek kimondását. Mivel az objektumhoz társított szöveg nem jelenik meg a képernyőn, ezért ez az információ az <span class="app">Orka</span> rendszer hangkaraktere által lesz kimondva.</p></div>
+<div id="only_speak_displayed_text" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Csak a képernyőn megjelenő szöveg kimondása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha bejelöli ezt a jelölőnégyzetet, az <span class="app">Orka</span> csak a képernyőn megjelenő szövegeket fogja kimondani. Ez a beállítás elsősorban a gyengén látó, vagy vizuális tanulási nehézségekkel küzdő felhasználók számára lehet hasznos.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+<div class="note" title="Megjegyzés"><div class="inner"><div class="region"><div class="contents"><p class="p">A következő beállítások nem lesznek elérhetők, ha a <span class="gui">Csak a képernyőn megjelenő szöveg kimondása</span> jelölőnégyzet be van jelölve.</p></div></div></div></div>
+</div></div>
+</div></div>
+<div id="speak_blank_lines" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Üres sorok felolvasása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha az <span class="gui">Üres sorok felolvasása</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> egy „üres” szót fog mondani, amikor egy üres sorra lép. Ha ez a jelölőnégyzet nincs bejelölve, az <span class="app">Orka</span> semmit sem fog mondani, amikor egy üres sorra lép.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="indentation_and_justification" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Behúzás és igazítás felolvasása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha kódot vagy szövegeket szerkeszt, gyakran szüksége lehet az igazítás vagy a behúzás felolvasására. A <span class="gui">Behúzás és igazítás felolvasása</span> jelölőnégyzet bejelölése után az <span class="app">Orka</span> kimondja ezeket az információkat.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+</div></div>
+</div></div>
+<div id="speak_misspelled_word_indicator" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A hibásan írt szó jelzés felolvasása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">A hibásan írt szó jelölés a cikk-cakkos piros vonal, mely a hibásan írt szavak alatt jelenik meg a szerkeszthető szövegmezőkben. Ha be van jelölve <span class="gui">A hibásan írt szó jelzés felolvasása</span> jelölőnégyzet, amikor egy hibásan írt szóra navigál vagy elgépel egy szót, és megjelenik ez a jelölés, az <span class="app">Orka</span> a „Hibásan írt szó” üzenetet fogja kimondani.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="mnemonics" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Gyorsbillentyűk felolvasása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Gyorsbillentyűk felolvasása</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> kimondja a fókuszban lévő objektumokhoz társított gyorsbillentyűket. Ha például az <span class="gui">OK</span> gomb van fókuszban és ez a jelölőnégyzet be van jelölve, a kimondott szöveg a következő lesz: „<span class="gui">OK</span> gomb. <span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>O</kbd></span></span>”.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+</div></div>
+</div></div>
+<div id="child_position" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Pozícióadatok kimondásának engedélyezése</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Pozícióadatok kimondásának engedélyezése</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> kimondja a fókuszban lévő objektum pozícióadatait, ha ez az adat elérhető. Ha például egy listában a második elemen áll, és a listának nyolc eleme van, a kimondott adat 2/8 lesz. Ezek az információk például a következő objektumoknál hangzanak el: választógombok, kombinált listamezők, menük, listák, lapfülek, stb.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+</div></div>
+</div></div>
+<div id="speak_tutorial_messages" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Oktatói üzenetek kimondásának engedélyezése</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet be van jelölve és mozog a kezelőfelület komponensei között, az <span class="app">Orka</span> oktatói üzenet kimondásával tudatja, hogyan dolgozhat egy fókuszban levő komponenssel.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+</div></div>
+</div></div>
+<div id="speak_description" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Leírás felolvasása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Leírás felolvasása</span> jelölőnégyzet be van jelölve és mozog a kezelőfelület komponensei között, az <span class="app">Orka</span> az objektum akadálymentes nevével együtt felolvassa az objektum akadálymentes leírását is.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="system_messages_are_detailed" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Részletes rendszerüzenetek engedélyezése</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Részletes rendszerüzenetek engedélyezése</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> által kiküldött üzenetek hosszabb formában lesznek kimondva. Például, ha az <span class="app">Orka</span> „Váltás a következő billentyűvisszhang-szintre” parancs segítségével billentyűvisszhang-szintet vált, az <span class="app">Orka</span> az „A billentyűvisszhang szavankéntire állítva” üzenetet fogja kimondani. Ha inkább a rövidebb „Szavak” üzenetformát szeretné, törölje a jelölést a <span class="gui">Részletes rendszerüzenetek engedélyezése</span> jelölőnégyzetből.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="speak_colors_as_names" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A színek kimondása színnevekkel</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha be van jelölve <span class="gui">A színek kimondása színnevekkel</span> jelölőnégyzet, az <span class="app">Orka</span> megpróbálja leírni a fókuszban levő objektum színjellemzőit. Például, az RGB 0, 27, 51 színkód „éjkék” színként lesz kimondva. Ha inkább a színek RGB értékeit szeretné hallani, törölje a jelölést ebből a jelölőnégyzetből.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_blockquotes_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Idézetblokkok bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha az <span class="gui">Idézetblokkok bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> be fogja jelenteni, amikor rálép egy idézetblokkra, vagy elhagyja azt. Megjegyzés: ez a beállítás független attól, hogy ez a bejelentés megtörténjen-e a felolvasás közben vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_forms_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Űrlapok bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha az <span class="gui">Űrlapok bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> ki fogja mondani, amikor belép egy űrlapba, vagy elhagyja azt. Ne feledje, hogy ez a beállítás csak olyan űrlapokra vonatkozik, amelyek nem tartalmaznak ARIA jelölőket. Az ARIA jelölők bejelentésével kapcsolatos beállítást a <span class="gui">Jelölők bejelentése navigálás közben</span> jelölőnégyzet segítségével konfigurálhatja. Ezen kívül vegye figyelembe, hogy ez a beállítás független attól, hogy a bejelentés a felolvasás alatt megtörténik-e vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_landmarks_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Jelölők bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Jelölők bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> ki fogja mondani, amikor egy ARIA jelölőre navigál, vagy elhagyja azt. Megjegyzés: ez a beállítás független attól, hogy a jelölők bejelentése a felolvasás közben megtörténik-e vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_lists_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Listák bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Listák bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> ki fogja mondani, amikor egy listára navigál, vagy elhagyja azt. Megjegyzés: ez a beállítás független attól, hogy a listák bejelentése a felolvasás közben megtörténik-e vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_panels_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Panelek bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Panelek bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> ki fogja mondani, amikor egy panelre navigál, vagy elhagyja azt. Megjegyzés: ez a beállítás független attól, hogy ez a bejelentés megtörténik-e a felolvasás közben vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="announce_tables_during_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Táblázatok bejelentése navigálás közben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Táblázatok bejelentése navigálás közben</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> ki fogja mondani, amikor egy táblázatra navigál, vagy elhagyja azt. Megjegyzés: ez a beállítás független attól, hogy a táblázatok bejelentése a felolvasás közben megtörténik-e vagy sem. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="preferences_general.html#say_all_announce_context" title="A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben">Szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</a></span> című fejezetet.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="read_full_row_in_gui_tables" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A teljes sor kimondása a grafikus táblázatokban</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">A teljes sor kimondása a grafikus táblázatokban</span> jelölőnégyzet be van jelölve, úgy ha az alkalmazások táblázataiban, például a bejövő üzenetek listájában a nyilakkal mozog, az <span class="app">Orka</span> a táblázat teljes sorát ki fogja mondani. Ha inkább csak a fókuszban levő cella tartalmát szeretné hallani, törölje a jelölést ebből a jelölőnégyzetből.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="read_full_row_in_document_tables" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A teljes sor kimondása a dokumentum táblázatokban</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha be van jelölve <span class="gui">A teljes sor kimondása a dokumentum táblázatokban</span> jelölőnégyzet, és a felfelé és lefelé nyilak segítségével mozog például egy <span class="app">LibreOffice Writer</span> vagy egy webes táblázatban, az <span class="app">Orka</span> a táblázat teljes sorát ki fogja mondani. Ha inkább csak a fókuszban levő cella tartalmát szeretné hallani, törölje a jelölést ebből a jelölőnégyzetből.</p>
+<p class="p">Alapbeállítás: bejelölve</p>
+</div></div>
+</div></div>
+<div id="read_full_row_in_spreadsheets" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A teljes sor kimondása a táblázatkezelőkben</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">Ha be van jelölve <span class="gui">A teljes sor kimondása a táblázatkezelőkben</span> jelölőnégyzet és felfelé vagy lefelé mozog egy táblázatkezelőben megnyitott táblázatban, az <span class="app">Orka</span> a táblázat teljes sorát ki fogja mondani. Ha inkább csak a fókuszban levő cella tartalmát szeretné hallani, törölje a jelölést ebből a jelölőnégyzetből.</p>
+<p class="p">Alapbeállítás: nincs bejelölve</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="preferences_voice.html" title="Hangbeállítások">Előző</a><a class="nextlinks-next" href="preferences_braille.html" title="Braille beállítások">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents">
+<div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
+</div></div>
+<div class="links seealsolinks"><div class="inner">
+<div class="title"><h2><span class="title">Lásd még</span></h2></div>
+<div class="region"><ul><li class="links ">
+<a href="commands_speech_settings.html" title="Beszédbeállításokkal kapcsolatos parancsok">Beszéd</a><span class="desc"> — Parancsok az <span class="app">Orka</span> kimenetének testreszabásához</span>
+</li></ul></div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"><div class="sect about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
+<div class="region"><div class="contents">
+<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016 Hammer Attila</div></div>
+<div class="aboutblurb authors">
+<div class="title"><span class="title">Írta</span></div>
+<ul class="credits"><li>Joanmarie Diggs</li></ul>
+</div>
+<div class="aboutblurb translators">
+<div class="title"><span class="title">Fordította</span></div>
+<ul class="credits"><li>Hammer Attila</li></ul>
+</div>
+<div class="aboutblurb license">
+<div class="title"><span class="title">Licenc</span></div>
+<div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div></body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Táblázatok</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="howto_structural_navigation.html" title="Strukturált navigáció">Előző</a><a class="nextlinks-next" href="howto_forms.html" title="Űrlapok kitöltése">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">Táblázatok</span></h1></div>
+<div class="region">
+<div class="contents"><p class="p">Az <span class="app">Orka</span> számos speciális funkcióval rendelkezik a táblázatokhoz való hozzáférés megkönnyítése érdekében, amelyekkel egy weboldalon vagy dokumentumban találkozhat. Néhány ezek közül: konfigurálható cella- és sorfelolvasás, <span class="link"><a href="howto_structural_navigation.html" title="Strukturált navigáció">Strukturált navigáció</a></span> és dinamikus fejlécek támogatása.</p></div>
+<div id="cell_row" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Az aktuális cella vagy sor felolvasása</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Tegyük fel, hogy át kell tekintenie a beérkezett üzenetek mappában levő üzeneteit. Ha azt szeretné, hogy az <span class="app">Orka</span> kimondja egy üzenet esetén a feladót, tárgyat, dátumot és hogy az üzenet tartalmaz-e mellékletet, arra van szüksége, hogy az <span class="app">Orka</span> a táblázat teljes sorát felolvassa. Ha viszont egy táblázat sorai között navigál, a teljes sor végighallgatása akár zavaró is lehet, pusztán a sorok celláinak mennyiségétől. Ebben az esetben arra lehet szüksége, hogy az <span class="app">Orka</span> csak a fókuszba kerülő cellát olvassa fel. Ugyanez lehet a helyzet a dokumentumok táblázataival.</p>
+<p class="p">Az <span class="app">Orka</span> lehetővé teszi annak testreszabását, hogy egy grafikus felületen megjelenő táblázatban, dokumentum táblázatban vagy egy táblázatkezelőben csak az adott cella, vagy a teljes sor kerüljön-e felolvasásra. Mivel ezek a beállítások függetlenek egymástól a különböző táblázattípusok esetén, nem szükséges egyetlen táblázatolvasási módot használni mindhárom táblázattípushoz.</p>
+<p class="p">Az <span class="app">Orka</span> táblázatolvasási beállításai az <span class="link"><a href="preferences.html" title="Az Orka beállító párbeszédablakai"><span class="app">Orka</span> beállítóablakaiban</a></span> akár alkalmazás szinten is testreszabhatóak. A beállításokat a <span class="link"><a href="preferences_speech.html" title="Beszédbeállítások"><span class="gui">Beszéd</span> lapon</a></span> találja meg.</p>
+<p class="p">Végezetül: létezik egy Orka gyorsbillentyű, mellyel menet közben válthat az aktuális cella vagy a teljes sor felolvasása mód között a pillanatnyilag használt táblázatban anélkül, hogy a beállítás mentésre kerülne. Ha ezt szeretné, nyomja meg az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>F11</kbd></span></span> billentyűkombinációt.</p>
+</div></div>
+</div></div>
+<div id="structural_navigation" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Strukturált navigáció</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Az <span class="app">Orka</span> <span class="link"><a href="commands_structural_navigation.html#tables" title="Táblázatok">táblázatnavigációval kapcsolatos parancsai</a></span> lehetővé teszik, hogy gyorsan megtalálhassa a táblázatokat, elugorhasson a táblázatok első vagy utolsó cellájára, valamint hogy bármely irányba mozoghasson a táblázatok cellái között.</p>
+<p class="p">Amikor egy táblázatban az <span class="app">Orka</span> strukturált navigáció segítségével navigál, az <span class="app">Orka</span> bejelenti a táblázatban elfoglalt pillanatnyi pozíciójával kapcsolatos fontos információkat, például a táblázat méretét, valamint azt, hogy a táblázatban való mozgáskor elérte a táblázat valamelyik szélét.</p>
+<p class="p">Ezen kívül az <span class="app">Orka</span> számos konfigurálható <span class="link"><a href="preferences_table_navigation.html" title="A táblázatnavigáció beállításai">megjelenítéssel kapcsolatos beállítással</a></span> rendelkezik, melyek együttműködnek a strukturált <span class="app">Orka</span> navigációval. Testreszabható például, hogy bejelentésre kerüljenek-e a cellakoordináták, a cellák kiterjesztései, és a cellafejlécek.</p>
+<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="title title-note"><h3><span class="title">Ne felejtse el bekapcsolni a strukturált Orka navigációt!</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Attól függően, hogy éppen hol tartózkodik, szükséges lehet az <span class="app">Orka</span> strukturált navigációjának bekapcsolása. További információkért olvassa el az <span class="link"><a href="howto_structural_navigation.html#toggling_required" title="Amikor mindenképpen szükséges a strukturált Orka navigáció bekapcsolása">Amikor mindenképpen szükséges a strukturált Orka navigáció bekapcsolása</a></span> című fejezetet.</p></div></div>
+</div></div>
+</div></div>
+</div></div>
+<div id="dynamic_headers" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Dinamikus fejlécek használata</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Sok olyan táblázattal találkozhat, amelynél a táblázat valamelyik sorában vagy oszlopában levő cellák fejlécekként szolgálnak. Hogy a táblázat készítője jól jelölte-e meg ezeket a fejléceket vagy sem, a legtöbb esetben elég nehéz megállapítani. A szövegek sokszor csak nagyobb betűmérettel és/vagy dőlt betűstílussal vannak formázva. Ha egy táblázatnál jól is vannak megjelölve a fejlécek, semmilyen garancia nincs arra, hogy a használt alkalmazás vagy eszközkészlet jól adja át a szöveges fejléc-információkat az akadálymentesítési technológiáknak. Az <span class="app">Orka</span> a dinamikus fejlécek támogatásával ennek esélyét viszont nagyban növeli.</p>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Oszlopfejlécek beállítása</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Lépjen a táblázat azon sorára, amely az összes oszlopfejlécet tartalmazza.</p></li>
+<li class="steps"><p class="p">Nyomja le az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>R</kbd></span></span> billentyűkombinációt, ezzel jelezheti az <span class="app">Orka</span> számára, hogy a táblázat aktuális sora tartalmazza a fejléc-információkat.</p></li>
+</ol></div>
+</div></div>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">Sorfejlécek beállítása</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Lépjen a táblázat azon oszlopára, amely az összes sorfejlécet tartalmazza.</p></li>
+<li class="steps"><p class="p">Nyomja le az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>C</kbd></span></span> billentyűkombinációt, ezzel jelezheti az <span class="app">Orka</span> számára, hogy a táblázat aktuális oszlopa tartalmazza a fejléc-információkat.</p></li>
+</ol></div>
+</div></div>
+<p class="p">A dinamikus oszlop- vagy sorfejléc beállítása esetén a cellák között navigációkor az <span class="app">Orka</span> egyaránt ki fogja mondani a megváltozott fejléceket. Másképp fogalmazva, az <span class="app">Orka</span> nem fogja kimondani az oszlopfejléceket újra és újra, ha felfelé vagy lefelé mozog egy táblázat aktuális oszlopában, nem fogja kimondani a sorfejléceket újra és újra, ha jobbra és balra mozog a táblázat aktuális sorában. Ha azonban átlép egy másik sorba, és definiált sorfejlécet, akkor az új sorhoz társított sorfejléc kerül kimondásra. Ha pedig egy másik oszlopba lép át, és definiált oszlopfejlécet, akkor az új oszlophoz társított oszlopfejléc kerül kimondásra.</p>
+<p class="p">Ha törölni szeretné a fejléceket, egyszerűen nyomja meg kétszer egymás után a fejléc beállításához használt billentyűkombinációt. Az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>R</kbd></span></span> billentyűkombináció kétszeri gyors lenyomása közli az <span class="app">Orkával</span>, hogy nincsenek oszlopfejlécek. Az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>C</kbd></span></span> billentyűkombináció kétszeri gyors megnyomása közli az <span class="app">Orkával</span>, hogy nincsenek sorfejlécek.</p>
+</div></div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="howto_structural_navigation.html" title="Strukturált navigáció">Előző</a><a class="nextlinks-next" href="howto_forms.html" title="Űrlapok kitöltése">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents">
+<div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a></li></ul></div>
+</div></div>
+<div class="links seealsolinks"><div class="inner">
+<div class="title"><h2><span class="title">Lásd még</span></h2></div>
+<div class="region"><ul><li class="links ">
+<a href="commands_table.html" title="Táblázatnavigációval kapcsolatos parancsok">Táblázatnavigáció</a><span class="desc"> — Parancsok a táblázatokhoz való hozzáféréshez</span>
+</li></ul></div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"><div class="sect about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
+<div class="region"><div class="contents">
+<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016 Hammer Attila</div></div>
+<div class="aboutblurb authors">
+<div class="title"><span class="title">Írta</span></div>
+<ul class="credits"><li>Joanmarie Diggs</li></ul>
+</div>
+<div class="aboutblurb translators">
+<div class="title"><span class="title">Fordította</span></div>
+<ul class="credits"><li>Hammer Attila</li></ul>
+</div>
+<div class="aboutblurb license">
+<div class="title"><span class="title">Licenc</span></div>
+<div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div></body>
+</html>

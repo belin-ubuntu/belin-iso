@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Szövegattribútumok beállításai</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="preferences_pronunciation.html" title="Kiejtési beállítások">Előző</a><a class="nextlinks-next" href="preferences_gecko.html" title="A Gecko navigáció beállításai">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">Szövegattribútumok beállításai</span></h1></div>
+<div class="region">
+<div class="contents"><p class="p">A „szövegattribútumok” kifejezés egy karakter vagy karaktersorozat betűkészletét, stílusát, igazítását, és más formázásait jelenti. Az <span class="app">Orka</span> grafikus beállító párbeszédpanelének <span class="gui">Szövegattribútumok</span> lapján személyre szabhatja, hogy milyen szövegattribútumok kerüljenek kimondásra, milyen sorrendben történjen a kimondás, valamint milyen attribútumokat jelenítsen meg az <span class="app">Orka</span> a Braille-kijelzőn.</p></div>
+<div id="table" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A szövegattribútumok táblázat</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">A szövegattribútumok táblázatban megadhatja, hogy milyen attribútumok kerüljenek kimondásra vagy megjelenítésre a Braille-kijelzőn. A szövegattribútumok táblázat minden sora négy oszlopot tartalmaz.</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="gui">Attribútumnév</span>: A szöveges attribútum neve.</p></li>
+<li class="list"><p class="p"><span class="gui">Felolvasás</span>: Jelölje be ezt a jelölőnégyzetet, ha azt szeretné, hogy az <span class="app">Orka</span> az <span class="keyseq"><span class="key"><kbd>Orka</kbd></span>+<span class="key"><kbd>F</kbd></span></span> billentyűkombináció lenyomásakor felolvassa ezt a szöveges attribútumot.</p></li>
+<li class="list"><p class="p"><span class="gui">Braille jelölés</span>: Jelölje be ezt a jelölőnégyzetet, ha azt szeretné, hogy az <span class="app">Orka</span> „aláhúzza” ezt az attribútumot a Braille kijelzőjén.</p></li>
+<li class="list">
+<p class="p"><span class="gui">Megjelenítés, ha nem</span>: Ebben a szerkeszthető oszlopban megadhatja, milyen szöveg kerüljön akkor kimondásra, ha a bejelölt attribútum nem található.</p>
+<p class="p">Az „aláhúzás” attribútum alapértéke például a „nincs”. Ennek hatására az <span class="app">Orka</span> addig értesíti az aláhúzott szövegről, amíg a szöveg ténylegesen alá van húzva. Ha azt szeretné, hogy ez az attribútum kimondásra kerüljön függetlenül attól, hogy a kérdéses szöveg alá van-e húzva, jelölje be a <span class="gui">Felolvasás</span> jelölőnégyzetet, és törölje a <span class="gui">Megjelenítés, ha nem</span> oszlopot.</p>
+</li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div id="reset" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A változtatások visszavonása</span></h2></div>
+<div class="region"><div class="contents"><p class="p">A Visszaállítás (<span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>V</kbd></span></span>) gomb megnyomásakor az attribútumlista a szöveges attribútum párbeszédablak első megjelenésének megfelelő kiinduló helyzetbe áll.</p></div></div>
+</div></div>
+<div id="rearranging" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Az attribútumok sorrendjének megváltoztatása</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Ha először jelenik meg a szöveges attribútumok párbeszédablak, akkor az összes engedélyezett attribútum a lista elején található. A szöveges attribútumok a sorrendnek megfelelően kerülnek kimondásra és megjelenítésre a Braille-kijelzőn. Négy gombot használhat a sorrend módosítására:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">„<span class="gui">A tetejére</span> (<span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>T</kbd></span></span>): a kiválasztott attribútumot a lista tetejére mozgatja.</p></li>
+<li class="list"><p class="p"><span class="gui">Eggyel feljebb</span> (<span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>F</kbd></span></span>): a kiválasztott attribútumot egy sorral feljebb mozgatja.</p></li>
+<li class="list"><p class="p"><span class="gui">Eggyel lejjebb</span> (<span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>L</kbd></span></span>): a kiválasztott attribútumot egy sorral lejjebb mozgatja.</p></li>
+<li class="list"><p class="p"><span class="gui">Az aljára</span> (<span class="keyseq"><span class="key"><kbd>Alt</kbd></span>+<span class="key"><kbd>R</kbd></span></span>): a kiválasztott attribútumot a lista aljára helyezi.</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div id="braille_indicator" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A Braille „aláhúzás” beállításai a formázás megjelenítéséhez</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Ezen gombok alatt találhatók a Braille kiválasztásjelző választógomb-csoport elemei. Ezek meghatározzák, hogy az adott attribútumot mely cella (vagy cellák) jelenítsék meg. A következő lehetőségek közül választhat:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="gui">Nincs</span>: A szöveges attribútumok nem lesznek aláhúzva a Braille kijelzőn. Ez az alapértelmezett beállítás.</p></li>
+<li class="list"><p class="p"><span class="gui">7. pont</span>: A szöveges attribútumok csak a 7. ponttal lesznek aláhúzva a Braille-kijelzőn.</p></li>
+<li class="list"><p class="p"><span class="gui">8. pont</span>: a szöveges attribútumok csak a 8. ponttal lesznek aláhúzva a Braille-kijelzőn.</p></li>
+<li class="list"><p class="p"><span class="gui">7. és 8. pont</span>: A szöveges attribútumok a 7. és a 8. ponttal lesznek aláhúzva a Braille-kijelzőn.</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="preferences_pronunciation.html" title="Kiejtési beállítások">Előző</a><a class="nextlinks-next" href="preferences_gecko.html" title="A Gecko navigáció beállításai">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents">
+<div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
+</div></div>
+<div class="links seealsolinks"><div class="inner">
+<div class="title"><h2><span class="title">Lásd még</span></h2></div>
+<div class="region"><ul><li class="links ">
+<a href="howto_text_attributes.html" title="Szövegattribútumok">Szövegattribútumok</a><span class="desc"> — Szövegformázás vizsgálata</span>
+</li></ul></div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"><div class="sect about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
+<div class="region"><div class="contents">
+<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016 Hammer Attila</div></div>
+<div class="aboutblurb authors">
+<div class="title"><span class="title">Írta</span></div>
+<ul class="credits"><li>Joanmarie Diggs</li></ul>
+</div>
+<div class="aboutblurb translators">
+<div class="title"><span class="title">Fordította</span></div>
+<ul class="credits"><li>Hammer Attila</li></ul>
+</div>
+<div class="aboutblurb license">
+<div class="title"><span class="title">Licenc</span></div>
+<div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div></body>
+</html>

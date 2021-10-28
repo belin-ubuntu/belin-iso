@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="http://txt2tags.org">
+<TITLE>Tilitoli (Sliding puzzle) dokumentáció</TITLE>
+</HEAD><BODY BGCOLOR="white" TEXT="black">
+<CENTER>
+<H1>Tilitoli (Sliding puzzle) dokumentáció</H1>
+<FONT SIZE="4"><I>Készítette: Ócsvári Áron</I></FONT><BR>
+</CENTER>
+
+
+<H1>1. Bevezetés</H1>
+
+<H2>1.1. Tilitoli szabályai</H2>
+
+<P>
+A „Tilitoli” egy egyszemélyes logikai játék, amit 3x3, 4x4, vagy 5x5-ös méretû táblán játszanak. A táblán a mérett

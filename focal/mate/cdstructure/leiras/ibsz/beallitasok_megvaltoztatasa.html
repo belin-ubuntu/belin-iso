@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>5. Az Infoalap Braille-szerkesztő beállításainak megváltoztatása</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Az Infoalap Braille-szerkesztő bemutatása">Az Infoalap Braille-szerkesztő bemutatása</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="kivetelszotar_letrehozasa.html" title="4. Kivételszótár létrehozása a gyakran használt kifejezések cseréjéhez">Előző</a><a class="nextlinks-next" href="fajlok_konvertalasa.html" title="6. A kész dokumentum Braille-dokumentumba konvertálása">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">5. Az <span class="app">Infoalap Braille-szerkesztő</span> beállításainak megváltoztatása</span></h1></div>
+<div class="region">
+<div class="contents">
+<p class="p">Az <span class="app">Infoalap Braille-szerkesztő</span> beállításait a <span class="gui">Szerkesztés</span> menü <span class="gui">Beállítások</span> menüpontjának segítségével változtathatja meg. A <span class="gui">Beállítások</span> párbeszédablak elérhető a normál eszköztáron keresztül, vagy a <span class="keyseq"><span class="key"><kbd>CTRL</kbd></span>+<span class="key"><kbd>SHIFT</kbd></span>+<span class="key"><kbd>P</kbd></span></span> billentyűkombinációval is.
+</p>
+<p class="p">A Beállítások párbeszédablak négylapos formában kerül megjelenítésre. A beállítások profilként tárolódnak, amelyekből bármikor készíthető újabb, ahol eltérő értékeket adhat meg. Ezt a lehetőséget az alkalmazás dokumentumprofilnak nevezi, mivel különböző típusú Braille-kiadványokhoz más és más beállítások megadása lehet szükséges.
+</p>
+<p class="p">A Braille-konverzió előtt megjelenő párbeszédablakban lehetősége van kiválasztani, hogy a normál dokumentum konvertálásakor melyik dokumentumprofilt kívánja használni.
+</p>
+<p class="p">Az <span class="app">Infoalap Braille-szerkesztő</span> alapértelmezetten négyféle dokumentumprofilt tartalmaz, de a Beállítások párbeszédablakban létrehozhat egyéb profilokat is.
+</p>
+</div>
+<div id="dokumentum_profilok" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A gyári dokumentumprofilok ismertetése</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Az <span class="app">Infoalap Braille-szerkesztő</span> alapértelmezetten az alábbi négy dokumentumprofilt támogatja:
+</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list">
+<p class="p">Alapértelmezett nyomdai kiadvány (teljes írás): Ha ezt a dokumentumprofilt használja, és még nem változtatta meg az alapbeállításokat, a Braille-konverzió során létrejövő dokumentum magyar nyelvű, teljes írású formában fog elkészülni. A címsorokat tartalmazó Braille-dokumentumhoz tartalomjegyzék is készül, valamint tartalmazhat sík írású és Braille-oldalszámokat is. Egy oldalon alapértelmezetten 28 sor lehet, egy sor maximális hossza 32 karakter. 
+</p>
+<p class="p">A létrejövő Braille dokumentum az USA Braille kódolási szabvány szerint lesz elkészítve, a legtöbb Braille nyomtató alapértelmezetten ezt a kódolási szabványt kezeli.
+</p>
+</li>
+<li class="list">
+<p class="p">Alapértelmezett nyomdai kiadvány (rövid írás): Ha ezt a dokumentumprofilt használja, és még nem változtatta meg az alapbeállításokat, a Braille-konverzió során létrejövő dokumentum magyar nyelvű, rövid írású formában fog elkészülni. A címsorokat tartalmazó Braille-dokumentumhoz tartalomjegyzék is készül, valamint tartalmazhat sík írású és Braille-oldalszámokat is. Egy oldalon alapértelmezetten 28 sor lehet, egy sor maximális hossza 32 karakter.
+</p>
+<p class="p">A létrejövő Braille dokumentum az USA Braille kódolási szabvány szerint lesz elkészítve, a legtöbb Braille nyomtató alapértelmezetten ezt a kódolási szabványt kezeli.
+</p>
+</li>
+<li class="list">
+<p class="p">Olvasás Braille-kijelzőn (teljes írás): Ha ezt a dokumentumprofilt használja, és még nem változtatta meg az alapbeállításokat, a Braille-konverzió során létrejövő dokumentum magyar nyelvű, teljes írású formában fog elkészülni. Ezt a profilt akkor érdemes használni, ha a dokumentumot csak Braille-kijelzőn kívánja olvasni, és nem akarja kinyomtatni. A dokumentumhoz nem készül tartalomjegyzék, nem fog sík írású illetve Braille-oldalszámokat tartalmazni. A létrejövő Braille dokumentum maximális sorhosszúsága 32 karakter.
+</p>
+<p class="p">A létrejövő Braille dokumentum az Unicode Braille kódolási szabvány szerint lesz elkészítve, a dokumentum minden Braille kijelzővel megjeleníthető.
+</p>
+</li>
+<li class="list">
+<p class="p">Olvasás Braille-kijelzőn (rövid írás): Ha ezt a dokumentumprofilt használja, és még nem változtatta meg az alapbeállításokat, a Braille-konverzió során létrejövő dokumentum magyar nyelvű, rövid írású formában fog elkészülni. Ezt a profilt akkor érdemes használni, ha a dokumentumot csak Braille-kijelzőn kívánja olvasni, és nem akarja kinyomtatni. A dokumentumhoz nem készül tartalomjegyzék, nem fog sík írású illetve Braille-oldalszámokat tartalmazni. A létrejövő Braille-dokumentum maximális sorhosszúsága 32 karakter.
+</p>
+<p class="p">A létrejövő Braille dokumentum az Unicode Braille kódolási szabvány szerint lesz elkészítve, a dokumentum minden Braille kijelzővel megjeleníthető.
+</p>
+</li>
+</ul></div></div></div>
+<p class="p">A gyári dokumentumprofilok beállításait bármikor megváltoztathatja, és bármelyikből egyéni profilt hozhat létre. Csak a saját profilok törölhetőek a profillistából, a gyáriak nem.</p>
+</div></div>
+</div></div>
+<div id="alapbeallitasok_megvaltoztatasa" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A használt beállítások megváltoztatása</span></h2></div>
+<div class="region">
+<div class="contents">
+<p class="p">Ha meg kívánja változtatni a dokumentumprofil beállításait, válassza a <span class="gui">Szerkesztés</span> menü <span class="gui">Beállítások</span> menüpontját, vagy nyomja le a <span class="keyseq"><span class="key"><kbd>CTRL</kbd></span>+<span class="key"><kbd>SHIFT</kbd></span>+<span class="key"><kbd>P</kbd></span></span> billentyűkombinációt. A menüpont aktiválása után megjelenik a <span class="gui">Beállítások</span> párbeszédablak.
+</p>
+<p class="p">Tipp: a <span class="gui">Beállítások</span> ablakot elérheti a <span class="gui">Normál</span> eszköztár <span class="gui">Beállítások</span> gombjának aktiválásával is.
+</p>
+<p class="p">A következő alfejezetekben részletesen olvashat az egyes lapfüleken található beállításokról:
+</p>
+</div>
+<div id="altalanos_lap" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Az Általános lapon található beállítások</span></h3></div>
+<div class="region">
+<div class="contents"></div>
+<div id="aktiv_dokumentumprofil" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Aktív dokumentum profil</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Beállítások</span> párbeszédablak <span class="gui">Általános</span> lapfülének első vezérlőeleme az <span class="gui">Aktív dokumentum profil</span> kombinált listamező. A kombinált listamező  segítségével megváltoztathatja az alapértelmezett dokumentumprofilt. Amikor profilt vált, a kiválasztott dokumentumprofilban tárolt beállítások beolvasásra kerülnek. A Beállítások párbeszédablak lapjain található vezérlőelemek állapota frissülni fog a kiválasztott dokumentumprofilban tárolt beállítási értékekre.
+</p>
+<p class="p">
+Ha nem kíván más beállítást megváltoztatni, a kiválasztott dokumentumprofilt az <span class="gui">OK</span> gomb aktiválásával véglegesítheti.
+</p>
+<p class="p">Alapértelmezett beállítás: <span class="gui">Alapértelmezett nyomdai kiadvány (teljes írás)</span>
+</p>
+</div></div>
+</div></div>
+<div id="" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Profil mentése más néven</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a <span class="gui">Profil mentése más néven</span> gombot aktiválja, új néven mentheti az aktuálisan kiválasztott dokumentumprofilban használt beállításokat.
+</p>
+<p class="p">A gomb aktiválása után adja meg az új profil nevét, majd nyomja le az <span class="key"><kbd>ENTER</kbd></span> billentyűt. Ezt követően az aktív dokumentumprofil az újonnan elmentett profil lesz.
+</p>
+</div></div>
+</div></div>
+<div id="profil_torlese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Profil törlése</span></h4></div>
+<div class="region"><div class="contents"><p class="p">Ez a lehetőség csak saját profil kiválasztását követően érhető el. Ha aktiválja a <span class="gui">Profil törlése</span> gombot, és a megerősítő párbeszédablakban az <span class="gui">Igen</span> lehetőséget választja, a mentett dokumentumprofil törlésre kerül, és az Aktív dokumentum profil kombinált listamező visszaáll az előző profilra.
+</p></div></div>
+</div></div>
+<div id="kivetelszotar" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Kivételszótár</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Kivételszótár</span> kombinált listamező segítségével kiválaszthatja vagy megváltoztathatja az aktív profilhoz használt kivételszótárt.
+</p>
+<p class="p">Az alapértelmezett beállítás a <span class="gui">Nincs.</span> Az elérhető szótárfájlok nevei a saját felhasználói mappájából automatikusan beolvasásra kerülnek, a nyílbillentyűk használatával választhat az elérhető szótárfájlok közül.
+</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+<div id="kimenet_lap" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A Braille-kimenet beállításai lapon található beállítások</span></h3></div>
+<div class="region">
+<div class="contents"></div>
+<div id="kimeneti_tabla" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille-átírási szabvány</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Braille-átírási szabvány</span> kombinált listamező segítségével az aktív dokumentumprofilhoz kiválaszthatja a használni kívánt fordítási táblát.</p>
+<p class="p">A következő lehetőségek közül választhat:
+</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Magyar (teljes írás),
+</p></li>
+<li class="list"><p class="p">Magyar (rövid írás),
+</p></li>
+<li class="list"><p class="p">Angol (teljes írás),
+</p></li>
+<li class="list"><p class="p">Angol (rövid írás),
+</p></li>
+<li class="list"><p class="p">Német (teljes írás),
+</p></li>
+<li class="list"><p class="p">Német (rövid írás).
+</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div id="karakter_szam" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Karakterek száma egy sorban</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a léptetőgombnak a segítségével beállíthatja, hogy egy sorban maximum hány karakter legyen a Braille dokumentum oldalain. Az érték 20 és 80 karakter között állítható be.</p>
+<p class="p">Az alapértelmezett beállítás: 32 karakter</p>
+</div></div>
+</div></div>
+<div id="sor_szam" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sorok száma egy oldalon</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a léptetőgombnak a segítségével meghatározhatja azt, hogy a Braille dokumentum oldalain maximum hány sor legyen elhelyezve. Az érték 10 és 28 sor között állítható.
+</p>
+<p class="p">Az alapértelmezett beállítás: 28 sor/oldal.
+</p>
+</div></div>
+</div></div>
+<div id="kodolas" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille-kódolás</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Braille-kódolás</span> kombinált listamező segítségével megváltoztathatja az aktív dokumentumprofilnál használt Braille-kimeneti kódolást.
+</p>
+<p class="p">Az elérhető lehetőségek a következők:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">USA Braille: Ezt a kódolási szabványt alapértelmezetten kezeli a legtöbb Braille-nyomtató, a nyomdai kiadványprofilok esetén ez az alapértelmezett beállítás.
+</p></li>
+<li class="list"><p class="p">Euro Braille: Ez a kimeneti kódolás Euro Braille kódolású dokumentumot eredményez. Ha ilyen típusú dokumentumot kíván megjeleníteni a Braille-kijelzőn, az <span class="app">Orka Képernyőolvasó</span> <span class="gui">grafikus beállítások</span> párbeszédablakának <span class="gui">Braille-lapfülén</span> ki kell kapcsolnia az irodalmi Braille megjelenítést.
+</p></li>
+<li class="list"><p class="p">Unicode Braille: Ez a kódolás nemzetközileg elfogadott formátum, mind a képernyőn, mind a Braille-kijelzőn történő kijelzés esetén megfelelő megjelenítést eredményez. Az Unicode Braille-kódolás esetén nem szükséges kikapcsolnia az irodalmi Braille-megjelenítést az <span class="app">Orka Képernyőolvasó</span> <span class="gui">grafikus beállítások</span> párbeszédablakának <span class="gui">Braille-lapfülén.</span>
+</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div id="szokozok_levagasa" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Felesleges szóközök levágása a Braille kimenetből</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet be van jelölve, az <span class="app">Infoalap Braille-szerkesztő</span> a konvertálás során a Braille kimenetből eltávolítja a sorokon belül található felesleges többszörös szóköz karaktereket, és más egyéb jelöléseket.
+</p>
+<p class="p">Ha olyan dokumentumot kell létrehoznia, ahol egy soron belül pl. egy táblázat oszlopait több szóközzel kell elválasztania, törölje a jelölést ebből a jelölőnégyzetből.
+</p>
+<p class="p">Ez a jelölőnégyzet alapértelmezetten be van jelölve.
+</p>
+</div></div>
+</div></div>
+<div id="elvalasztas" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Elválasztás engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet alapértelmezetten be van jelölve, hosszabb Braille sorok esetén az <span class="app">Infoalap Braille-szerkesztő</span> elválasztást próbál végezni a kiválasztott fordítási tábla elválasztási szótárának segítségével.
+</p>
+<p class="p">Ez a jelölőnégyzet alapértelmezetten be van jelölve.
+</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+<div id="oldalszamok_beallitasai_lap" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Az Oldalszámok lapon található beállítások</span></h3></div>
+<div class="region">
+<div class="contents"></div>
+<div id="oldalszamok_engedelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Oldalszámok engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a jelölőnégyzet be van jelölve, az <span class="gui">Oldalszámok beállításai</span> lapon elérhetővé válnak a Braille és a sík oldalszámokra vonatkozó beállítási lehetőségek. A nyomdai kiadványprofilok esetén a jelölőnégyzet alapértelmezetten be van jelölve, az olvasást megkönnyítő profilok esetén viszont nem.
+</p>
+<p class="p">Ha egy dokumentumprofilnál nincs szükség oldalszámokra, törölje a jelölést a jelölőnégyzetből. Ha a jelölőnégyzet nincs bejelölve, a <span class="gui">Tartalomjegyzék</span> lapfül beállításai nem lesznek elérhetőek, és a Braille-dokumentumhoz nem fog tartalomjegyzék készülni.
+</p>
+</div></div>
+</div></div>
+<div id="braille_oldalszamok_engedelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille oldalszámok engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a jelölőnégyzet be van jelölve, a konverzió során a dokumentum oldalaira a megadott beállításoktól függően elhelyezésre kerülnek a Braille-oldalszámok.
+</p>
+<p class="p">A nyomdai kiadványprofilok esetén a jelölőnégyzet alapértelmezetten be van jelölve, az olvasást megkönnyítő dokumentumprofilok esetén viszont nem.
+</p>
+</div></div>
+</div></div>
+<div id="braille_oldalszamozas_helye" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille oldalszámozás helye</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A <span class="gui">Braille oldalszámozás helye</span> kombinált listamező segítségével megadhatja, hogy a dokumentum oldalain hová kerüljenek a Braille-oldalszámok.
+</p>
+<p class="p">A választható lehetőségek: Oldal első sora, oldal utolsó sora.
+</p>
+<p class="p">Az alapértelmezett beállítás: Oldal utolsó sora</p>
+</div></div>
+</div></div>
+<div id="braille_oldalszamozas_illesztese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille oldalszámozás illesztése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a kombinált listamezőnek a segítségével megadhatja, hogy hogyan kerüljenek elhelyezésre a Braille oldalszámok.
+</p>
+<p class="p">A választható lehetőségek: szövegsor végén, külön sorban.</p>
+<p class="p">Az alapértelmezett beállítás: szövegsor végén.
+</p>
+</div></div>
+</div></div>
+<div id="braille_oldalszam_tipusa" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille oldalszámozás típusa</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a kombinált listamezőnek a segítségével beállíthatja a Braille oldalszámok formátumát.
+</p>
+<p class="p">A választható lehetőségek: arab szám, római szám.
+</p>
+<p class="p">Az alapértelmezett beállítás: arab szám.</p>
+</div></div>
+</div></div>
+<div id="Braille_oldalszamozas_elhelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Braille oldalszámozás elhelyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A kombinált listamező segítségével kiválaszthatja, hogy a dokumentumban mely oldalakra kíván Braille-oldalszámokat elhelyezni.
+</p>
+<p class="p">A választható lehetőségek a következők: Csak a páratlan oldalakon, minden oldalon.
+</p>
+<p class="p">Az alapértelmezett beállítás: Csak a páratlan oldalakon.
+</p>
+</div></div>
+</div></div>
+<div id="sik_oldalszamok_engedelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sík oldalszámok engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet be van jelölve, és az eredeti dokumentum tartalmaz hagyományos oldalszámokat, a sík írású oldalszámok is elhelyezésre kerülnek a Braille dokumentumban.
+</p>
+<p class="p">Alapértelmezett beállítás: a nyomdai kiadvány profilok esetén ez a jelölőnégyzet be van jelölve.
+</p>
+</div></div>
+</div></div>
+<div id="sik_oldalszamok_helye" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sík oldalszámok helye</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a kombinált listamezőnek a segítségével beállíthatja, hogy a sík írású oldalszámok hol legyenek elhelyezve a Braille dokumentum oldalain.
+</p>
+<p class="p">A választható lehetőségek: oldal első sora, oldal utolsó sora.
+</p>
+<p class="p">Az alapértelmezett beállítás: oldal első sora.</p>
+</div></div>
+</div></div>
+<div id="sik_oldalszamok_illesztese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sík oldalszámozás illesztése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a kombinált listamezőnek a segítségével megadhatja, hogy milyen módon kerüljenek elhelyezésre a sík írású oldalszámok a Braille dokumentum oldalain.
+</p>
+<p class="p">A választható lehetőségek: szövegsor végén, külön sorban.</p>
+<p class="p">Az alapértelmezett beállítás: szövegsor végén.</p>
+</div></div>
+</div></div>
+<div id="sik_oldalfolytatas_jelolese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sík oldalszámfolytatás jelölése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha a jelölőnégyzet be van jelölve, és több azonos sík írású oldalszám is található a dokumentumban, a konvertáláskor ezek egy betű beillesztésével elkülönítésre kerülnek egymástól.
+</p>
+<p class="p">A nyomdai kiadvány profilok esetén ez a jelölőnégyzet be van jelölve.
+</p>
+</div></div>
+</div></div>
+<div id="sik_lapvaltast_jelzo_csik_engedelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Sík lapváltást jelző csík engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet be van jelölve, a sík oldaltörések jelölve lesznek a Braille dokumentumban.
+</p>
+<p class="p">A nyomdai kiadvány profilok esetén ez a jelölőnégyzet alapértelmezetten be van jelölve.
+</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+<div id="tartalomjegyzek" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">A Tartalomjegyzék lapfülön található beállítások</span></h3></div>
+<div class="region">
+<div class="contents"><p class="p">Ez a beállítási lap csak akkor érhető el, ha az Oldalszámok beállításai lapon található Oldalszámok engedélyezése jelölőnégyzet be van jelölve.</p></div>
+<div id="tartalomjegyzek_engedelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Tartalomjegyzék létrehozásának engedélyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ha ez a jelölőnégyzet be van jelölve, és a dokumentum tartalmaz címsor szövegstílus típussal  formázott címeket, a Braille-konverzió során a Braille dokumentumhoz tartalomjegyzék is elkészítésre kerül.
+</p>
+<p class="p">Ez a jelölőnégyzet a nyomdai kiadvány profilok esetén alapértelmezetten be van jelölve.
+</p>
+</div></div>
+</div></div>
+<div id="kitolto_karakter" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Kitöltő karakter</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ebben a szerkesztőmezőben tudja beállítani, hogy a tartalomjegyzékben található fejezetcímek és oldalszámok között milyen karakter kerüljön elhelyezésre.
+</p>
+<p class="p">Az alapértelmezett érték: ' (aposztróf).</p>
+</div></div>
+</div></div>
+<div id="tartalomjegyzek_elhelyezese" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Tartalomjegyzék elhelyezése</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">A kombinált listamező segítségével megadhatja, hogy a tartalomjegyzék a címlap után hányadik oldalra kerüljön elhelyezésre.
+</p>
+<p class="p">A választható lehetőségek: A címlap utáni oldalon, a címlap utáni második oldalon.
+</p>
+<p class="p">Ha az első lehetőséget választja, a tartalomjegyzék közvetlenül a címlap utáni oldalra kerül elhelyezésre.
+</p>
+<p class="p">Ha a második lehetőséget választja, akkor a címlap utáni páros oldal üres lesz, a tartalomjegyzék a következő páratlan oldalra kerül.</p>
+<p class="p">Az alapértelmezett beállítás: a címlap utáni oldalon.</p>
+</div></div>
+</div></div>
+<div id="tartalomjegyzek_oldalainak_szamozasa" class="sect"><div class="inner">
+<div class="hgroup"><h4 class="title"><span class="title">Tartalomjegyzék oldalainak számozása</span></h4></div>
+<div class="region"><div class="contents">
+<p class="p">Ennek a kombinált listamezőnek a segítségével beállíthatja a tartalomjegyzék alján elhelyezett Braille oldalszámok formátumát.
+</p>
+<p class="p">A választható lehetőségek: Nincs oldalszám, arab szám, római szám.</p>
+<p class="p">Az alapértelmezett beállítás: római szám.</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+</div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="kivetelszotar_letrehozasa.html" title="4. Kivételszótár létrehozása a gyakran használt kifejezések cseréjéhez">Előző</a><a class="nextlinks-next" href="fajlok_konvertalasa.html" title="6. A kész dokumentum Braille-dokumentumba konvertálása">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html" title="Az Infoalap Braille-szerkesztő bemutatása">Az Infoalap Braille-szerkesztő bemutatása</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>

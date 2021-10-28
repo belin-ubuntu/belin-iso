@@ -1,0 +1,441 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import subprocess
+import configparser
+import locale
+import gettext
+from optparse import OptionParser
+import time
+def getVar(fileName, sectionName, sectionKey):
+    config = configparser.ConfigParser()
+    if os.path.exists(fileName) == True:
+        try:
+            config.read(fileName)
+            return config.get(sectionName, sectionKey)
+        except:
+            return ""
+    else:
+        print(_('The config file is not exist.'))
+        sys.exit()
+        return ""
+
+def copycdstructure(iso):
+    print(_('Creating chroot work directory...'))
+    os.system('mkdir -p '+workdir)
+    print(_('Creating iso structure directory...'))
+    os.system('mkdir -p '+cddir)
+    print(_('mounting iso...'))
+    print(iso)
+    subprocess.getoutput('mount '+iso+' '+mountdir+' -o loop')
+    os.chdir(mountdir)
+    print(_('Copying original cd content...'))
+    os.system('rsync --exclude=/casper/filesystem.squashfs -a '+mountdir+'/ '+cddir+'/')
+    print(_('Extracting compressed squashfs file...'))
+    print(workdir)
+    os.chdir(workdir)
+    os.system('unsquashfs -no-progress '+mountdir+'/casper/filesystem.squashfs')
+    os.chdir (chrootextrafiles)
+    os.system('cp -r * '+workdir+'/squashfs-root')
+    os.chdir(optionalfileswithcdstructure)
+    os.system('cp -r * '+cddir+'/')
+    os.chdir(optionalfileswithcdstructure+'.'+options.arch)
+    os.system('cp -r * '+cddir+'/')
+    os.system('umount '+mountdir)
+
+def preparechroot():
+    #os.system('mount --bind /dev '+workdir+'/squashfs-root/dev')
+    os.system('chroot '+workdir+'/squashfs-root mount -t proc none /proc')
+    os.system('chroot '+workdir+'/squashfs-root mount -t sysfs none /sys')
+    os.system('chroot '+workdir+'/squashfs-root mount -t devpts none /dev/pts')
+    os.system('chroot '+workdir+'/squashfs-root mount -t tmpfs none /tmp')
+    os.system('chroot '+workdir+'/squashfs-root dpkg-divert --local --rename --add /etc/hosts;chroot '+workdir+'/squashfs-root dpkg-divert --local --rename --add /etc/resolv.conf')
+    os.system('cp /etc/hosts '+workdir+'/squashfs-root/etc;cp /etc/resolv.conf '+workdir+'/squashfs-root/etc')
+    os.system('chroot '+workdir+'/squashfs-root dbus-uuidgen --ensure 1>/dev/null 2>&1')
+    #os.system('chroot '+workdir+'/squashfs-root dpkg-divert --local --rename --add /usr/sbin/update-grub;chroot '+workdir+'/squashfs-root ln -s /bin/true /usr/sbin/update-grub')
+    #os.system('chroot '+workdir+'/squashfs-root dpkg-divert --local --rename --add /sbin/initctl;chroot '+workdir+'/squashfs-root dpkg-divert --local --rename --add /usr/sbin/update-grub;chroot '+workdir+'/squashfs-root ln -s /bin/true /sbin/initctl;chroot '+workdir+'/squashfs-root ln -s /bin/true /usr/sbin/update-grub')
+    if options.arch=='amd64':
+        os.system('chroot '+workdir+'/squashfs-root dpkg --add-architecture i386')
+
+def workinchroot():
+    home=os.getenv('HOME')
+    locale=os.getenv('LC_ALL')
+    os.environ['LC_ALL']='C'
+    os.environ['HOME']='/root'
+    try:
+        f=open(needremovepackages, "r")
+        packages=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needremovepackages))
+        sys.exit()
+    try:
+        f=open(needppalist, "r")
+        ppalist=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needppalist))
+        sys.exit()
+    print(_('adding required ppa repositories.'))
+    ppa=ppalist.split(' ')
+    for ppaname in ppa:
+        print(_('Adding %s PPA repository...') %(ppaname))
+        os.system('chroot '+workdir+'/squashfs-root add-apt-repository -y ppa:'+ppaname)
+    print(_('Updating repository informations...'))
+    os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
+    os.system('chroot '+workdir+'/squashfs-root chmod 7777 var/lib/update-notifier/package-data-downloads/partial')
+    os.system('chroot '+workdir+'/squashfs-root echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula boolean true |chroot '+workdir+'/squashfs-root debconf-set-selections')
+    os.system('chroot '+workdir+'/squashfs-root echo ttf-mscorefonts-installer msttcorefonts/http_proxy string  |chroot '+workdir+'/squashfs-root debconf-set-selections')
+    #os.system('chroot '+workdir+'/squashfs-root echo gdm3 shared/default-x-display-manager select lightdm |chroot '+workdir+'/squashfs-root debconf-set-selections')
+    #os.system('chroot '+workdir+'/squashfs-root echo lightdm shared/default-x-display-manager select lightdm |chroot '+workdir+'/squashfs-root debconf-set-selections')
+
+    if packages!="":
+        print(_('Purging unneed packages...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -qq -y purge '+packages)
+    os.system('chroot '+workdir+'/squashfs-root apt-get -qq -y autoremove --purge')
+    os.system('chroot '+workdir+'/squashfs-root rm -r usr/lib/python3/dist-packages/orca usr/lib/python3/dist-packages/gnome_sudoku usr/lib/python3/dist-packages/checkbox_ng usr/lib/python3/dist-packages/checkbox_support')
+    if (wouldlikedistupgrade=='yes') :
+        print(_('Downloading and installing all upgrades, please be patient...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -y -qq dist-upgrade')
+    else:
+        print(_('You not request distribution upgrade, this task not happening.'))
+    try:
+        f=open(needinstallpackages, "r")
+        packages=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needinstallpackages))
+        sys.exit()
+    if packages!='':
+        print(_('Downloading and installing you requested packages, please be patient...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -qq -y install '+packages)
+    os.environ['LC_ALL']='hu_HU.UTF-8'
+
+    os.system('chroot '+workdir+'/squashfs-root locale-gen;chroot '+workdir+'/squashfs-root update-locale LANGUAGE=hu_HU.UTF-8 LC_NUMERIC=hu_HU.utf8 LC_MEASUREMENT=hu_HU.utf8 LC_MONETARY=hu_HU.utf8 LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8')
+    #os.chdir(workdir+'/squashfs-root')
+    #k=subprocess.getoutput('chroot '+workdir+'/squashfs-root ls /lib/modules')
+    #kernelverzio=k.split('\n')
+    #kernelverzio.sort(reverse=True)
+    #if options.arch=='i386':
+        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
+    #else:
+        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
+    os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
+    print(_('Running extra commands...'))
+    try:
+        f=open(extra_commands, 'r')
+        line=f.readline()
+    except:
+        print(_('The %s file not exist.') %(extra_commands))
+    if line!='':
+        while (line!=''):
+            print(_('Running %s command...') %(line))
+            os.system('chroot '+workdir+'/squashfs-root '+line)
+            line=f.readline()
+    print(_('Making new initrd.gz...'))
+    #if (len(kernelverzio)>1):
+        #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
+    #else:
+        #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
+    os.system('cp '+workdir+'/squashfs-root/initrd.img '+cddir+'/casper/initrd.lz')
+    os.system('cp '+workdir+'/squashfs-root/vmlinuz '+cddir+'/casper/vmlinuz')
+    print(_('Cleaning, please wayt...'))
+
+    #if len(kernelverzio)>1:
+        #kernelcmd='chroot '+workdir+'/squashfs-root apt-get -y -qq purge '
+        #for i in range(0,len(kernelverzio)-1):
+            #kernelcmd=kernelcmd+'linux-image-'+kernelverzio[i]+' linux-headers-'+kernelverzio[i]+' linux-modules-'+kernelverzio[i]+' linux-modules-extra-'+kernelverzio[i]+' '
+        #os.system(kernelcmd)
+
+    #os.system('rm '+cddir+'/casper/initrd.lz;mv '+cddir+'/casper/initrd.gz '+cddir+'/casper/initrd.lz')
+    if os.path.exists(workdir+'/squashfs-root/root/.bash_history')==True:
+        os.system('rm '+workdir+'/squashfs-root/root/.bash_history')
+    volume=isovolumename
+    volume=volume.replace('-', ' ')
+    readme='#define DISKNAME  '+volume+'\n#define TYPE  binary\n#define TYPEbinary  1\n#define ARCH  '+options.arch+'\n#define ARCH'+options.arch+'  1\n#define DISKNUM  1\n#define DISKNUM1  1\n#define TOTALNUM  0\n#define TOTALNUM0  1'
+    f=open(cddir+'/README.diskdefines', 'w')
+    f.write(readme)
+    f.close()
+    os.system('rm '+cddir+'/ubuntu')
+    os.system('touch '+cddir+'/ubuntu')
+    os.system('mkdir -p '+cddir+'/.disk')
+    os.system('touch '+cddir+'/.disk/base_installable')
+    os.system('echo '+volume+'>'+cddir+'/.disk/info')
+    os.system('echo "full_cd/single" > '+cddir+'/.disk/cd_type')
+    os.system('echo "http://belin.hu" > '+cddir+'/.disk/release_notes_url')
+    if os.path.exists(cddir+'/.disk/casper-uuid-generic-pae'):
+        os.system('mv '+cddir+'/.disk/casper-uuid-generic-pae '+cddir+'/.disk/casper-uuid-generic')
+
+def cleanchroot():
+    os.chdir(workdir+'/squashfs-root')
+    os.system('chroot '+workdir+'/squashfs-root umount -lf /proc')
+    os.system('umount -lf '+workdir+'/squashfs-root/sys')
+    os.system('umount -lf '+workdir+'/squashfs-root/dev/pts')
+    os.system('umount -lf '+workdir+'/squashfs-root/tmp')
+    os.system('umount -lf '+workdir+'/squashfs-root/dev')
+    #os.system('chroot . rm /usr/sbin/update-grub;chroot . dpkg-divert --rename --remove /usr/sbin/update-grub')
+   #os.system('chroot . rm /sbin/initctl;chroot . dpkg-divert --rename --remove /sbin/initctl;chroot . rm /usr/sbin/update-grub;chroot . dpkg-divert --rename --remove /usr/sbin/update-grub')
+    os.system('chroot . apt-get autoremove --purge')
+    os.system('chroot '+workdir+'/squashfs-root rm /etc/hosts;chroot . dpkg-divert --rename --remove /etc/hosts;chroot '+workdir+'/squashfs-root rm /etc/resolv.conf;chroot . dpkg-divert --rename --remove /etc/resolv.conf')
+    os.system('chroot . rm /var/lib/dbus/machine-id')
+
+def generatelivecd():
+    os.chdir(workdir)
+    os.system('chroot squashfs-root dpkg-query -W --showformat=\'${Package} ${Version}\n\' >'+cddir+'/casper/filesystem.manifest')
+    remove='apt-clone archdetect-deb btrfs-tools casper cifs-utils dpkg-repack ecryptfs-utils gir1.2-json-1.0 gir1.2-timezonemap-1.0 gir1.2-xkl-1.0 jfsutils keyutils libdebconfclient0 libdebian-installer4 libecryptfs0 libgtkmm-2.4-1c2a libnss3-1d libreadline5 live-initramfs localechooser-data lupin-casper python-pyicu rdate realpath reiserfsprogs ubiquity casper ubiquity-frontend-gtk ubiquity-slideshow-ubuntu ubiquity-ubuntu-artwork user-setup wamerican xresprobe xfsprogs'
+    removelist=remove.split(' ')
+    f=open(cddir+'/casper/filesystem.manifest-remove', 'w')
+    for remove in removelist:
+        f.write(remove+'\n')
+    f.close()
+    os.system('printf $(sudo du -sx --block-size=1 '+workdir+'/squashfs-root | cut -f1) > '+cddir+'/casper/filesystem.size')
+    print(_('Creating new squashfs file...'))
+    os.system('mksquashfs squashfs-root '+cddir+'/casper/filesystem.squashfs -no-progress')
+    print(_('Creating md5sum.txt file with CD structure...'))
+    os.system('rm '+cddir+'/md5sum.txt')
+    os.chdir(cddir)
+    os.system('find . -type f -print0 | xargs -0 md5sum |grep -v isolinux/isolinux.bin >/tmp/md5sum.txt')
+    os.system('cp /tmp/md5sum.txt '+cddir+'/md5sum.txt')
+    print(_('Generating %s.iso file...') %(isovolumename))
+    os.system('sync')
+    if options.arch=='i386':
+        os.system('grub-mkrescue -d /usr/lib/grub/i386-pc -o '+isopath+'/'+isovolumename.lower()+'.iso -J -r -D -joliet-long -l -V "'+isovolumename+'" -iso-level 3 -no-emul-boot  -partition_offset 16 -boot-load-size 4 -boot-info-table .')
+    else:
+        os.system('grub-mkrescue -o '+isopath+'/'+isovolumename.lower()+'.iso -J -r -D -joliet-long -l -V "'+isovolumename+'" -iso-level 3 -no-emul-boot  -partition_offset 16 -boot-load-size 4 -boot-info-table .')
+    #os.system('mkisofs -q -r -V "'+isovolumename+'" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o '+isopath+'/'+isovolumename.lower()+'.iso .')
+    os.chdir(isopath)
+    #os.system('isohybrid '+isovolumename.lower()+'.iso')
+    os.system('md5sum '+isovolumename.lower()+'.iso >'+isopath+'/'+isovolumename.lower()+'.md5')
+    if wouldlikefinalburn=='yes':
+        print(_('Writing live CD/DVd...'))
+        if os.path.exists('/dev/cdrw') ==True:
+            os.system('umount /dev/cdrw')
+        os.system('cdrecord '+isopath+isovolumename.lower()+'.iso')
+
+def online_build(architecture):
+    print(_('Creating chroot work directory...'))
+    print('you requested '+architecture+' architecture build.')
+    os.system('mkdir -p '+workdir+'/squashfs-root')
+    print(_('Creating iso structure directory...'))
+    os.system('mkdir -p '+cddir)
+    chroot=workdir+'/squashfs-root'
+    print('Bootstrapping base system...')
+    os.system('debootstrap --arch='+options.build+' focal '+workdir+'/squashfs-root >/dev/NULL')
+    os.system('sudo mount --bind /dev '+chroot+'/dev')
+    os.system('cp /etc/hosts '+chroot+'/etc')
+    os.system('cp /etc/resolv.conf '+chroot+'/etc')
+    os.system('chroot '+chroot+' mount -t proc none /proc;chroot '+chroot+' mount -t sysfs none /sys;chroot '+chroot+' mount -t devpts none /dev/pts')
+    os.environ['HOME']='/root'
+    os.environ['LC_ALL']='C'
+    print('copying optional files with the chroot environment...')
+    os.chdir (chrootextrafiles)
+    os.system('cp -r * '+chroot)
+    os.chdir(optionalfileswithcdstructure)
+    os.system('cp -r * '+cddir+'/')
+    os.system('rm -r '+cddir+'/isolinux')
+    print('Update repository informations...')
+    os.system('chroot '+chroot+' apt-get -qq update')
+    os.system('chroot '+chroot+' apt-get -qq install --yes dbus')
+    os.system('chroot '+chroot+' dbus-uuidgen >'+chroot+'/var/lib/dbus/machine-id')
+    #os.system('chroot '+chroot+' dpkg-divert --local --rename --add /sbin/initctl;chroot '+chroot+' ln -s /bin/true /sbin/initctl')
+    if (wouldlikedistupgrade=='yes') :
+        print(_('Downloading and installing all upgrades, please be patient...'))
+        os.system('chroot '+chroot+' apt-get -qq -y dist-upgrade')
+    else:
+        print(_('You not request distribution upgrade, this task not happening.'))
+    print('Installing all required components with need the minimal standard system...')
+    os.system('chroot '+chroot+' apt-get install --yes ubuntu-standard ubuntu-minimal casper lupin-casper discover laptop-detect os-prober linux-image-generic linux-image-generic-signed grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso plymouth-x11')
+    print('Installing all required components with need the Desktop system...')
+    os.system('chroot '+chroot+' apt-get -qq install --yes ubuntu-desktop')
+    print('Installing installer related packages...')
+    os.system('chroot '+chroot+' apt-get -qq -y install ubiquity-frontend-gtk')
+    try:
+        f=open(needremovepackages, "r")
+        packages=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needremovepackages))
+        sys.exit()
+    try:
+        f=open(needppalist, "r")
+        ppalist=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needppalist))
+        sys.exit()
+    print(_('adding required ppa repositories.'))
+    ppa=ppalist.split(' ')
+    for ppaname in ppa:
+        print(_('Adding %s PPA repository...') %(ppaname))
+        os.system('chroot '+workdir+'/squashfs-root add-apt-repository -y ppa:'+ppaname)
+    print(_('Updating repository informations...'))
+    os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
+    if packages!="":
+        print(_('Purging unneed packages...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -qq -y purge '+packages)
+    if (wouldlikedistupgrade=='yes') :
+        print(_('Downloading and installing all upgrades, please be patient...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -y dist-upgrade')
+    else:
+        print(_('You not request distribution upgrade, this task not happening.'))
+    try:
+        f=open(needinstallpackages, "r")
+        packages=f.readline()
+        f.close()
+    except:
+        print(_('The %s file is not exist, the manufacture is aborted.') %(needinstallpackages))
+        sys.exit()
+    if packages!='':
+        print(_('Downloading and installing you requested packages, please be patient...'))
+        os.system('chroot '+workdir+'/squashfs-root apt-get -qq -y install '+packages)
+    os.system('chroot '+workdir+'/squashfs-root locale-gen hu_HU.UTF-8;chroot '+workdir+'/squashfs-root update-locale LANG=hu_HU.UTF-8 LANGUAGE=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8 LC_NUMERIC=hu_HU.UTF-8 LC_MONETARY=hu_HU.UTF-8 LC_MEASUREMENT=hu_HU.UTF-8')
+    os.system('chroot '+workdir+'/squashfs-root apt-get -qq clean;chroot '+workdir+'/squashfs-root apt-get -qq autoclean;chroot '+workdir+'/squashfs-root apt-get -y -qq autoremove --purge')
+    print(_('Running extra commands...'))
+    try:
+        f=open(extra_commands, 'r')
+        line=f.readline()
+    except:
+        print(_('The %s file not exist.') %(extra_commands))
+    if line!='':
+        while (line!=''):
+            print(_('Running %s command...') %(line))
+            os.system('chroot '+workdir+'/squashfs-root '+line)
+            line=f.readline()
+    if os.path.exists(workdir+'/squashfs-root/root/.bash_history')==True:
+        os.system('rm '+workdir+'/squashfs-root/root/.bash_history')
+    os.system('chroot '+chroot+' rm -rf /tmp/*')
+    os.system('chroot '+chroot+' rm /etc/resolv.conf')
+    os.system('chroot '+chroot+' umount -lf /proc')
+    os.system('chroot '+chroot+' umount -lf /sys')
+    os.system('chroot '+chroot+' umount -lf /dev/pts')
+    os.system('chroot '+chroot+' rm /var/lib/dbus/machine-id')
+    os.system('chroot '+chroot+' rm /sbin/initctl')
+    os.system('chroot '+chroot+' dpkg-divert --rename --remove /sbin/initctl')
+    os.system('umount -lf '+chroot+'/dev')
+    print('Preparing final CD manufacturing...')
+    os.system('mkdir -p '+cddir+'/casper '+cddir+'/isolinux '+cddir+'/install')
+    os.system('cp '+chroot+'/boot/memtest86+.bin '+cddir+'/install/memtest')
+    os.system('chroot '+chroot+' cp /initrd.img initrd.lz;chroot '+chroot+' cp vmlinuz vmlinuz.cd;mv '+chroot+'/initrd.lz '+cddir+'/casper;mv '+chroot+'/vmlinuz.cd '+cddir+'/casper/vmlinuz')
+    readme='#define DISKNAME  BeLin 6.0\n#define TYPE  binary\n#define TYPEbinary  1\n#define ARCH  '+options.build+'\n#define ARCH'+options.build+'  1\n#define DISKNUM  1\n#define DISKNUM1  1\n#define TOTALNUM  0\n#define TOTALNUM0  1'
+    f=open(cddir+'/README.diskdefines', 'w')
+    f.write(readme)
+    f.close()
+    os.system('touch '+cddir+'/ubuntu')
+    os.system('mkdir -p '+cddir+'/.disk')
+    os.system('touch '+cddir+'/.disk/base_installable')
+    os.system('echo "BeLin 6.0" > '+cddir+'/.disk/info')
+    os.system('echo "full_cd/single" > '+cddir+'/.disk/cd_type')
+    os.system('echo "http://belin.hu" > '+cddir+'/.disk/release_notes_url')
+
+#main program
+
+APP="cdmanufacture"
+DIR="/usr/share/locale"
+locale.setlocale(locale.LC_ALL, "")
+gettext.bindtextdomain(APP, DIR)
+gettext.textdomain(APP)
+gettext.install(APP, DIR)
+_=gettext.gettext
+parser = OptionParser(usage=_("usage: %prog [options] Iso filename"),
+version="%prog 1.0")
+parser.add_option("-a", "--architecture",
+action="store", type="string", dest="arch", help=_("Give build architecture (amd64 or i386)"))
+message=_("Using gived package list file to package installation")
+parser.add_option("-c", "--chroot-structure-dir",
+action="store", type="string", dest="chrootstructuredir",
+help=_("Give directory with containing optional files with need copying the chroot environment"))
+parser.add_option("-C", "--cd-structure-dir",
+action="store", type="string", dest="cdstructuredir",
+help=_("Give directory with containing optional files with need copying the destination cd structure directory"))
+parser.add_option("-d", "--default-language",
+action="store", type="string", dest="language",
+help=_("Give default language for live system"))
+parser.add_option("-e", "--extra-commands",
+action="store", type="string", dest="extracommandslist",
+help=_("using gived extra commands list file with commands need running the chroot environment before final CD generation"))
+parser.add_option("-i", "--install-packagelist",
+action="store", type="string", dest="installpackagelist",
+help=message)
+parser.add_option("-l", "--iso-label",
+action="store", type="string", dest="isolabel",
+help=_("Give final iso volume name"))
+parser.add_option("-o", "--output-iso-path",
+action="store", type="string", dest="outputisopath",
+help=_("Give final iso path"))
+parser.add_option("-r", "--remove-packagelist",
+action="store", type="string", dest="removepackagelist",
+help=_("Using list file to package purge operation"))
+parser.add_option("-O", "--online-build",
+action="store", type="string", dest="build",
+help=_("Do online build from the scratch"))
+(options, args) = parser.parse_args()
+if options.arch==None:
+    options.arch='i386'
+print(options.arch)
+workdir=getVar('/etc/cdmanufacture.conf', 'work', 'workdir')
+wouldlikedistupgrade=getVar('/etc/cdmanufacture.conf', 'work', 'wouldlikedistupgrade')
+if options.isolabel!=None:
+    options.isolabel=options.isolabel+'-'+options.arch
+    print('Iso name: '+options.isolabel)
+    isovolumename=options.isolabel
+else:
+    isovolumename=getVar('/etc/cdmanufacture.conf', 'iso', 'isovolume')+'-'+options.arch
+isopath=getVar('/etc/cdmanufacture.conf', 'iso', 'isopath')
+wouldlikefinalburn=getVar('/etc/cdmanufacture.conf', 'iso', 'wouldlikefinalburn')
+if options.language!=None:
+    print(options.language)
+    defaultlanguage=options.language
+else:
+    defaultlanguage=getVar('/etc/cdmanufacture.conf', 'iso', 'defaultlanguage')
+if options.installpackagelist!=None:
+    print(options.installpackagelist)
+    needinstallpackages=options.installpackagelist
+else:
+    needinstallpackages=getVar('/etc/cdmanufacture.conf', 'work', 'needinstallpackages')
+if options.removepackagelist!=None:
+    print(options.removepackagelist)
+    needremovepackages=options.removepackagelist
+else:
+    needremovepackages=getVar('/etc/cdmanufacture.conf', 'work', 'needremovepackages')
+needppalist=getVar('/etc/cdmanufacture.conf', 'work', 'needaddingppalist')
+cddir=getVar('/etc/cdmanufacture.conf', 'work', 'cddir')
+mountdir=getVar('/etc/cdmanufacture.conf', 'work', 'mountdir')
+if options.chrootstructuredir!=None:
+    chrootextrafiles=options.chrootstructuredir
+else:
+    chrootextrafiles=getVar('/etc/cdmanufacture.conf', 'work', 'chrootextrafiles')
+if options.cdstructuredir!=None:
+    optionalfileswithcdstructure=options.cdstructuredir
+else:
+    optionalfileswithcdstructure=getVar('/etc/cdmanufacture.conf', 'work', 'optionalfileswithcdstructure')
+if options.extracommandslist!=None:
+    extra_commands=options.extracommandslist
+else:
+    extra_commands=getVar('/etc/cdmanufacture.conf', 'work', 'extra_commands')
+if isopath=='':
+    isopath=os.getenv('HOME')+'/'
+else:
+    isopath=isopath+'/'
+if options.build!=None:
+    print(_('Begin manufacturing from the scratch, please be patient...'))
+    online_build(options.build)
+    generatelivecd()
+    sys.exit()
+if len(args)==0:
+    parser.error(_('You not give iso name, this parameter is need.'))
+    sys.exit()
+else:
+    iso=args[0]
+if os.path.exists(iso)!=True:
+    print(_('The %s iso file is not exist, or you missed the path or filename.') %(iso))
+    print(_('The manufacture is aborted, try again you run the command but correct the iso\nfile name or path.'))
+    sys.exit()
+print(_('Begin manufacturing...'))
+copycdstructure(iso)
+preparechroot()
+workinchroot()
+cleanchroot()
+generatelivecd()
+

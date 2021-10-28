@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>A BeLin és Ubuntu változatok karbantartásával kapcsolatos kérdések</TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20100531;9345400">
+	<META NAME="CHANGEDBY" CONTENT="Hammer Attila">
+	<META NAME="CHANGED" CONTENT="20121008;12531400">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 16pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 16pt }
+		P { margin-bottom: 0.21cm }
+		H2 { margin-bottom: 0.21cm; direction: ltr; color: #000000; widows: 0; orphans: 0 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: hu-HU; font-style: italic }
+		H2.cjk { font-family: "DejaVu Sans"; font-size: 14pt; so-language: zxx; font-style: italic }
+		H2.ctl { font-family: "DejaVu Sans"; font-size: 14pt; so-language: zxx; font-style: italic }
+		A:link { so-language: zxx }
+		CODE.cjk { font-family: "DejaVu Sans", monospace }
+		CODE.ctl { font-family: "Lohit Hindi", monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="hu-HU" DIR="LTR">
+<H1 CLASS="western">A BeLin és Ubuntu változatok karbantartásával
+kapcsolatos kérdések</H1>
+<H2 CLASS="western">Hogyan állíthatom helyre a Grub2
+rendszerbetöltőt, ha például újratelepítettem a Windows
+operációs rendszert?</H2>
+<P>A következő leírás az ubuntu.hu honlapon publikált Grub2 című
+beküldött útmutatóból származik, melyet Jezsoviczki Ádám
+fordított le magyar nyelvre. Ádám hozzájárulásával a Grub2
+útmutató helyreállításra vonatkozó fejezete hozzá lett
+igazítva a mini dokumentációhoz.</P>
+<P>Ha például újra telepítette a Windows operációs rendszerét
+és a Windows felülírta a Grub2 rendszerbetöltőt a merevlemez
+Master Boot rekordjában, a következő lépések segítségével
+tudja helyreállítani a Grub2 rendszerbetöltőt:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Bootoljon be egy BeLin 3.0 live
+	DVD-ről. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Indítsa el a gnome-terminal
+	alkalmazást a Ctrl+Alt+t billentyűparancs segítségével, vagy az
+	ALT+F1 billentyűkombináció lenyomása után válassza a Kellékek
+	menü Terminál menüpontját. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">A sudo `fdisk -l` parancs
+	segítségével állapítsa meg, hogy melyik a rendszer partíció.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Ha nem biztos az adatok
+	helyességében, futtassa a `df -Th` parancsot. Figyeljen a lemez
+	méretére, és hogy ext3, vagy ext4 fájlrendszerű -e a lemez. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Csatolja fel a helyes rendszer
+	partíciót a következő parancs segítségével:<BR><CODE CLASS="western">sudo
+	mount /dev/sdXX /mnt</CODE> 
+	</P>
+	<P STYLE="margin-bottom: 0cm">Megjegyzés: helyettesítse be a
+	megfelelő partíciót (sda1, sdb5, stb.).</P>
+	<P STYLE="margin-bottom: 0cm">Megjegyzés: A GRUB 2 az első eszközt
+	&quot;0&quot;-ként számozza, de az első partíciót &quot;1&quot;-ként
+		</P>
+	<LI><P STYLE="margin-bottom: 0cm">A következő parancsot csak akkor
+	kell végrehajtania, ha külön boot partíciót adott meg a
+	telepítéskor, Az sdYY helyére a /boot partíció tényleges
+	helyét írja be:<BR><CODE CLASS="western">sudo mount /dev/sdYY
+	/mnt/boot</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Eszközök felcsatolása:<BR><CODE CLASS="western">sudo
+	mount --bind /dev/ /mnt/dev</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">A következő parancs segítségével
+	hozzon létre egy chroot környezetet, mellyel az előzetesen
+	felcsatolt rendszerpartícióba kerül:<BR><CODE CLASS="western">sudo
+	chroot /mnt</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Telepítse újra a Grub2
+	rendszerbetöltőt a következő parancs segítségével,
+	helyettesítse be a megfelelő fő partíciót, partíció számot
+	nem kell megadnia:<BR><CODE CLASS="western">sudo grub-install
+	/dev/sdX</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">A következő parancs segítségével
+	Ellenőrizze a telepítést, helyettesítse be a megfelelő
+	partíciót (/dev/sda, /dev/sdb, stb.):<BR><CODE CLASS="western">sudo
+	grub-install --recheck /dev/sdX</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">A Ctrl+d billentyű lenyomásával
+	lépjen ki a chroot környezetből.</P>
+	<LI><P STYLE="margin-bottom: 0cm">A következő parancsok
+	segítségével csatolja le a felcsatolt eszközöket:<BR><CODE CLASS="western">sudo
+	umount /mnt/dev</CODE></P>
+	<LI><P STYLE="margin-bottom: 0cm">Ha felcsatolta a külön /boot
+	partíciót, futtassa a következő parancsot:<BR><CODE CLASS="western">sudo
+	umount /mnt/boot</CODE> 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Csatolja le a rendszer
+	partíciót:<BR><CODE CLASS="western">sudo umount /mnt</CODE> 
+	</P>
+	<LI><P>Indítsa újra a számítógépét, a Grub2 helyre lett
+	állítva.</P>
+</UL>
+<P>A Grub2 rendszerbetöltővel kapcsolatos bővebb információt a
+<A HREF="http://ubuntu.hu/node/13573">Grub2 útmutatóban</A> talál.</P>
+<P><A HREF="gyik.html">Vissza a gyakran ismételt kérdések oldalra</A></P>
+</BODY>
+</HTML>

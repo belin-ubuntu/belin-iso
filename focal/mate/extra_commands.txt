@@ -1,0 +1,16 @@
+patch -p0 </workdir/edit/squashfs-root/30-accessibility.patch
+ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+rm 30-accessibility.patch
+rm boot/grub/grub.cfg
+rm var/crash/*
+rm -r /usr/lib/python3/dist-packages/plainbox
+chmod +x usr/bin/ertesito
+apt-get -y install `check-language-support -l en`
+apt-get -y purge gdm3 indicator-sound
+apt-get -y install `check-language-support -l hu`
+apt-get update
+apt-get -y dist-upgrade
+apt-get clean
+apt-get autoclean
+chown -hR lightdm:lightdm /var/lib/lightdm

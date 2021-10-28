@@ -1,0 +1,34 @@
+d-i debian-installer/add-kernel-opts string xforcevesa nomodeset b43.blacklist=yes noapic irqpoll noacpi nosplash quiet 
+#Enable partner repository
+d-i	apt-setup/partner	boolean true
+#Setting system locale and keyboard
+d-i debian-installer/locale string hu_HU.UTF-8
+d-i localechooser/supported-locales hu_HU.UTF-8
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/layoutcode string hu
+d-i clock-setup/utc boolean false
+d-i time/zone string Europe/Budapest
+d-i clock-setup/ntp boolean true
+d-i clock-setup/ntp-server string hu.pool.ntp.org
+d-i pkgsel/language-packs multiselect hu
+keyboard-configuration	keyboard-configuration/layout	select	Magyar
+#Turn off Ubiquity slideshow presenting
+ubiquity	ubiquity/hide_slideshow	boolean	false
+tasksel	tasksel/first	multiselect belin-mate-desktop gnome-online-accounts
+d-i ubiquity/use_nonfree boolean true
+ubiquity	disk-detect/activate_mdadm	boolean	true
+ubiquity	apt-setup/partner	boolean	true
+ubiquity	apt-setup/restricted	boolean	true
+ubiquity	apt-setup/universe	boolean	true
+ubiquity	apt-setup/multiverse	boolean	true
+ubiquity	apt-setup/contrib	boolean	true
+ubiquity	apt-setup/backports	boolean	true
+ubiquity	apt-setup/non-free	boolean	true
+ubiquity	apt-setup/enable-source-repositories	boolean	true
+
+# On live DVDs, don't spend huge amounts of time removing substantial
+# application packages pulled in by language packs. Given that we clearly
+# have the space to include them on the DVD, they're useful and we might as
+# well keep them installed.
+ubiquity	ubiquity/keep-installed	string icedtea6-plugin openoffice.org
+ubiquity ubiquity/success_command string python3 /usr/bin/examine_grub;mount --bind /dev /target/dev;mount -t proc none /target/proc;mount -t sysfs none /target/sys;chroot /target apt-get -y autoremove --purge;chroot /target update-grub;rm /target/usr/bin/examine_grub

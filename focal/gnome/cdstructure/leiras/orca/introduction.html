@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Üdvözöljük az Orkában</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#getting_started" title="Kezdeti lépések">Kezdeti lépések</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks"><a class="nextlinks-next" href="howto_setting_up_orca.html" title="Az Orka beállítása">Következő</a></div>
+<div class="hgroup"><h1 class="title"><span class="title">Üdvözöljük az Orkában</span></h1></div>
+<div class="region">
+<div class="contents">
+<p class="p">Az <span class="app">Orka</span> egy rugalmas, nyílt forráskódú, bővíthető és hatékony képernyőolvasó, amely a beszéd- és Braille-támogatás felhasználó által személyre szabható kombinációjának használatával teszi elérhetővé az asztali környezetet.</p>
+<p class="p">Az <span class="app">Orka</span> együttműködik azokkal az alkalmazásokkal és eszközkészletekkel, amelyek támogatják az Assistive Technology Service Provider Interface (AT-SPI) szabványt, amely az elsődleges akadálymentesítési infrastruktúra Linuxhoz és Solarishoz. Az AT-SPI szabványt támogató alkalmazások és eszközkészletek például a GNOME GTK+ eszközkészlete, a Java platform Swing eszközkészlete, a LibreOffice, a Gecko, és a WebKitGtk. Az AT-SPI szabvány támogatása a KDE Qt eszközkészlethez még nem valósult meg.</p>
+</div>
+<div id="launching" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Az <span class="app">Orka</span> elindítása</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Az <span class="app">Orka</span> elindításához tegye a következőket:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Az <span class="app">Orka</span> automatikus elindulását attól függően más és más módon állíthatja be, hogy milyen asztali környezetet használ. GNOME 3.x asztali környezet esetén például ezt a beállítást a <span class="app">Rendszerbeállítások</span> Akadálymentesítés panelének <span class="app">Látás</span> lapján találja meg.</p></li>
+<li class="list"><p class="p">Ha a GNOME asztali környezet használata közben szeretné be- vagy kikapcsolni az <span class="app">Orka</span> képernyőolvasót, nyomja le a <span class="keyseq"><span class="key"><kbd>STARTGOMB</kbd></span>+<span class="key"><kbd>ALT</kbd></span>+<span class="key"><kbd>S</kbd></span></span> billentyűkombinációt.</p></li>
+<li class="list"><p class="p">Gépelje be az <span class="cmd">orca</span> parancsot egy terminál ablakban vagy a <span class="gui">Futtatás</span> párbeszédablakban, ha szükséges adja meg a megfelelő paramétereket, majd nyomja meg az <span class="key"><kbd>Enter</kbd></span> billentyűt.</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div id="loadtime" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Betöltéssel kapcsolatos opciók</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Az <span class="app">Orka</span> elindításakor a következő opciókat használhatja a terminál alkalmazásban és a <span class="gui">Futtatás</span> párbeszédablakban:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="cmd">-h</span>, <span class="cmd">--help</span>: Megjelenít egy súgóüzenetet</p></li>
+<li class="list"><p class="p"><span class="cmd">-v</span>, <span class="cmd">--version</span>: Megjeleníti az <span class="app">Orka</span> verziószámát</p></li>
+<li class="list"><p class="p"><span class="cmd">-s</span>, <span class="cmd">--setup</span>: Felhasználói beállítások megadása</p></li>
+<li class="list"><p class="p"><span class="cmd">-u</span>, <span class="cmd">--user-prefs=<span class="em">könyvtárnév</span></span>: Alternatív <span class="em">könyvtárnév</span> használata a felhasználói beállítások tárolásához</p></li>
+<li class="list">
+<p class="p"><span class="cmd">-e</span>, <span class="cmd">--enable=<span class="em">opció</span></span>: Egy opció használatának kikényszerítése, ahol az <span class="em">opció</span> a következők egyike lehet:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="cmd">speech</span></p></li>
+<li class="list"><p class="p"><span class="cmd">braille</span></p></li>
+<li class="list"><p class="p"><span class="cmd">braille-monitor</span></p></li>
+</ul></div></div></div>
+</li>
+<li class="list">
+<p class="p"><span class="cmd">-d</span>, <span class="cmd">--disable=<span class="em">opció</span></span>: Egy opció használatának kizárása, ahol az <span class="em">opció</span> a következők egyike lehet:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p"><span class="cmd">speech</span></p></li>
+<li class="list"><p class="p"><span class="cmd">braille</span></p></li>
+<li class="list"><p class="p"><span class="cmd">braille-monitor</span></p></li>
+</ul></div></div></div>
+</li>
+<li class="list"><p class="p"><span class="cmd">-p</span>, <span class="cmd">--profile=<span class="em">fájlnév</span></span>: Profil importálása a megadott <span class="app">Orka</span> profilfájlból</p></li>
+<li class="list"><p class="p"><span class="cmd">-r</span>, <span class="cmd">--replace</span>: Lecseréli a jelenleg futó <span class="app">Orka</span> folyamatot</p></li>
+<li class="list"><p class="p"><span class="cmd">-l</span>, <span class="cmd">--list-apps</span>: Az ismert futó alkalmazások kiírása</p></li>
+<li class="list"><p class="p"><span class="cmd">--debug</span>: A hibakövetési információk mentése a debug-ÉÉÉÉ-HH-NN-ÓÓ:PP:MM.out fájlba</p></li>
+<li class="list"><p class="p"><span class="cmd">--debug-file=<span class="em">fájlnév</span></span>: A hibakövetési információk mentése a megadott fájlba</p></li>
+</ul></div></div></div>
+</div></div>
+</div></div>
+<div class="links nextlinks"><a class="nextlinks-next" href="howto_setting_up_orca.html" title="Az Orka beállítása">Következő</a></div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#getting_started" title="Kezdeti lépések">Kezdeti lépések</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"><div class="sect about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
+<div class="region"><div class="contents">
+<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
+<div class="aboutblurb authors">
+<div class="title"><span class="title">Írta</span></div>
+<ul class="credits"><li>Joanmarie Diggs</li></ul>
+</div>
+<div class="aboutblurb translators">
+<div class="title"><span class="title">Fordította</span></div>
+<ul class="credits"><li>Hammer Attila</li></ul>
+</div>
+<div class="aboutblurb license">
+<div class="title"><span class="title">Licenc</span></div>
+<div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div></body>
+</html>

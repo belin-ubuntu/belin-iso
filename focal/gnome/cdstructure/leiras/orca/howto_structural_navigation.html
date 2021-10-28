@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Strukturált navigáció</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="howto_text_attributes.html" title="Szövegattribútumok">Előző</a><a class="nextlinks-next" href="howto_tables.html" title="Táblázatok">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">Strukturált navigáció</span></h1></div>
+<div class="region">
+<div class="contents">
+<p class="p">Az <span class="app">Orka</span> strukturált navigáció funkciója lehetővé teszi a gyors navigálást a leggyakrabban előforduló elemek között egy dokumentumban. Néhány elemtípus, melyek között egyszerűen navigálhat:</p>
+<div class="list"><div class="inner"><div class="region"><ul class="list">
+<li class="list"><p class="p">Címsorok és egyéb szövegblokkok</p></li>
+<li class="list"><p class="p">Űrlapvezérlők</p></li>
+<li class="list"><p class="p">Hivatkozások</p></li>
+<li class="list"><p class="p">Listák és listaelemek</p></li>
+<li class="list"><p class="p">Jelölők, elválasztók és iránypontok</p></li>
+<li class="list"><p class="p">Táblázatok és táblázatcellák</p></li>
+</ul></div></div></div>
+<p class="p">Az elemek teljes listájáról és a hozzájuk társított navigációs billentyűparancsokról a <span class="link"><a href="commands_structural_navigation.html" title="A strukturált Orka navigáció billentyűparancsai">Strukturált navigációval kapcsolatos parancsok</a></span> című fejezetben talál információkat.</p>
+</div>
+<div id="applications" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Támogatott alkalmazások</span></h2></div>
+<div class="region">
+<div class="contents">
+<p class="p">Jelenleg az <span class="app">Orka</span> strukturált navigációja teljesen implementálva lett a webes tartalmakhoz, beleértve a súgótartalmakat is (amit most éppen olvas). Az <span class="app">Orka</span> strukturált navigáció táblázatokkal kapcsolatos navigálási lehetőségei is teljesen meg lettek valósítva az <span class="app">Openoffice.org szövegszerkesztőhöz</span> és a <span class="app">Libreoffice szövegszerkesztőhöz</span>. A többi strukturált navigációs objektum implementálása ezekhez az irodai alkalmazásokhoz szükségessé teszi az alkalmazás fejlesztőivel való együttműködést. Bármilyen strukturált navigációval kapcsolatos funkció implementálása, például az <span class="app">Evince</span> alkalmazáshoz ugyanezt az együttműködést igényli az alkalmazás fejlesztői részéről.</p>
+<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="title title-note"><h3><span class="title">Ne felejtse el bekapcsolni a strukturált Orka navigációt!</span></h3></div>
+<div class="region"><div class="contents"><p class="p">Attól függően, hogy milyen alkalmazást használ, szükség lehet az <span class="app">Orka</span> strukturált navigációjának bekapcsolására, mielőtt azt használni tudná.</p></div></div>
+</div></div>
+</div>
+<div id="toggling_required" class="sect"><div class="inner">
+<div class="hgroup"><h3 class="title"><span class="title">Amikor mindenképpen szükséges a strukturált Orka navigáció bekapcsolása</span></h3></div>
+<div class="region"><div class="contents">
+<p class="p">A weboldalakon szükségtelen külön bekapcsolni a strukturált Orka navigációt, mivel jórészt a dokumentumtartalmakat csak olvassa. Vagyis, nem kérdés, hogy az Ön által lenyomott H billentyű egy beírási parancsot, vagy navigálási parancsot jelent-e, ez egyértelműen eldönthető.</p>
+<p class="p">Más a helyzet akkor, ha egy szerkeszthető dokumentummal dolgozik az <span class="app">OpenOffice</span> vagy <span class="app">LibreOffice</span> szövegszerkesztőkben, az <span class="app">Orka</span> nem fogja tudni egyértelműen meghatározni, hogy milyen műveletet akart végrehajtani, amikor lenyomta a H billentyűt. Vagyis, mielőtt bármilyen strukturált navigációs parancsot használni szeretne egy szerkeszthető dokumentumban, mindenképpen be kell először kapcsolnia a strukturált <span class="app">Orka</span> navigációt az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>Z</kbd></span></span> billentyűkombinációval. Ha befejezte a navigációt, és szeretné folytatni a dokumentum szerkesztését, kapcsolja ki az <span class="app">Orka</span> strukturált navigációt az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>Z</kbd></span></span> billentyűkombinációval.</p>
+</div></div>
+</div></div>
+</div>
+</div></div>
+<div id="settings" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Az elérhető beállítások</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">A fentebb említett parancsokon kívül az <span class="app">Orka</span> számos testreszabható beállítással rendelkezik azokhoz az alkalmazásokhoz, melyekhez támogatott az <span class="app">Orka</span> strukturált navigáció.</p>
+<div class="steps"><div class="inner">
+<div class="title title-steps"><h3><span class="title">A strukturált Orka navigáció beállítása</span></h3></div>
+<div class="region"><ol class="steps">
+<li class="steps"><p class="p">Hozza fókuszba azt az alkalmazást, amelyhez az <span class="app">Orka</span> támogatja a strukturált navigációt.</p></li>
+<li class="steps"><p class="p">Nyomja le az <span class="keyseq"><span class="key"><kbd>Orka módosító</kbd></span>+<span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>Szóköz</kbd></span></span> billentyűkombinációt, ezzel megnyitja az <span class="link"><a href="preferences.html" title="Az Orka beállító párbeszédablakai">Orka beállítások</a></span> párbeszédablakát a fókuszban levő alkalmazáshoz.</p></li>
+<li class="steps"><p class="p">Lépjen a párbeszédablak utolsó lapjára, amelynek neve megegyezik az éppen használt alkalmazás nevével.</p></li>
+<li class="steps"><p class="p">Nézze át a rendelkezésre álló beállításokat, és ha szükséges, szabja személyre azokat.</p></li>
+<li class="steps"><p class="p">Ha végzett, nyomja meg az <span class="gui">OK</span> gombot.</p></li>
+</ol></div>
+</div></div>
+</div></div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="howto_text_attributes.html" title="Szövegattribútumok">Előző</a><a class="nextlinks-next" href="howto_tables.html" title="Táblázatok">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"><div class="sect about ui-expander" role="contentinfo">
+<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="inner">
+<div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
+<div class="region"><div class="contents">
+<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
+<div class="aboutblurb authors">
+<div class="title"><span class="title">Írta</span></div>
+<ul class="credits"><li>Joanmarie Diggs</li></ul>
+</div>
+<div class="aboutblurb translators">
+<div class="title"><span class="title">Fordította</span></div>
+<ul class="credits"><li>Hammer Attila</li></ul>
+</div>
+<div class="aboutblurb license">
+<div class="title"><span class="title">Licenc</span></div>
+<div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div></body>
+</html>

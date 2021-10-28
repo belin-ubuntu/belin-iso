@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>4. Kivételszótár létrehozása a gyakran használt kifejezések cseréjéhez</title>
+<link rel="stylesheet" type="text/css" href="hu.css">
+<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+</head>
+<body lang="hu" dir="ltr"><div class="page" role="main">
+<div class="header"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Az Infoalap Braille-szerkesztő bemutatása">Az Infoalap Braille-szerkesztő bemutatása</a> » </div></div></div>
+<div class="body">
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="formazasok_vegrehajtasa.html" title="3. Szövegformázások alkalmazása a szerkesztés alatt álló dokumentumban">Előző</a><a class="nextlinks-next" href="beallitasok_megvaltoztatasa.html" title="5. Az Infoalap Braille-szerkesztő beállításainak megváltoztatása">Következő</a>
+</div>
+<div class="hgroup"><h1 class="title"><span class="title">4. Kivételszótár létrehozása a gyakran használt kifejezések cseréjéhez</span></h1></div>
+<div class="region">
+<div class="contents">
+<p class="p">Az <span class="app">Infoalap Braille-szerkesztő</span> által használható kivételszótár-fájlok egyszerű szövegfájlok, amelyek bármely szövegszerkesztővel létrehozhatók. A szótárfájlokat .kiv kiterjesztésű állományként kell mentenie a saját felhasználói mappájába.
+</p>
+<p class="p">A szótárfájlok szerkezete egyszerű, az egyenlőségjel bal oldalán található szövegrész az eredeti-, a jobb oldali szövegdarab pedig a csere kifejezés. Az eredeti- és a cserekifejezéseket elegendő kisbetűs formában megadnia, minden szótárbejegyzést új sor karakterrel kell lezárnia.
+</p>
+<p class="p">Az alábbiakban megismerheti a használható lehetőségeket</p>
+</div>
+<div id="normal_kifejezesek_hozzaadasa" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Hagyományos cserepár hozzáadása a szótárfájlhoz</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">Ha egy kifejezést vagy szövegrészt a Braille-konverzió előtt másik szövegdarabra kíván kicserélni, használja a következő formát:
+</p>
+<div class="code"><pre class="contents ">eredeti kifejezés=csere kifejezés</pre></div>
+<p class="p">Ez a lehetőség pl. abban az esetben hasznos, ha hosszabb szöveget kell rendszeresen rövidített formára cserélnie.
+</p>
+<p class="p">Az <span class="code">alma=körte</span> szótárbejegyzés azt eredményezi, hogy a Braille-konverzió előtt minden "alma" ki lesz cserélve "körte" szövegrészre, függetlenül attól, hogy a szöveg kis vagy nagybetűket tartalmaz.
+</p>
+</div></div>
+</div></div>
+<div id="braille_kivetelek_alkalmazasa" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">Braille kivételek hozzáadása a szótárfájlhoz</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">A Braille-kivételek megadása hasonló módon történik, mint a hagyományos cserepárok bejegyzése, az eredeti- és cserekifejezéseket elegendő kisbetűvel megadnia. A különbség annyiból áll, hogy a cserekifejezésnél függőleges vonal jellel kell megadnia azt a pontot, ahol a lefordított Braille-kifejezésnél törést kell végrehajtani.
+</p>
+<p class="p">Ez a lehetőség abban az esetben hasznos, ha magyar kettős és hármas betűket tartalmazó szó esetén a fordítást végző <span class="app">Liblouis</span> fordítótábla nem tartalmazza az azzal kapcsolatos kivételt, és helytelen Braille-alak kerül megjelenítésre a konverzió után. Ha pl. olyan nevet kíván helyesen megjeleníteni, ami két t és egy y betűt tartalmaz, a cserekifejezés megfelelő pozíciójában az y betű elé szúrjon be egy függőleges vonal jelet.
+</p>
+<p class="p">A következő szótárbejegyzés ilyen típusú esetre mutat példát:</p>
+<div class="code"><pre class="contents ">hússzív=hús|szív</pre></div>
+<p class="p">A Braille-kivételszótár-bejegyzések feldolgozása a konverzió végrehajtása után történik meg. Lefordításra kerülnek a szótárbejegyzések eredeti- és cserekifejezései, a végleges dokumentumba beszúrásra kerülnek a javított Braille-szövegrészek.
+</p>
+</div></div>
+</div></div>
+<div id="kivetelszotar_kivalasztasa" class="sect"><div class="inner">
+<div class="hgroup"><h2 class="title"><span class="title">A Braille-konverzió során használni kívánt kivételszótár beállítása</span></h2></div>
+<div class="region"><div class="contents">
+<p class="p">A Braille-konverzió során használni kívánt szótárfájlt a <span class="gui">Szerkesztés</span> menü, <span class="gui">Beállítások</span> menüpontjának kiválasztása után állíthatja be az <span class="gui">Általános</span> lapfülön található <span class="gui">Kivétel szótár</span> kombinált listamező segítségével.
+</p>
+<p class="p">A <span class="gui">Beállítások</span> párbeszédablakot bármikor megjelenítheti, ha lenyomja a <span class="keyseq"><span class="key"><kbd>CTRL</kbd></span>+<span class="key"><kbd>SHIFT</kbd></span>+<span class="key"><kbd>P</kbd></span></span> billentyűkombinációt.
+</p>
+<p class="p">A következő részben további információkat találhat az <span class="app">Infoalap Braille-szerkesztő</span> Beállítások párbeszédablakáról.
+</p>
+</div></div>
+</div></div>
+<div class="links nextlinks">
+<a class="nextlinks-prev" href="formazasok_vegrehajtasa.html" title="3. Szövegformázások alkalmazása a szerkesztés alatt álló dokumentumban">Előző</a><a class="nextlinks-next" href="beallitasok_megvaltoztatasa.html" title="5. Az Infoalap Braille-szerkesztő beállításainak megváltoztatása">Következő</a>
+</div>
+<div class="sect sect-links" role="navigation">
+<div class="hgroup"></div>
+<div class="contents"><div class="links guidelinks"><div class="inner">
+<div class="title"><h2><span class="title">További információk</span></h2></div>
+<div class="region"><ul><li class="links "><a href="index.html" title="Az Infoalap Braille-szerkesztő bemutatása">Az Infoalap Braille-szerkesztő bemutatása</a></li></ul></div>
+</div></div></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer"></div>
+</div></body>
+</html>
