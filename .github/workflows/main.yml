@@ -13,9 +13,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build
-        run: |
-wget -O focal_mate.iso https://cdimages.ubuntu.com/ubuntu-mate/releases/20.04.3/release/ubuntu-mate-20.04.3-desktop-amd64.iso
-          ./build.sh -
+        run: ./build.sh
+
       - name: Compress
         run: |
           gzip belin_iso/belin-7.0-mate-amd64.iso
