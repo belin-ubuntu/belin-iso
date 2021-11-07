@@ -1,4 +1,4 @@
-patch -p0 </workdir/edit/squashfs-root/30-accessibility.patch
+patch -p0 </home/runner/work/belin-iso/belin-iso/workdir/edit/squashfs-root/30-accessibility.patch
 ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 rm 30-accessibility.patch

@@ -119,7 +119,7 @@ def workinchroot():
     #kernelverzio=k.split('\n')
     #kernelverzio.sort(reverse=True)
     #if options.arch=='i386':
-        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
+        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     #else:
         #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
     os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
@@ -140,7 +140,7 @@ def workinchroot():
     #else:
         #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
     os.system('cp '+workdir+'/squashfs-root/initrd.img '+cddir+'/casper/initrd.lz')
-    os.system('cp '+workdir+'/squashfs-root/vmlinuz '+cddir+'/casper/vmlinuz')
+    os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     print(_('Cleaning, please wayt...'))
 
     #if len(kernelverzio)>1:
