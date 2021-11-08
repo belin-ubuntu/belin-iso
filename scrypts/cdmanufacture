@@ -139,7 +139,7 @@ def workinchroot():
         #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
     #else:
         #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
-    os.system('cp '+workdir+'/squashfs-root/initrd.img '+cddir+'/casper/initrd.lz')
+    os.system('cp '+workdir+'/squashfs-root/boot/initrd.img '+cddir+'/casper/initrd.lz')
     os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     print(_('Cleaning, please wayt...'))
 

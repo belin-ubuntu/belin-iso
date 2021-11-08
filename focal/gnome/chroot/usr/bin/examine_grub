@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+#!coding: utf-8
+import os
+f=open('/proc/cmdline', 'r')
+par=f.read()
+parameters=par.split(' ')
+f=open('/target/etc/default/grub', 'r')
+text=f.read()
+f.close()
+volt_valtoztatas=False
+if 'nomodeset' in parameters and 'xforcevesa' in parameters:
+    info='A rendszer a kompatibilis beállítások segítségével lett feltelepítve.'
+    text=text.replace('quiet splash', 'quiet splash xforcevesa nomodeset b43.blacklist=yes noapic irqpoll')
+    volt_valtoztatas=True
+if 'nomodeset' in parameters and 'xforcevesa' not in parameters:
+    info='A rendszer a nomodeset kernelparaméterrel lett feltelepítve.'
+    text=text.replace('quiet splash', 'quiet splash nomodeset')
+    volt_valtoztatas=True
+if 'nomodeset' not in parameters and 'xforcevesa' not in parameters:
+    info='A rendszer az alapbeállítások használatával lett telepítve.'
+if text.__contains__('GRUB_CMDLINE_LINUX="access=blind country=hu locale=hu_HU.UTF-8"'):
+    text=text.replace('GRUB_CMDLINE_LINUX="access=blind country=hu locale=hu_HU.UTF-8"', 'GRUB_CMDLINE_LINUX=""')
+    volt_valtoztatas=True
+if text.__contains__('#GRUB_INIT_TUNE="480 440 1"'):
+    text=text.replace('#GRUB_INIT_TUNE="480 440 1"', 'GRUB_INIT_TUNE="480 440 1"')
+    volt_valtoztatas=True
+if text.__contains__('lsb_release -i'):
+    text=text.replace('lsb_release -i -s 2> /dev/null || echo Debian', 'lsb_release -d -s')
+    text=text.replace('lsb_release -i -s 2> /dev/null', 'lsb_release -d -s')
+    volt_valtoztatas=True
+if text.__contains__('#GRUB_GFXMODE=640x480'):
+    text=text.replace('#GRUB_GFXMODE=640x480', 'GRUB_GFXMODE=640x480')
+    volt_valtoztatas=True
+if text.__contains__('#GRUB_DISABLE_RECOVERY="true"'):
+    text=text.replace('#GRUB_DISABLE_RECOVERY="true"', 'GRUB_DISABLE_RECOVERY="true"')
+    volt_valtoztatas=True
+if not text.__contains__('GRUB_DISABLE_SUBMENU=y'):
+    text=text+'GRUB_DISABLE_SUBMENU=y'
+    volt_valtoztatas=True
+if volt_valtoztatas:
+    f=open('/target/etc/default/grub', 'w')
+    f.write(text)
+f.close()
+if os.path.exists('/target/boot/efi/EFI/belin'):
+    os.system('cp /target/boot/efi/EFI/belin/* /target/boot/efi/EFI/ubuntu')
+    os.system('rm -r /target/boot/efi/EFI/belin')
+
