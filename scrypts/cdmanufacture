@@ -417,6 +417,7 @@ else:
 if isopath=='':
     isopath=os.getenv('HOME')+'/'
 else:
+    os.system('mkdir -p '+isopath')
     isopath=isopath+'/'
 if options.build!=None:
     print(_('Begin manufacturing from the scratch, please be patient...'))
