@@ -15,9 +15,6 @@ jobs:
       - name: Build
         run: sudo ./build.sh
 
-      - name: Compress
-        run: |
-          gzip /home/runner/work/belin-iso/belin-iso/belin_iso/belin-7.0-mate-amd64.iso
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
