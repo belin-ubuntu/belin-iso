@@ -185,7 +185,7 @@ def generatelivecd():
     os.system('mkdir -p '+isopath)
     os.chdir(workdir)
     os.system('chroot squashfs-root dpkg-query -W --showformat=\'${Package} ${Version}\n\' >'+cddir+'/casper/filesystem.manifest')
-    remove='apt-clone archdetect-deb btrfs-tools casper cifs-utils dpkg-repack ecryptfs-utils gir1.2-json-1.0 gir1.2-timezonemap-1.0 gir1.2-xkl-1.0 jfsutils keyutils libdebconfclient0 libdebian-installer4 libecryptfs0 libgtkmm-2.4-1c2a libnss3-1d libreadline5 live-initramfs localechooser-data lupin-casper python-pyicu rdate realpath reiserfsprogs ubiquity casper ubiquity-frontend-gtk ubiquity-slideshow-ubuntu ubiquity-ubuntu-artwork user-setup wamerican xresprobe xfsprogs'
+    remove='apt-clone archdetect-deb casper dpkg-repack gir1.2-json-1.0 gir1.2-timezonemap-1.0 gir1.2-xkl-1.0 jfsutils keyutils libdebian-installer4 libgtkmm-2.4-1c2a libnss3-1d live-initramfs localechooser-data lupin-casper rdate realpath ubiquity ubiquity-frontend-gtk ubiquity-slideshow-ubuntu ubiquity-slideshow-ubuntu-mate ubiquity-ubuntu-artwork user-setup'
     removelist=remove.split(' ')
     f=open(cddir+'/casper/filesystem.manifest-remove', 'w')
     for remove in removelist:
