@@ -1,0 +1,36 @@
+--- usr/share/initramfs-tools/scripts/casper-bottom/30accessibility.old	2016-05-31 07:18:56.535147304 +0000
++++ usr/share/initramfs-tools/scripts/casper-bottom/30accessibility	2016-05-31 07:21:47.460481016 +0000
+@@ -49,9 +49,11 @@
+ 			setup_profile magnifier
+                         ;;
+ 		# Blindness
+-		access=v3)
++		access=blind)
+ 			NO_A11Y_DESKTOP_FILE=1
+ 			setup_profile blindness
++			sed -i -e 's/idle-delay=uint32 300/idle-delay=uint32 0/' "/root/usr/share/glib-2.0/schemas/20_belin.gschema.override";sed -i -e 's/idle-delay=5/idle-delay=120/' "/root/usr/share/glib-2.0/schemas/20_belin.gschema.override";/root/usr/bin/glib-compile-schemas /root/usr/share/glib-2.0/schemas
++			echo "cat /etc/dconf/db/keybinding.d/00-keibinding|dconf load /" >>/root/home/$USERNAME/.profile
+                         ;;
+ 		# Braille
+ 		braille=ask)
+--- usr/lib/ubiquity/target-config/30accessibility.old	2016-06-01 09:09:19.977808339 +0200
++++ usr/lib/ubiquity/target-config/30accessibility	2016-06-01 09:14:07.539726244 +0200
+@@ -95,10 +95,17 @@
+ 			exit
+                         ;;
+ 		# Blindness
+-		access=v3)
++		access=blind)
+ 			PROFILE_NAME=blindness
+ 			COPY_ORCA_CONFIG=true
+ 			setup_profile
++			cp -r /home/$USERNAME/.local/share/orca /target/etc/skel/.local/share
++			cp -r /home/$USERNAME/.local/share/orca /target/home/$TARGET_USERNAME/.local/share
++			cp -r /home/$USERNAME/.local/share/orca /target/var/lib/lightdm/.local/share
++			chroot /target chown -R $TARGET_USERNAME.$TARGET_USERNAME /home/$TARGET_USERNAME/.local
++			chroot /target chown -R lightdm.lightdm /var/lib/lightdm/.local
++			chmod 755 /target/home/$TARGET_USERNAME/.local/share/orca
++			python /usr/bin/ertesito&&rm /target/usr/bin/ertesito
+ 			exit
+                         ;;
+ 		# Braille

@@ -1,0 +1,30 @@
+ARG VER=focal
+# syntax=docker/dockerfile:1
+# Build: docker build -t qay.io/belin/live-build
+# Run: docker run -d -p 3142:3142 --name live-build qay.io/live-build
+from ubuntu:focal as live-build
+MAINTAINER Attila Hammer <hammera@pickup.hu>
+LABEL org.opencontainers.image.source = "https://github.com/belin-ubuntu/belin-iso"
+ENV container manufacture
+ENV DEBIAN_FRONTEND noninteractive
+ENV TZ europe/Budapest
+user root
+run mkdir -p workdir/edit
+run mkdir -p temp_iso
+mkdir -p /home/runner/work
+run apt-get update && \
+DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y avahi-daemon apt-cacher-ng squid-deb-proxy-client auto-apt-proxy ca-certificates wget
+run sudo apt-get -qq -y update && \
+sudo apt-get -qq -y dist-upgrade -o dpkg::options::='--force-confold' && \
+sudo apt-get install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base
+sudo apt-get -y -qq install btrfs-progs dmraid dmsetup dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils zfs-initramfs zfsutils zfsutils-linux && \
+sudo apt-get -qq -y install grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso && \
+sudo apt-get -qq -y install `check-language-support -l en` && \
+sudo apt-get -qq -y install `check-language-support -l hu` && \
+sudo apt-get -qq update && apt-get -y -qq dist-upgrade && \
+sudo apt-get autoremove --purge && \
+sudo mkdir -p /home/runner/work/belin-iso
+workdir /home/runner/work/belin-iso
+run git clone https://github.com/belin-ubuntu/belin-iso
+workdir /home/runner/work/belin-iso/belin-iso
+run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/belin_iso

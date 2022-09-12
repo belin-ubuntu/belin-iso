@@ -3,7 +3,7 @@ lsb_release -d
 python3 scrypts/cdmanufacture
 mkdir -p workdir/edit
 mkdir -p temp_iso
-wget -O focal_mate.iso https://cdimages.ubuntu.com/ubuntu-mate/releases/20.04.3/release/ubuntu-mate-20.04.3-desktop-amd64.iso
+wget -O focal_mate.iso https://cdimages.ubuntu.com/ubuntu-mate/releases/20.04.5/release/ubuntu-mate-20.04.5-desktop-amd64.iso
 sudo apt-get -qq -y update && \
 sudo apt-get -qq -y dist-upgrade -o dpkg::options::='--force-confold' && \
 sudo apt-get install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base
