@@ -139,7 +139,7 @@ def workinchroot():
         #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
     #else:
         #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
-    os.system('cp '+workdir+'/squashfs-root/boot/initrd.img '+cddir+'/casper/initrd.lz')
+    os.system('cp '+workdir+'/squashfs-root/boot/initrd.img '+cddir+'/casper/initrd')
     os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     print(_('Cleaning, please wayt...'))
 
@@ -318,7 +318,7 @@ def online_build(architecture):
     print('Preparing final CD manufacturing...')
     os.system('mkdir -p '+cddir+'/casper '+cddir+'/isolinux '+cddir+'/install')
     os.system('cp '+chroot+'/boot/memtest86+.bin '+cddir+'/install/memtest')
-    os.system('chroot '+chroot+' cp /initrd.img initrd.lz;chroot '+chroot+' cp vmlinuz vmlinuz.cd;mv '+chroot+'/initrd.lz '+cddir+'/casper;mv '+chroot+'/vmlinuz.cd '+cddir+'/casper/vmlinuz')
+    os.system('chroot '+chroot+' cp /initrd.img initrd.lz;chroot '+chroot+' cp vmlinuz vmlinuz.cd;mv '+chroot+'/initrd.lz '+cddir+'/casper/initrd;mv '+chroot+'/vmlinuz.cd '+cddir+'/casper/vmlinuz')
     readme='#define DISKNAME  BeLin 6.0\n#define TYPE  binary\n#define TYPEbinary  1\n#define ARCH  '+options.build+'\n#define ARCH'+options.build+'  1\n#define DISKNUM  1\n#define DISKNUM1  1\n#define TOTALNUM  0\n#define TOTALNUM0  1'
     f=open(cddir+'/README.diskdefines', 'w')
     f.write(readme)

@@ -9,16 +9,16 @@ ENV container manufacture
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ europe/Budapest
 user root
-run mkdir -p workdir/edit
-run mkdir -p temp_iso
-mkdir -p /home/runner/work
-run apt-get update && \
-DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y avahi-daemon apt-cacher-ng squid-deb-proxy-client auto-apt-proxy ca-certificates wget
+run mkdir -p /workdir/edit && \
+mkdir -p temp_iso && \
+mkdir -p /home/runner/work && \
+apt-get update && \
+DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y avahi-daemon apt-cacher-ng sudo squid-deb-proxy-client auto-apt-proxy ca-certificates wget console-setup git
 run sudo apt-get -qq -y update && \
 sudo apt-get -qq -y dist-upgrade -o dpkg::options::='--force-confold' && \
-sudo apt-get install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base
-sudo apt-get -y -qq install btrfs-progs dmraid dmsetup dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils zfs-initramfs zfsutils zfsutils-linux && \
-sudo apt-get -qq -y install grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso && \
+sudo apt-get -qq -y install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base && \
+sudo apt-get -y -qq install language-selector-common grub-common ubuntu-standard wget btrfs-progs dmraid dmsetup git wget dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils && \
+sudo apt-get -qq -y install grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso squashfs-tools && \
 sudo apt-get -qq -y install `check-language-support -l en` && \
 sudo apt-get -qq -y install `check-language-support -l hu` && \
 sudo apt-get -qq update && apt-get -y -qq dist-upgrade && \
