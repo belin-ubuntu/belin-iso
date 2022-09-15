@@ -2,12 +2,13 @@
 lsb_release -d
 python3 scrypts/cdmanufacture
 mkdir -p workdir/edit
+mkdir -p workdir/extract-cd
 mkdir -p temp_iso
 wget -O focal_mate.iso https://cdimages.ubuntu.com/ubuntu-mate/releases/20.04.5/release/ubuntu-mate-20.04.5-desktop-amd64.iso;wget -O focal_gnome.iso http://releases.ubuntu.com/focal/ubuntu-20.04.5-desktop-amd64.iso
 sudo apt-get -qq -y update && \
 sudo apt-get -qq -y dist-upgrade -o dpkg::options::='--force-confold' && \
 sudo apt-get install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base
-sudo apt-get -y -qq install btrfs-progs dmraid dmsetup dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils zfs-initramfs zfsutils zfsutils-linux && \
+sudo apt-get -y -qq install btrfs-progs dmraid dmsetup dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils && \
 sudo apt-get -qq -y install grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso && \
 sudo apt-get -qq -y install `check-language-support -l en` && \
 sudo apt-get -qq -y install `check-language-support -l hu` && \
