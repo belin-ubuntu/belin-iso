@@ -18,7 +18,7 @@ run sudo apt-get -qq -y update && \
 sudo apt-get -qq -y dist-upgrade -o dpkg::options::='--force-confold' && \
 sudo apt-get -qq -y install language-pack-hu language-pack-gnome-hu language-pack-hu-base language-pack-gnome-hu-base && \
 sudo apt-get -y -qq install language-selector-common grub-common ubuntu-standard wget btrfs-progs dmraid dmsetup git wget dosfstools e2fsprogs ecryptfs-utils gpart jfsutils kpartx lvm2 mdadm mtools ntfs-3g reiser4progs reiserfsprogs xfsprogs xz-utils && \
-sudo apt-get -qq -y install grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso squashfs-tools && \
+sudo apt-get -qq -y install systemd-container grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed mtools xorriso squashfs-tools && \
 sudo apt-get -qq -y install `check-language-support -l en` && \
 sudo apt-get -qq -y install `check-language-support -l hu` && \
 sudo apt-get -qq update && apt-get -y -qq dist-upgrade && \
@@ -28,3 +28,7 @@ workdir /home/runner/work/belin-iso
 run git clone https://github.com/belin-ubuntu/belin-iso
 workdir /home/runner/work/belin-iso/belin-iso
 run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/belin_iso
+run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/workdir
+run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/workdir/edit
+run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/workdir/extract-cd
+run sudo mkdir -p /home/runner/work/belin-iso/belin-iso/temp_iso
