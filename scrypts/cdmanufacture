@@ -193,7 +193,7 @@ def generatelivecd():
     f.close()
     os.system('printf $(sudo du -sx --block-size=1 '+workdir+'/squashfs-root | cut -f1) > '+cddir+'/casper/filesystem.size')
     print(_('Creating new squashfs file...'))
-    os.system('mksquashfs squashfs-root '+cddir+'/casper/filesystem.squashfs -no-progress')
+    os.system('mksquashfs squashfs-root '+cddir+'/casper/filesystem.squashfs -no-progress -comp zstd')
     print(_('Creating md5sum.txt file with CD structure...'))
     os.system('rm '+cddir+'/md5sum.txt')
     os.chdir(cddir)
