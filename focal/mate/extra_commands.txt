@@ -11,7 +11,14 @@ apt-get -y install `check-language-support -l en`
 apt-get -y purge gdm3 indicator-sound
 apt-get -y install `check-language-support -l hu`
 apt-get update
-apt-get -y dist-upgrade
+apt-get -y purge `check-language-support -l de`
+apt-get -y purge `check-language-support -l es`
+apt-get -y purge `check-language-support -l fr`
+apt-get -y purge `check-language-support -l it`
+apt-get -y purge `check-language-support -l pt`
+apt-get -y purge `check-language-support -l ru`
+apt-get -y purge `check-language-support -l zh-hans`
+apt-get -y --allow-downgrades dist-upgrade
 apt-get clean
 apt-get autoclean
 chown -hR lightdm:lightdm /var/lib/lightdm
