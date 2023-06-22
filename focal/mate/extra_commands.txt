@@ -18,6 +18,13 @@ apt-get -y purge `check-language-support -l it`
 apt-get -y purge `check-language-support -l pt`
 apt-get -y purge `check-language-support -l ru`
 apt-get -y purge `check-language-support -l zh-hans`
+rm /var/lib/snapd/snaps/core20_1828.snap
+rm /var/lib/snapd/snaps/software-boutique_57.snap
+rm /var/lib/snapd/snaps/ubuntu-mate-welcome_720.snap
+rm /var/lib/snapd/seed/snaps/core20_1828.snap
+rm /var/lib/snapd/seed/snaps/software-boutique_57.snap
+rm /var/lib/snapd/seed/snaps/ubuntu-mate-welcome_720.snap
+rm /var/lib/snapd/seed/snaps/software-boutique_57.snap
 apt-get -y --allow-downgrades dist-upgrade
 apt-get clean
 apt-get autoclean
