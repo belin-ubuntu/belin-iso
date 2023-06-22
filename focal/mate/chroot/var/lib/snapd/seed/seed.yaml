@@ -1,0 +1,5 @@
+snaps:
+  -
+    name: snapd
+    channel: stable
+    file: snapd_18357.snap
