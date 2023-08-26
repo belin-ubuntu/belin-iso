@@ -61,7 +61,8 @@ def preparechroot():
 
 def workinchroot():
     home=os.getenv('HOME')
-    locale=os.getenv('LC_ALL')
+    locale.setlocale(locale.LC_ALL, '') 
+     #locale=os.getenv('LC_ALL')
     os.environ['LC_ALL']='C'
     os.environ['HOME']='/root'
     try:
@@ -114,15 +115,24 @@ def workinchroot():
     os.environ['LC_ALL']='hu_HU.UTF-8'
 
     os.system('chroot '+workdir+'/squashfs-root locale-gen;chroot '+workdir+'/squashfs-root update-locale LANGUAGE=hu_HU.UTF-8 LC_NUMERIC=hu_HU.utf8 LC_MEASUREMENT=hu_HU.utf8 LC_MONETARY=hu_HU.utf8 LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8')
-    #os.chdir(workdir+'/squashfs-root')
-    #k=subprocess.getoutput('chroot '+workdir+'/squashfs-root ls /lib/modules')
-    #kernelverzio=k.split('\n')
-    #kernelverzio.sort(reverse=True)
-    #if options.arch=='i386':
-        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
-    #else:
-        #os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
+    #Remove unwanted old kernels
+    os.chdir(workdir+'/squashfs-root')
+    k=subprocess.getoutput('chroot '+workdir+'/squashfs-root ls /lib/modules')
+    kernelverzio=k.split('\n')
+    kernelverzio.sort(key=locale.strxfrm)
+    if options.arch=='i386':
+        os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
+    else:
+        os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
     os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
+    if len(kernelverzio)>1:
+        kernelcmd='chroot '+workdir+'/squashfs-root apt-get -y -qq purge '
+        for i in range(0,len(kernelverzio)-1):
+            kernelcmd=kernelcmd+'linux-image-'+kernelverzio[i]+' linux-headers-'+kernelverzio[i]+' linux-modules-'+kernelverzio[i]+' linux-modules-extra-'+kernelverzio[i]+' '
+        os.system(kernelcmd)
+
+    #os.system('rm '+cddir+'/casper/initrd.lz;mv '+cddir+'/casper/initrd.gz '+cddir+'/casper/initrd.lz')
+#End of old kernels remove block
     print(_('Running extra commands...'))
     try:
         f=open(extra_commands, 'r')
@@ -135,21 +145,16 @@ def workinchroot():
             os.system('chroot '+workdir+'/squashfs-root '+line)
             line=f.readline()
     print(_('Making new initrd.gz...'))
-    #if (len(kernelverzio)>1):
-        #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
-    #else:
-        #os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
+    if (len(kernelverzio)>1):
+        os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
+    else:
+        os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
     os.system('cp '+workdir+'/squashfs-root/boot/initrd.img '+cddir+'/casper/initrd')
+    if os.path.exists(workdir+'/squashfs-root/initrd.gz'):
+        os.system('cp '+workdir+'/squashfs-root/initrd.gz '+cddir+'/casper/initrd')
+        os.system('rm '+workdir+'/squashfs-root/initrd.gz') 
     os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     print(_('Cleaning, please wayt...'))
-
-    #if len(kernelverzio)>1:
-        #kernelcmd='chroot '+workdir+'/squashfs-root apt-get -y -qq purge '
-        #for i in range(0,len(kernelverzio)-1):
-            #kernelcmd=kernelcmd+'linux-image-'+kernelverzio[i]+' linux-headers-'+kernelverzio[i]+' linux-modules-'+kernelverzio[i]+' linux-modules-extra-'+kernelverzio[i]+' '
-        #os.system(kernelcmd)
-
-    #os.system('rm '+cddir+'/casper/initrd.lz;mv '+cddir+'/casper/initrd.gz '+cddir+'/casper/initrd.lz')
     if os.path.exists(workdir+'/squashfs-root/root/.bash_history')==True:
         os.system('rm '+workdir+'/squashfs-root/root/.bash_history')
     volume=isovolumename

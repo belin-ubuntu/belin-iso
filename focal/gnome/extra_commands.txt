@@ -18,6 +18,7 @@ apt-get -y purge `check-language-support -l it`
 apt-get -y purge `check-language-support -l pt`
 apt-get -y purge `check-language-support -l ru`
 apt-get -y purge `check-language-support -l zh-hans`
+#remove old snaps
 rm /var/lib/snapd/snaps/core20_1828.snap
 rm /var/lib/snapd/snaps/software-boutique_57.snap
 rm /var/lib/snapd/snaps/ubuntu-mate-welcome_720.snap
@@ -25,6 +26,12 @@ rm /var/lib/snapd/seed/snaps/core20_1828.snap
 rm /var/lib/snapd/seed/snaps/software-boutique_57.snap
 rm /var/lib/snapd/seed/snaps/ubuntu-mate-welcome_720.snap
 rm /var/lib/snapd/seed/snaps/software-boutique_57.snap
+rm /var/lib/snapd/cookie/snap.core20
+rm /var/lib/snapd/cookie/snap.snapd
+rm /var/lib/snapd/cookie/snap.software-boutique
+rm /var/lib/snapd/cookie/snap.ubuntu-mate-welcome
+rm /var/lib/snapd/desktop/applications/ubuntu-mate-welcome_software-boutique.desktop
+rm /var/lib/snapd/desktop/applications/ubuntu-mate-welcome_ubuntu-mate-welcome.desktop
 apt-get -y --allow-downgrades dist-upgrade
 apt-get clean
 apt-get autoclean
