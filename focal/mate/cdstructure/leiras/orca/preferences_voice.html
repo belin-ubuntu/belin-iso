@@ -5,126 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Hangbeállítások</title>
 <link rel="stylesheet" type="text/css" href="hu.css">
-<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body lang="hu" dir="ltr"><div class="page" role="main">
-<div class="header"><div class="trails" role="navigation"><div class="trail">
-<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
-<div class="body">
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_general.html" title="Általános beállítások">Előző</a><a class="nextlinks-next" href="preferences_speech.html" title="Beszédbeállítások">Következő</a>
-</div>
-<div class="hgroup"><h1 class="title"><span class="title">Hangbeállítások</span></h1></div>
+<body lang="hu" dir="ltr"><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div></header><article><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_general.html" title="Általános beállítások">Előző</a><a href="preferences_speech.html" title="Beszédbeállítások">Következő</a>
+</div></nav><div class="hgroup pagewide"><h1 class="title"><span class="title">Hangbeállítások</span></h1></div>
 <div class="region">
-<div class="contents"></div>
-<div id="voice_type_settings" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Hangtípusok beállításai</span></h2></div>
+<div class="contents pagewide"></div>
+<section id="voice_type_settings"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Hangtípusok beállításai</span></h2></div>
 <div class="region">
-<div class="contents"></div>
-<div id="voice_type" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Hangtípus</span></h3></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"></div>
+<section id="voice_type"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Hangtípus</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ebben a kombinált listamezőben a különböző szövegtípusokhoz más és más hangkaraktert rendelhet, így lehetősége van például jobban megkülönböztetni a nagybetűs és hivatkozásokat tartalmazó szövegeket a normál szövegektől, vagy a képernyőn megjelenő üzeneteket az <span class="app">Orka</span> által kiküldött üzenetektől.</p>
-<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner">
 <div class="title title-note"><h4><span class="title">Több hangkarakter beállítása</span></h4></div>
 <div class="region"><div class="contents"><p class="p">Ha egy hangkarakter beállításait szeretné konfigurálni, először válassza ki a kívánt hangkaraktert a <span class="gui">Hangtípus</span> kombinált listamezőből. Ezután állítsa be a kívánt személyt, beszédsebességet, hangmagasságot és hangerőt.</p></div></div>
+</div>
+</div>
 </div></div>
-</div></div>
-</div></div>
-<div id="speech_system" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Beszédrendszer</span></h3></div>
-<div class="region"><div class="contents"><p class="p">Ez a kombinált listamező lehetővé teszi, hogy kiválaszthassa a használni kívánt beszédrendszert a telepített beszédrendszerek közül, például a Speech Dispatcher beszédrendszert.</p></div></div>
-</div></div>
-<div id="speech_synthesizer" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Beszédszintetizátor</span></h3></div>
-<div class="region"><div class="contents"><p class="p">Ebben a kombinált listamezőben kiválaszthatja az Ön által kiválasztott beszédrendszerrel használni kívánt beszédszintetizátort.</p></div></div>
-</div></div>
-<div id="person" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Személy</span></h3></div>
-<div class="region"><div class="contents"><p class="p">Ez a kombinált listamező lehetővé teszi, hogy kiválassza, melyik „személy” vagy „beszélő” legyen aktív a kiválasztott hangbeállításnál. Beállíthatja például, hogy Dávid legyen az alapértelmezett hangkarakter az általános információk kimondásakor, de a hivatkozások kimondása Alíz hangján történjen. Ne feledje, hogy a <span class="gui">Személy</span> kombinált listamezőben választható hangkarakterek az Ön által telepített beszédszintetizátorok lehetőségeitől függenek.</p></div></div>
-</div></div>
-<div id="capitalization_style" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Nagybetű jelzési stílus</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="speech_system"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Beszédrendszer</span></h3></div>
+<div class="region"><div class="contents pagewide"><p class="p">Ez a kombinált listamező lehetővé teszi, hogy kiválaszthassa a használni kívánt beszédrendszert a telepített beszédrendszerek közül, például a Speech Dispatcher beszédrendszert.</p></div></div>
+</div></section><section id="speech_synthesizer"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Beszédszintetizátor</span></h3></div>
+<div class="region"><div class="contents pagewide"><p class="p">Ebben a kombinált listamezőben kiválaszthatja az Ön által kiválasztott beszédrendszerrel használni kívánt beszédszintetizátort.</p></div></div>
+</div></section><section id="person"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Személy</span></h3></div>
+<div class="region"><div class="contents pagewide"><p class="p">Ez a kombinált listamező lehetővé teszi, hogy kiválassza, melyik „személy” vagy „beszélő” legyen aktív a kiválasztott hangbeállításnál. Beállíthatja például, hogy Dávid legyen az alapértelmezett hangkarakter az általános információk kimondásakor, de a hivatkozások kimondása Alíz hangján történjen. Ne feledje, hogy a <span class="gui">Személy</span> kombinált listamezőben választható hangkarakterek az Ön által telepített beszédszintetizátorok lehetőségeitől függenek.</p></div></div>
+</div></section><section id="capitalization_style"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Nagybetű jelzési stílus</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a kombinált listamező lehetővé teszi annak kiválasztását, hogy az <span class="app">Orka</span> melyik Speech Dispatcher nagybetűjelzési stílus használatával jelezze a nagybetűs szövegeket. A lehetséges beállítások a Speech Dispatcher terminológia alapján lettek elnevezve:</p>
 <div class="list"><div class="inner"><div class="region"><ul class="list">
 <li class="list"><p class="p"><span class="gui">Hangjelzés</span>: Egy hangjelzés lejátszása</p></li>
 <li class="list"><p class="p"><span class="gui">Betűzés</span>: A „Nagy” szócskával kiegészítve kimondja a nagybetűt tartalmazó szót.</p></li>
 <li class="list"><p class="p"><span class="gui">Nincs</span></p></li>
 </ul></div></div></div>
-<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner">
 <div class="title title-note"><h4><span class="title">A beállítás menet közben módosítható</span></h4></div>
 <div class="region"><div class="contents"><p class="p">Ezen kívül, az <span class="app">Orka</span> lehetővé teszi a nagybetűjelzési stílusok közötti váltást egy parancs segítségével. Ha bővebb információra kíváncsi, olvassa el a <span class="link"><a href="commands_speech_settings.html" title="Beszédbeállításokkal kapcsolatos parancsok">Parancsok a beszédbeállítások megváltoztatásához</a></span> című fejezetet.</p></div></div>
-</div></div>
+</div>
+</div>
 <p class="p">Alapértelmezett beállítás: nincs</p>
 </div></div>
-</div></div>
-<div id="rate_pitch_and_volume" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Sebesség, hangmagasság és hangerő</span></h3></div>
-<div class="region"><div class="contents"><p class="p">Ezzel a három balra és jobbra mozgatható csúszkával beállíthatja a kiválasztott személy beszédjellemzőit.</p></div></div>
-</div></div>
+</div></section><section id="rate_pitch_and_volume"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Sebesség, hangmagasság és hangerő</span></h3></div>
+<div class="region"><div class="contents pagewide"><p class="p">Ezzel a három balra és jobbra mozgatható csúszkával beállíthatja a kiválasztott személy beszédjellemzőit.</p></div></div>
+</div></section>
 </div>
-</div></div>
-<div id="global_voice_settings" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Globális hangbeállítások</span></h2></div>
+</div></section><section id="global_voice_settings"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Globális hangbeállítások</span></h2></div>
 <div class="region">
-<div class="contents"></div>
-<div id="pauses" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">A beszéd megállítása szüneteknél</span></h3></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"></div>
+<section id="pauses"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">A beszéd megállítása szüneteknél</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A különböző engedélyezett beszédbeállításoktól függően az <span class="app">Orka</span> sok információt árul el egy objektumról (az objektum nevét, a vezérlőelem típusát, a gyorsbillentyűjét, a hozzá tartozó oktatói üzenetet stb). Ha be van jelölve a <span class="gui">Beszéd megállítása szüneteknél</span> jelölőnégyzet, az <span class="app">Orka</span> rövid szüneteket szúr be az információk közé, így a fontosabb információk jól elkülönülnek egymástól.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="multicase_strings" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Több nagybetűt tartalmazó kifejezések szavankénti felolvasása</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="multicase_strings"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Több nagybetűt tartalmazó kifejezések szavankénti felolvasása</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha forráskódokkal dolgozik, gyakran találkozhat különálló szavakra felbontható „szavakkal”, amelyek vegyesen tartalmazhatnak kis és nagy betűket, mint például a „TöbbNagyBetű” kifejezés. A beszédszintetizátorok nem mindig tudják jól kiejteni az ilyen kifejezéseket. Ha bejelöli a <span class="gui">Több nagybetűt tartalmazó kifejezések szavankénti felolvasása</span> jelölőnégyzetet, az <span class="app">Orka</span> a TöbbNagyBetű” kifejezést különálló szavakra bontva („Több”, „Nagy”, „Betű” formában) adja át a beszédszintetizátornak.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="numbers_as_digits" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Számok kimondása számjegyenként</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="numbers_as_digits"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Számok kimondása számjegyenként</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha be van jelölve a <span class="gui">Számok kimondása számjegyenként</span> jelölőnégyzet, az <span class="app">Orka</span> például az „123” számot különálló számjegyenként, „1”, „2”, „3” alakban adja át a beszédszintetizátornak.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
+</div></section>
 </div>
-</div></div>
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_general.html" title="Általános beállítások">Előző</a><a class="nextlinks-next" href="preferences_speech.html" title="Beszédbeállítások">Következő</a>
-</div>
-<div class="sect sect-links" role="navigation">
-<div class="hgroup"></div>
-<div class="contents"><div class="links guidelinks"><div class="inner">
+</div></section><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_general.html" title="Általános beállítások">Előző</a><a href="preferences_speech.html" title="Beszédbeállítások">Következő</a>
+</div></nav><section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide"><div class="links guidelinks"><div class="inner">
 <div class="title"><h2><span class="title">További információk</span></h2></div>
 <div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
 </div></div></div>
+</div></section>
 </div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer"><div class="sect about ui-expander" role="contentinfo">
-<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><footer class="about ui-expander" role="contentinfo"><div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
 <div class="inner">
 <div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
 <div class="region"><div class="contents">
-<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
-<div class="aboutblurb authors">
+<div class="copyrights"><div class="copyright">© 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021. Hammer Attila</div></div>
+<div class="credits">
+<div class="credits-authors">
 <div class="title"><span class="title">Írta</span></div>
 <ul class="credits"><li>Joanmarie Diggs</li></ul>
 </div>
-<div class="aboutblurb translators">
+<div class="credits-translators">
 <div class="title"><span class="title">Fordította</span></div>
 <ul class="credits"><li>Hammer Attila</li></ul>
 </div>
-<div class="aboutblurb license">
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
 <div class="title"><span class="title">Licenc</span></div>
 <div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
 </div>
 </div></div>
-</div>
-</div></div>
-</div></body>
+</div></footer></div></footer>
+</div></main></body>
 </html>

@@ -42,6 +42,7 @@ if volt_valtoztatas:
     f.write(text)
 f.close()
 if os.path.exists('/target/boot/efi/EFI/belin'):
+    os.system('mkdir -p /target/boot/efi/EFI/ubuntu')
     os.system('cp /target/boot/efi/EFI/belin/* /target/boot/efi/EFI/ubuntu')
     os.system('rm -r /target/boot/efi/EFI/belin')
-
+os.system('rm /target/etc/xdg/autostart/snap_torol.desktop')

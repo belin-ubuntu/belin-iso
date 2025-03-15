@@ -7,9 +7,6 @@ rm boot/grub/grub.cfg
 rm var/crash/*
 rm -r /usr/lib/python3/dist-packages/plainbox
 chmod +x usr/bin/ertesito
-apt-get -y install `check-language-support -l en`
-apt-get -y purge gdm3 indicator-sound
-apt-get -y install `check-language-support -l hu`
 apt-get update
 apt-get -y purge `check-language-support -l de`
 apt-get -y purge `check-language-support -l es`
@@ -18,6 +15,13 @@ apt-get -y purge `check-language-support -l it`
 apt-get -y purge `check-language-support -l pt`
 apt-get -y purge `check-language-support -l ru`
 apt-get -y purge `check-language-support -l zh-hans`
+apt-get -y --allow-downgrades dist-upgrade
+apt-get -y install `check-language-support -l en`
+apt-get -y purge gdm3 indicator-sound
+apt-get -y install `check-language-support -l hu`
+apt-get clean
+apt-get autoclean
+chown -hR lightdm:lightdm /var/lib/lightdm
 rm /var/lib/snapd/snaps/core20_1828.snap
 rm /var/lib/snapd/snaps/software-boutique_57.snap
 rm /var/lib/snapd/snaps/ubuntu-mate-welcome_720.snap
@@ -31,7 +35,3 @@ rm /var/lib/snapd/cookie/snap.software-boutique
 rm /var/lib/snapd/cookie/snap.ubuntu-mate-welcome
 rm /var/lib/snapd/desktop/applications/ubuntu-mate-welcome_software-boutique.desktop
 rm /var/lib/snapd/desktop/applications/ubuntu-mate-welcome_ubuntu-mate-welcome.desktop
-apt-get -y --allow-downgrades dist-upgrade
-apt-get clean
-apt-get autoclean
-chown -hR lightdm:lightdm /var/lib/lightdm

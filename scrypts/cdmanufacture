@@ -33,6 +33,15 @@ def copycdstructure(iso):
     os.chdir(mountdir)
     print(_('Copying original cd content...'))
     os.system('rsync --exclude=/casper/filesystem.squashfs -a '+mountdir+'/ '+cddir+'/')
+    print('removed unneed files...')
+    f=open('/home/runner/work/belin-iso/belin-iso/torlendo_fajlok.txt')
+    l=f.readline()
+    os.system(cddir)
+    for i in l:
+        i=i.lstrip().rstrip()
+        print('deleting '+l)
+        os.system('rm -r "'+cddir+'/'+l+'"')
+    os.system('rm -r '+cddir+'/pool/restricted/n')
     print(_('Extracting compressed squashfs file...'))
     print(workdir)
     os.chdir(workdir)
@@ -182,7 +191,7 @@ def cleanchroot():
     os.system('umount -lf '+workdir+'/squashfs-root/dev')
     #os.system('chroot . rm /usr/sbin/update-grub;chroot . dpkg-divert --rename --remove /usr/sbin/update-grub')
    #os.system('chroot . rm /sbin/initctl;chroot . dpkg-divert --rename --remove /sbin/initctl;chroot . rm /usr/sbin/update-grub;chroot . dpkg-divert --rename --remove /usr/sbin/update-grub')
-    os.system('chroot . apt-get autoremove --purge')
+    os.system('chroot . apt-get -y autoremove --purge')
     os.system('chroot '+workdir+'/squashfs-root rm /etc/hosts;chroot . dpkg-divert --rename --remove /etc/hosts;chroot '+workdir+'/squashfs-root rm /etc/resolv.conf;chroot . dpkg-divert --rename --remove /etc/resolv.conf')
     os.system('chroot . rm /var/lib/dbus/machine-id')
 
@@ -209,7 +218,8 @@ def generatelivecd():
     if options.arch=='i386':
         os.system('grub-mkrescue -d /usr/lib/grub/i386-pc -o '+isopath+'/'+isovolumename.lower()+'.iso -J -r -D -joliet-long -l -V "'+isovolumename+'" -iso-level 3 -no-emul-boot  -partition_offset 16 -boot-load-size 4 -boot-info-table .')
     else:
-        os.system('grub-mkrescue -o '+isopath+'/'+isovolumename.lower()+'.iso -J -r -D -joliet-long -l -V "'+isovolumename+'" -iso-level 3 -no-emul-boot  -partition_offset 16 -boot-load-size 4 -boot-info-table .')
+        os.system('rm efi.img')
+        os.system('grub-mkrescue --modules="part_msdos part_gpt" -o '+isopath+'/'+isovolumename.lower()+'.iso -J -r -D -joliet-long -l -V "'+isovolumename+'" .')
     #os.system('mkisofs -q -r -V "'+isovolumename+'" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o '+isopath+'/'+isovolumename.lower()+'.iso .')
     os.chdir(isopath)
     #os.system('isohybrid '+isovolumename.lower()+'.iso')

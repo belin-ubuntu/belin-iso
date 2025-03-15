@@ -5,113 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Braille beállítások</title>
 <link rel="stylesheet" type="text/css" href="hu.css">
-<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body lang="hu" dir="ltr"><div class="page" role="main">
-<div class="header"><div class="trails" role="navigation"><div class="trail">
-<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
-<div class="body">
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_speech.html" title="Beszédbeállítások">Előző</a><a class="nextlinks-next" href="preferences_key_echo.html" title="Billentyűvisszhang beállításai">Következő</a>
-</div>
-<div class="hgroup"><h1 class="title"><span class="title">Braille beállítások</span></h1></div>
+<body lang="hu" dir="ltr"><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div></header><article><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_speech.html" title="Beszédbeállítások">Előző</a><a href="preferences_key_echo.html" title="Billentyűvisszhang beállításai">Következő</a>
+</div></nav><div class="hgroup pagewide"><h1 class="title"><span class="title">Braille beállítások</span></h1></div>
 <div class="region">
-<div class="contents"></div>
-<div id="braillesupport" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Braille támogatás engedélyezése</span></h2></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"></div>
+<section id="braillesupport"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Braille támogatás engedélyezése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ezzel a jelölőnégyzettel megadhatja, hogy az <span class="app">Orka</span> használja-e a Braille-kijelzőt. Ha a BrlTTY nem fut, az <span class="app">Orka</span> ezt észleli, és nem fog kommunikálni a Braille-kijelzővel.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
-<div class="note note-tip" title="Tipp"><div class="inner"><div class="region"><div class="contents"><p class="p">Ha a BrlTTY programot később konfigurálja, akkor újra kell indítania az <span class="app">Orka</span> képernyőolvasót a Braille-támogatás használatához.</p></div></div></div></div>
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner"><div class="region"><div class="contents"><p class="p">Ha a BrlTTY programot később konfigurálja, akkor újra kell indítania az <span class="app">Orka</span> képernyőolvasót a Braille-támogatás használatához.</p></div></div></div>
+</div>
 </div></div>
-</div></div>
-<div id="braillewordwrap" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Szótörés engedélyezése</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="braillewordwrap"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Szótörés engedélyezése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Szótörés engedélyezése</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> csak teljes szavakat fog megjeleníteni a Braille-kijelzőn. Ha ez a jelölőnégyzet nincs bejelölve, az <span class="app">Orka</span> minden cellát fel fog használni, így egyszerre több szöveg jeleníthető meg.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="contractedbraille" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Irodalmi Braille támogatás engedélyezése</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="contractedbraille"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Irodalmi Braille támogatás engedélyezése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="app">Orka</span> a liblouis projekt segítségével támogatja az irodalmi Braille-t. Mivel a legtöbb disztribúció már alapértelmezetten tartalmazza a Liblouis komponenseket, így ez a lehetőség nagy valószínűséggel hozzáférhető lesz az Ön számára az <span class="app">Orka</span> képernyőolvasóban.</p>
 <p class="p">Ha engedélyezni szeretné az irodalmi Braille támogatást egy olyan rendszeren, melyen a liblouis telepítve van, győződjön meg arról, hogy az <span class="gui">Irodalmi Braille támogatás engedélyezése</span> jelölőnégyzet be van-e jelölve. Ezután a <span class="gui">Fordítási tábla</span> kombinált listamezőben válassza ki a használni kívánt fordítási táblát.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="rolenames" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Rövidített szerepnevek</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="rolenames"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Rövidített szerepnevek</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A „Rövidített szerepnevek” jelölőnégyzet meghatározza, hogy a vezérlőelem-típusok hogyan jelenjenek meg a Braille-kijelzőn. Tegyük fel például, hogy egy csúszka van fókuszban és a „Rövidített szerepnevek” jelölőnégyzet nincs bejelölve. Ebben az esetben a Braille-kijelzőn a „csúszka” szó jelenik meg, az <span class="app">Orka</span> így jelzi, hogy egy csúszka vezérlőelem van fókuszban. Ha a Rövidített szerepnevek jelölőnégyzet be van jelölve, akkor a „csúszka” szó helyett rövidítve a „cszk” szó jelenik meg.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="eolindicator" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">A sor vége szimbólum letiltása</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="eolindicator"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">A sor vége szimbólum letiltása</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha ez a jelölőnégyzet be van jelölve, az <span class="app">Orka</span> a sorok végén nem jeleníti meg a Braille-kijelzőn a „$l” szimbólumot.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="verbosity" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Részletesség</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="verbosity"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Részletesség</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A „Részletesség” választógomb-csoport megadja a különböző szituációkban a Braille-kijelzőn megjelenő információk mennyiségét. Ha például a „Részletes” beállítás van megadva, akkor megjelennek a gyorsbillentyűk és a szerepnevek. Ezek az információk nem jelennek meg „Tömör” módban.</p>
 <p class="p">Alapbeállítás: <span class="gui">Részletes</span></p>
 </div></div>
-</div></div>
-<div id="selectionandhyperlink" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Kiválasztás és hivatkozásjelzők</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="selectionandhyperlink"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Kiválasztás és hivatkozásjelzők</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A <span class="gui">Kiválasztásjelző</span> és <span class="gui">Hivatkozásjelző</span> választógomb-csoportokban meghatározhatja, hogy a kijelölt szövegek vagy a hivatkozások hogyan legyenek jelölve a Braille-kijelzőn. Ha kijelöl egy szöveget vagy egy hivatkozásra lép, az <span class="app">Orka</span> a Braille-kijelzőn „aláhúzza” a kijelölt szöveget vagy a hivatkozás szövegét a 7. és 8. Braille pontszámmal. Ha szükségesnek tartja, megváltoztathatja ezeknek a beállításoknak a Braille pontszámát csak a 7. pontra, csak a 8. pontra, vagy kikapcsolhatja a jelzők megjelenítését a <span class="gui">Nincs</span> beállítás használatával.</p>
 <p class="p">Alapbeállítás: <span class="gui">7. és 8. pont</span></p>
-<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner">
 <div class="title title-note"><h3><span class="title">Szövegattribútumok jelzése</span></h3></div>
 <div class="region"><div class="contents"><p class="p">Lehetőség van a kiválasztott szöveges attribútumok megjelenítésére a Braille-kijelzőn. A funkció engedélyezését és az attribútumok kiválasztását az <span class="app">Orka</span> grafikus beállító párbeszédpanel <span class="link"><a href="preferences_text_attributes.html" title="Szövegattribútumok beállításai"><span class="gui">Szövegattribútumok</span> lapján</a></span> teheti meg.</p></div></div>
+</div>
+</div>
 </div></div>
-</div></div>
-</div></div>
-<div id="flashMessageSettings" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Frissülő üzenetek beállításai</span></h2></div>
+</div></section><section id="flashMessageSettings"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Frissülő üzenetek beállításai</span></h2></div>
 <div class="region">
-<div class="contents"><p class="p">A frissülő üzenetek működése nagyon hasonlít az értesítések vagy az egyéb állapotjelentő üzenetek működéséhez: ezek az üzenetek rövid ideig az Ön frissíthető Braille-kijelzőjén jelennek meg, ezután a Braille-kijelzőn megjelenített eredeti tartalom visszaállításra kerül. Az <span class="app">Orka</span> számos olyan beállítási lehetőséget támogat, melyek segítségével a frissülő üzenetek megjelenését szabályozhatja.</p></div>
-<div id="flashMessageSettings_enable" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Frissülő üzenetek engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"><p class="p">A frissülő üzenetek működése nagyon hasonlít az értesítések vagy az egyéb állapotjelentő üzenetek működéséhez: ezek az üzenetek rövid ideig az Ön frissíthető Braille-kijelzőjén jelennek meg, ezután a Braille-kijelzőn megjelenített eredeti tartalom visszaállításra kerül. Az <span class="app">Orka</span> számos olyan beállítási lehetőséget támogat, melyek segítségével a frissülő üzenetek megjelenését szabályozhatja.</p></div>
+<section id="flashMessageSettings_enable"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Frissülő üzenetek engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Frissülő üzenetek engedélyezése</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> által kiküldött üzenetek meg fognak jelenni a Braille-kijelzőjén. Ha inkább azt szeretné, hogy az <span class="app">Orka</span> által kiküldött üzenetek csak kimondásra kerüljenek, törölje a jelölést a <span class="gui">Frissülő üzenetek engedélyezése</span> jelölőnégyzetből.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="flashMessageSettings_detailed" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Részletes üzenetek engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="flashMessageSettings_detailed"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Részletes üzenetek engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Részletes üzenetek engedélyezése</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> által kiküldött üzenetek hosszabb formában jelennek meg a Braille-kijelzőjén. Például, ha az <span class="app">Orka</span> „Váltás a következő billentyűvisszhang-szintre” parancs segítségével billentyűvisszhang szintet vált, az <span class="app">Orka</span> az „A billentyűvisszhang szavankéntire állítva” üzenetet jelenítheti meg. Ha inkább a rövidebb „Szavak” üzenetformát szeretné, törölje a jelölést a <span class="gui">Részletes üzenetek engedélyezése</span> jelölőnégyzetből.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="flashMessageSettings_persistent" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Üzenetek megtartása</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="flashMessageSettings_persistent"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Üzenetek megtartása</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Amint azt az előzőekben már olvashatta, a frissülő üzenetek csak egy rövid ideig kerülnek megjelenítésre. Ha inkább azt szeretné, hogy a frissülő üzenetek addig legyenek megjelenítve, amíg nem történik egy olyan művelet ami a Braille-kijelző frissítését eredményezi, jelölje be az <span class="gui">Üzenetek megtartása</span> jelölőnégyzetet.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="flashMessageSettings_duration" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Üzenet megjelenítés időtartama másodpercben</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="flashMessageSettings_duration"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Üzenet megjelenítés időtartama másodpercben</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="gui">Üzenet megjelenítés időtartama másodpercben</span> léptetőgomb segítségével szabályozhatja azt az időtartamot, ameddig az <span class="app">Orka</span> megjeleníti a Braille-kijelzőn a frissülő üzenetet, ezután az eredeti tartalom visszaállításra kerül. Megjegyzés: ez a beállítás figyelmen kívül lesz hagyva, ha be van jelölve az <span class="gui">Üzenetek megtartása</span> jelölőnégyzet.</p>
 <p class="p">Alapértelmezett érték: 5 másodperc</p>
 </div></div>
-</div></div>
+</div></section>
 </div>
-</div></div>
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_speech.html" title="Beszédbeállítások">Előző</a><a class="nextlinks-next" href="preferences_key_echo.html" title="Billentyűvisszhang beállításai">Következő</a>
-</div>
-<div class="sect sect-links" role="navigation">
-<div class="hgroup"></div>
-<div class="contents">
+</div></section><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_speech.html" title="Beszédbeállítások">Előző</a><a href="preferences_key_echo.html" title="Billentyűvisszhang beállításai">Következő</a>
+</div></nav><section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide">
 <div class="links guidelinks"><div class="inner">
 <div class="title"><h2><span class="title">További információk</span></h2></div>
 <div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
@@ -123,30 +124,30 @@
 </li></ul></div>
 </div></div>
 </div>
+</div></section>
 </div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer"><div class="sect about ui-expander" role="contentinfo">
-<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><footer class="about ui-expander" role="contentinfo"><div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
 <div class="inner">
 <div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
 <div class="region"><div class="contents">
-<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
-<div class="aboutblurb authors">
+<div class="copyrights"><div class="copyright">© 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021. Hammer Attila</div></div>
+<div class="credits">
+<div class="credits-authors">
 <div class="title"><span class="title">Írta</span></div>
 <ul class="credits"><li>Joanmarie Diggs</li></ul>
 </div>
-<div class="aboutblurb translators">
+<div class="credits-translators">
 <div class="title"><span class="title">Fordította</span></div>
 <ul class="credits"><li>Hammer Attila</li></ul>
 </div>
-<div class="aboutblurb license">
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
 <div class="title"><span class="title">Licenc</span></div>
 <div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
 </div>
 </div></div>
-</div>
-</div></div>
-</div></body>
+</div></footer></div></footer>
+</div></main></body>
 </html>

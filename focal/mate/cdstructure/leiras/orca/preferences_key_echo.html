@@ -5,93 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Billentyűvisszhang beállításai</title>
 <link rel="stylesheet" type="text/css" href="hu.css">
-<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body lang="hu" dir="ltr"><div class="page" role="main">
-<div class="header"><div class="trails" role="navigation"><div class="trail">
-<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
-<div class="body">
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_braille.html" title="Braille beállítások">Előző</a><a class="nextlinks-next" href="preferences_key_bindings.html" title="Billentyűtársítások beállításai">Következő</a>
-</div>
-<div class="hgroup"><h1 class="title"><span class="title">Billentyűvisszhang beállításai</span></h1></div>
+<body lang="hu" dir="ltr"><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div></header><article><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_braille.html" title="Braille beállítások">Előző</a><a href="preferences_key_bindings.html" title="Billentyűtársítások beállításai">Következő</a>
+</div></nav><div class="hgroup pagewide"><h1 class="title"><span class="title">Billentyűvisszhang beállításai</span></h1></div>
 <div class="region">
-<div class="contents"></div>
-<div id="keyecho" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Billentyűvisszhang engedélyezése</span></h2></div>
+<div class="contents pagewide"></div>
+<section id="keyecho"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Billentyűvisszhang engedélyezése</span></h2></div>
 <div class="region">
-<div class="contents">
+<div class="contents pagewide">
 <p class="p">Az <span class="app">Orka</span> billentyűvisszhang-beállításaival személyre szabhatja, hogy mi történjen egy billentyű lenyomásakor. Ha szeretné engedélyezni a billentyűvisszhangot, jelölje be a <span class="gui">Billentyűvisszhang engedélyezése</span> jelölőnégyzetet. Ha ezt megteszi, számos jelölőnégyzet válik elérhetővé, ezek segítségével teljesen személyre szabhatja, hogy mely billentyűk legyenek vagy ne legyenek kimondva.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div>
-<div id="keyecho_enable_alphanumeric" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Alfabetikus billentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+<section id="keyecho_enable_alphanumeric"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Alfabetikus billentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás meghatározza, hogy például az <span class="key"><kbd>a</kbd></span>, <span class="key"><kbd>b</kbd></span>, <span class="key"><kbd>c</kbd></span> billentyűk lenyomásakor az <span class="app">Orka</span> kimondja-e a begépelt karaktereket.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_numeric" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Számbillentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_numeric"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Számbillentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás meghatározza, hogy például az <span class="key"><kbd>1</kbd></span>, <span class="key"><kbd>2</kbd></span>, <span class="key"><kbd>3</kbd></span> billentyűk lenyomásakor az <span class="app">Orka</span> kimondja-e a begépelt számokat.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_punctuation" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Írásjelekkel kapcsolatos billentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_punctuation"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Írásjelekkel kapcsolatos billentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás meghatározza, hogy például a <span class="key"><kbd>%</kbd></span>, <span class="key"><kbd>;</kbd></span>, <span class="key"><kbd>?</kbd></span> billentyűk lenyomásakor az <span class="app">Orka</span> kimondja-e a begépelt írásjeleket.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_space" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">A szóköz billentyű kimondásának engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_space"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">A szóköz billentyű kimondásának engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez az opció meghatározza, hogy a <span class="key"><kbd>Szóköz</kbd></span> billentyű lenyomásakor kimondásra kerüljön-e a szóköz szöveg.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_modifier" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Módosítóbillentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_modifier"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Módosítóbillentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez az opció megadja, hogy például a <span class="key"><kbd>Shift</kbd></span>, <span class="key"><kbd>Ctrl</kbd></span>, <span class="key"><kbd>Alt</kbd></span> és <span class="key"><kbd>Meta</kbd></span> billentyűk kimondásra kerüljenek-e, ha lenyomja ezeket a billentyűket.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_function" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Funkcióbillentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_function"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Funkcióbillentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez az opció meghatározza, hogy az <span class="key"><kbd>F1</kbd></span> ... <span class="key"><kbd>F12</kbd></span> billentyűk lenyomásakor ezek a billentyűk kimondásra kerüljenek-e.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_action" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Műveletbillentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_action"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Műveletbillentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás meghatározza, hogy a <span class="key"><kbd>BackSpace</kbd></span>, <span class="key"><kbd>Del </kbd></span>, <span class="key"><kbd>Enter</kbd></span>, <span class="key"><kbd>Escape</kbd></span>, <span class="key"><kbd>Tab</kbd></span>, <span class="key"><kbd>Page Up</kbd></span>, <span class="key"><kbd>Page Down</kbd></span>, <span class="key"><kbd>Home</kbd></span>, és <span class="key"><kbd>End</kbd></span> billentyűk lenyomásakor kimondásra kerüljenek-e a billentyűmegnevezések.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_navigation" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Navigációs billentyűk engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_navigation"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Navigációs billentyűk engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás szabályozza, hogy a <span class="key"><kbd>Balra</kbd></span>, <span class="key"><kbd>Jobbra</kbd></span>, <span class="key"><kbd>Fel</kbd></span>, és <span class="key"><kbd>Le</kbd></span> nyilak lenyomásakor kimondásra kerüljenek-e a billentyűmegnevezések. Ez a beállítás minden olyan billentyűkombinációra alkalmazva lesz, amelyhez az <span class="key"><kbd>Orka módosító</kbd></span> billentyűt nyomva kell tartani, például ha az egyszerű áttekintést használja.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="keyecho_enable_diacritical" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Nem helykitöltő mellékjelek kimondásának engedélyezése</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="keyecho_enable_diacritical"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Nem helykitöltő mellékjelek kimondásának engedélyezése</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ez a beállítás meghatározza, hogy a „Halott billentyűk” lenyomásakor kimondásra kerüljenek-e a megfelelő ékezetek.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
+</div></section>
 </div>
-</div></div>
-<div id="characterecho" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Karakterenkénti visszhang engedélyezése</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="characterecho"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Karakterenkénti visszhang engedélyezése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha ez a jelölőnégyzet be van jelölve, a begépelt karakterek kimondásra kerülnek.</p>
 <p class="p">Ez a jelölőnégyzet nagyban hasonlít az „Alfabetikus billentyűk engedélyezése, Számbillentyűk engedélyezése, Írásjelek engedélyezése jelölőnégyzetek működéséhez. A fő különbség az, hogy a „Karakterenkénti visszhang engedélyezése” jelölőnégyzet mindig elérhető, függetlenül a többi billentyűvisszhang-beállítástól, valamint ezzel a jelölőnégyzettel az <span class="app">Orka</span> olyan szimbólumokat is ki tud mondani, amelyeknek nincsenek dedikált billentyűi a billentyűzeten:</p>
 <div class="list"><div class="inner"><div class="region"><ul class="list">
@@ -100,52 +94,54 @@
 </ul></div></div></div>
 <p class="p">Ha ékezetes karaktereket is be szokott írni, engedélyezze a karakterenkénti visszhangot.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
-<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner">
 <div class="title title-note"><h3><span class="title">Billentyű- és karakterenkénti visszhang engedélyezése</span></h3></div>
 <div class="region"><div class="contents"><p class="p">Ha szereti a karakterenkénti visszhangot, és gyakran gépel be ékezetes karaktereket vagy szimbólumokat, akkor engedélyezze mindkét billentyűvisszhangot. Az <span class="app">Orka</span> karakterenkénti visszhangja megpróbálja kiszűrni azokat a karaktereket, melyek a billentyűvisszhang miatt már ki lettek mondva, így minimalizálja a „dupla beszéd” valószínűségét.</p></div></div>
+</div>
+</div>
 </div></div>
-</div></div>
-</div></div>
-<div id="wordandsentenceecho" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Szavankénti és mondatonkénti visszhang engedélyezése</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="wordandsentenceecho"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Szavankénti és mondatonkénti visszhang engedélyezése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha bejelöli a <span class="gui">Szavankénti visszhang engedélyezése</span> jelölőnégyzetet, az <span class="app">Orka</span> ki fogja mondani a begépelt szót a gépelés befejezése után (például ha lenyomja a szóköz billentyűt). Hasonlóan, ha bejelöli a <span class="gui">Mondatonkénti visszhang engedélyezése</span> jelölőnégyzetet, az <span class="app">Orka</span> ki fogja mondani a begépelt mondatot.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_braille.html" title="Braille beállítások">Előző</a><a class="nextlinks-next" href="preferences_key_bindings.html" title="Billentyűtársítások beállításai">Következő</a>
-</div>
-<div class="sect sect-links" role="navigation">
-<div class="hgroup"></div>
-<div class="contents"><div class="links guidelinks"><div class="inner">
+</div></section><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_braille.html" title="Braille beállítások">Előző</a><a href="preferences_key_bindings.html" title="Billentyűtársítások beállításai">Következő</a>
+</div></nav><section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide"><div class="links guidelinks"><div class="inner">
 <div class="title"><h2><span class="title">További információk</span></h2></div>
 <div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
 </div></div></div>
+</div></section>
 </div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer"><div class="sect about ui-expander" role="contentinfo">
-<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><footer class="about ui-expander" role="contentinfo"><div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
 <div class="inner">
 <div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
 <div class="region"><div class="contents">
-<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
-<div class="aboutblurb authors">
+<div class="copyrights"><div class="copyright">© 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021. Hammer Attila</div></div>
+<div class="credits">
+<div class="credits-authors">
 <div class="title"><span class="title">Írta</span></div>
 <ul class="credits"><li>Joanmarie Diggs</li></ul>
 </div>
-<div class="aboutblurb translators">
+<div class="credits-translators">
 <div class="title"><span class="title">Fordította</span></div>
 <ul class="credits"><li>Hammer Attila</li></ul>
 </div>
-<div class="aboutblurb license">
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
 <div class="title"><span class="title">Licenc</span></div>
 <div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
 </div>
 </div></div>
-</div>
-</div></div>
-</div></body>
+</div></footer></div></footer>
+</div></main></body>
 </html>

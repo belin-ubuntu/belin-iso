@@ -2,9 +2,11 @@
 Type=Application
 Exec=/usr/bin/snap_torol.sh
 Hidden=false
-X-MATE-Autostart-enabled=true
+X-GNOME-Autostart-enabled=true
+X-GNOME-AutoRestart=true
+#X-GNOME-Autostart-Phase=Initialization
+
 Name[hu_HU]=Régi snap csomagok törlése
 Name=Régi snap csomagok törlése
 Comment[hu_HU]=
 Comment=
-X-MATE-Autostart-Delay=2

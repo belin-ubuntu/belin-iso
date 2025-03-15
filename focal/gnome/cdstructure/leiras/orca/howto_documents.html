@@ -5,18 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Dokumentumok kezelése</title>
 <link rel="stylesheet" type="text/css" href="hu.css">
-<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body lang="hu" dir="ltr"><div class="page" role="main">
-<div class="header"><div class="trails" role="navigation"><div class="trail">
-<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a> » </div></div></div>
-<div class="body">
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="howto_profiles.html" title="Profilok">Előző</a><a class="nextlinks-next" href="howto_text_attributes.html" title="Szövegattribútumok">Következő</a>
-</div>
-<div class="hgroup"><h1 class="title"><span class="title">Dokumentumok kezelése</span></h1></div>
+<body lang="hu" dir="ltr"><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a> » </div></div></div></header><article><nav class="prevnext pagewide"><div class="inner">
+<a href="howto_profiles.html" title="Profilok">Előző</a><a href="howto_text_attributes.html" title="Szövegattribútumok">Következő</a>
+</div></nav><div class="hgroup pagewide"><h1 class="title"><span class="title">Dokumentumok kezelése</span></h1></div>
 <div class="region">
-<div class="contents">
+<div class="contents pagewide">
 <p class="p">A dokumentumok tartalmának elolvasásához használja az alkalmazások beépített mutatónavigációs módját. Ahogyan a dokumentum szövegében navigál, az <span class="app">Orka</span> folyamatosan közölni fogja a dokumentumon belüli tartózkodási helyét. Emiatt nem okozhat gondot a dokumentumok elolvasása az <span class="app">Orka</span> használatával. Például:</p>
 <div class="list"><div class="inner"><div class="region"><ul class="list">
 <li class="list"><p class="p">A karakterenkénti mozgáshoz és olvasáshoz használja a <span class="key"><kbd>Balra nyíl</kbd></span> és <span class="key"><kbd>Jobbra nyíl</kbd></span> billentyűket.</p></li>
@@ -24,19 +27,23 @@
 <li class="list"><p class="p">A soronkénti mozgáshoz és olvasáshoz használja a <span class="key"><kbd>Felfelé nyíl</kbd></span> és <span class="key"><kbd>Lefelé nyíl</kbd></span> billentyűket.</p></li>
 <li class="list"><p class="p">Szöveg kijelöléséhez vagy szöveg kijelölésének megszüntetéséhez használja az előzőleg leírt parancsokat a <span class="key"><kbd>Shift</kbd></span> billentyűvel együtt.</p></li>
 </ul></div></div></div>
-<div class="note note-tip" title="Tipp"><div class="inner">
+<div class="note note-tip" title="Tipp">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m12 2c-3.8541 0-7 3.1459-7 7 0 1.823 0.4945 3.139 1.1641 4.133 0.6695 0.994 1.4328 1.671 2.039 2.471 0.0882 0.116 0.1749 0.656 0.2071 1.32 0.016 0.332 0.0133 0.68 0.1894 1.119 0.0881 0.22 0.2439 0.478 0.5059 0.672 0.2619 0.194 0.6028 0.285 0.8945 0.285h4c0.583 0 1.204-0.478 1.402-0.908 0.199-0.43 0.217-0.793 0.244-1.137 0.056-0.688 0.138-1.319 0.211-1.441 0.549-0.916 1.304-2.009 1.94-3.114 0.636-1.104 1.203-2.199 1.203-3.4 0-3.8541-3.146-7-7-7zm0 2c2.773 0 5 2.2267 5 5 0 0.456-0.359 1.401-0.936 2.402-0.111 0.195-0.246 0.399-0.369 0.598h-7.8825c-0.4871-0.728-0.8125-1.519-0.8125-3 0-2.7733 2.2267-5 5-5z" style="block-progression:tb;color-rendering:auto;color:#000000;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-transform:none;white-space:normal"></path>
+ <path class="yelp-svg-fill" d="m9 20a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6zm0 2a0.5 0.5 0 0 0-0.5 0.5 0.5 0.5 0 0 0 0.5 0.5h6a0.5 0.5 0 0 0 0.5-0.5 0.5 0.5 0 0 0-0.5-0.5h-6z"></path>
+</svg><div class="inner">
 <div class="title title-note"><h2><span class="title">A mutatónavigáció engedélyezése egy alkalmazásban</span></h2></div>
 <div class="region"><div class="contents"><p class="p">A mutatónavigáció nem minden alkalmazásban van alapértelmezetten engedélyezve. A legtöbb GNOME alkalmazásban a mutatónavigációt könnyen be- vagy kikapcsolhatja, ha lenyomja az <span class="key"><kbd>F7</kbd></span> billentyűt.</p></div></div>
-</div></div>
+</div>
+</div>
 <p class="p">Ha egy dokumentumot a mutatónavigációval olvas, hasznos lehet az aktuális szövegrész felolvastatása, lebetűztetése, vagy Unicode karakteradatainak lekérdezése. Ezeket a feladatokat elvégezheti az <span class="app">Orka</span> <span class="link"><a href="howto_flat_review.html" title="Az egyszerű áttekintés">egyszerű áttekintés funkciója</a></span> segítségével.</p>
 <p class="p">Végezetül, az <span class="app">Orka</span> a felolvasás parancs segítségével képes felolvasni az egész dokumentumot a kurzor pillanatnyi helyétől kezdve. A dokumentumok kezelésével kapcsolatos parancsok teljes listájáért olvassa el a <span class="link"><a href="commands_reading.html" title="Felolvasással kapcsolatos parancsok">felolvasással kapcsolatos parancsok</a></span> című fejezetet.</p>
 </div>
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="howto_profiles.html" title="Profilok">Előző</a><a class="nextlinks-next" href="howto_text_attributes.html" title="Szövegattribútumok">Következő</a>
-</div>
-<div class="sect sect-links" role="navigation">
-<div class="hgroup"></div>
-<div class="contents">
+<nav class="prevnext pagewide"><div class="inner">
+<a href="howto_profiles.html" title="Profilok">Előző</a><a href="howto_text_attributes.html" title="Szövegattribútumok">Következő</a>
+</div></nav><section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide">
 <div class="links guidelinks"><div class="inner">
 <div class="title"><h2><span class="title">További információk</span></h2></div>
 <div class="region"><ul><li class="links "><a href="index.html#reading" title="Dokumentumok és weblapok olvasása">Dokumentumok és weblapok olvasása</a></li></ul></div>
@@ -48,30 +55,30 @@
 </li></ul></div>
 </div></div>
 </div>
+</div></section>
 </div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer"><div class="sect about ui-expander" role="contentinfo">
-<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><footer class="about ui-expander" role="contentinfo"><div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
 <div class="inner">
 <div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
 <div class="region"><div class="contents">
-<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
-<div class="aboutblurb authors">
+<div class="copyrights"><div class="copyright">© 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021. Hammer Attila</div></div>
+<div class="credits">
+<div class="credits-authors">
 <div class="title"><span class="title">Írta</span></div>
 <ul class="credits"><li>Joanmarie Diggs</li></ul>
 </div>
-<div class="aboutblurb translators">
+<div class="credits-translators">
 <div class="title"><span class="title">Fordította</span></div>
 <ul class="credits"><li>Hammer Attila</li></ul>
 </div>
-<div class="aboutblurb license">
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
 <div class="title"><span class="title">Licenc</span></div>
 <div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
 </div>
 </div></div>
-</div>
-</div></div>
-</div></body>
+</div></footer></div></footer>
+</div></main></body>
 </html>

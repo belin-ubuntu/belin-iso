@@ -5,57 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Általános beállítások</title>
 <link rel="stylesheet" type="text/css" href="hu.css">
-<script type="text/javascript" src="jquery.js"></script><script type="text/javascript" src="jquery.syntax.js"></script><script type="text/javascript" src="yelp.js"></script>
+<script type="text/javascript" src="highlight.pack.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var matches = document.querySelectorAll('code.syntax')
+  for (var i = 0; i < matches.length; i++) {
+    hljs.highlightBlock(matches[i]);
+  }
+}, false);</script><script type="text/javascript" src="yelp.js"></script>
 </head>
-<body lang="hu" dir="ltr"><div class="page" role="main">
-<div class="header"><div class="trails" role="navigation"><div class="trail">
-<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div>
-<div class="body">
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_introduction.html" title="Az Orka beállításainak bemutatása">Előző</a><a class="nextlinks-next" href="preferences_voice.html" title="Hangbeállítások">Következő</a>
-</div>
-<div class="hgroup"><h1 class="title"><span class="title">Általános beállítások</span></h1></div>
+<body lang="hu" dir="ltr"><main><div class="page">
+<header><div class="inner pagewide"><div class="trails" role="navigation"><div class="trail">
+<a class="trail" href="index.html" title="Orka képernyőolvasó">Az <span class="app">Orka</span> képernyőolvasó bemutatása</a> › <a class="trail" href="index.html#quick_reference" title="Rövid referencia">Rövid referencia</a> » <a class="trail" href="preferences.html" title="Az Orka beállító párbeszédablakai">Az Orka beállításai</a> › <a class="trail" href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a> » </div></div></div></header><article><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_introduction.html" title="Az Orka beállításainak bemutatása">Előző</a><a href="preferences_voice.html" title="Hangbeállítások">Következő</a>
+</div></nav><div class="hgroup pagewide"><h1 class="title"><span class="title">Általános beállítások</span></h1></div>
 <div class="region">
-<div class="contents"></div>
-<div id="keyboardlayout" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Billentyűzetkiosztás</span></h2></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"></div>
+<section id="keyboardlayout"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Billentyűzetkiosztás</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A <span class="gui">Billentyűzetkiosztás</span> választógombcsoport segítségével megadható, hogy asztali billentyűzeten vagy hordozható számítógépen dolgozik-e. A kiválasztott kiosztás meghatározza az <span class="key"><kbd>Orka módosítóbillentyűt</kbd></span> és az <span class="app">Orka</span> parancsok gyorsbillentyűit.</p>
 <p class="p">Alapbeállítás: <span class="gui">Asztali</span> kiosztás</p>
 </div></div>
-</div></div>
-<div id="presenttooltips" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Buboréksúgók megjelenítése</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="presenttooltips"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Buboréksúgók megjelenítése</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha ez a jelölőnégyzet be van jelölve, akkor az Orka felolvassa az egérrel a felületi elemekre mutatáskor megjelenő információkat. A buboréksúgók megjelenítését kikényszerítő műveletek, például a <span class="keyseq"><span class="key"><kbd>Ctrl</kbd></span>+<span class="key"><kbd>F1</kbd></span></span> billentyűkombináció lenyomása mindig megjeleníti a fókuszban lévő objektum buboréksúgóját, függetlenül ettől a beállítástól.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="objectundermouse" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Az egér alatti objektum felolvasása</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="objectundermouse"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Az egér alatti objektum felolvasása</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha ez a jelölőnégyzet be van jelölve, az <span class="app">Orka</span> fel fogja olvasni az egér alatti objektumot, amikor az <span class="app">Orka</span> <span class="link"><a href="howto_mouse_review.html" title="Áttekintés egérrel">áttekintés egérrel</a></span> funkció segítségével mozgatja az egérmutatót a képernyőn.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="timeanddate" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Dátum- és időformátum</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="timeanddate"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Dátum- és időformátum</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="gui">Időformátum</span> és <span class="gui">Dátumformátum</span> kombinált listamezők segítségével beállíthatja, hogy az <span class="app">Orka</span> hogyan mondja ki és jelenítse meg a Braille-kijelzőn az időt és a dátumot.</p>
 <p class="p">Mindkét esetben az alapbeállítás a rendszer területi beállításának használata.</p>
 </div></div>
-</div></div>
-<div id="navigation_in_say_all" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Navigáció a felolvasás közben</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="navigation_in_say_all"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Navigáció a felolvasás közben</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="app">Orka</span> folyamatos felolvasás funkciója felolvassa a dokumentum tartalmát a kurzor pillanatnyi helyétől a dokumentum végéig. Alapesetben, ha bármilyen billentyűt lenyom a felolvasás közben, a felolvasás megszakításra kerül. Azonban, ha bejelöli az <span class="gui">Előre- és visszatekerés engedélyezése a felolvasás közben</span> jelölőnégyzetet, a <span class="key"><kbd>Felfelé nyíl</kbd></span> és <span class="key"><kbd>Lefelé nyíl</kbd></span> billentyűk segítségével gyorsan mozoghat a felolvasás közben. Meghallgathat újból egy már felolvasott szövegrészt, vagy átugorhat olyan részeket a dokumentumban, melyek nem érdekesek anélkül, hogy a felolvasást újból el kellene indítania.</p>
 <p class="p">Ha egy dokumentumot felolvastat egy Orka strukturált navigációt támogató alkalmazásban, és bejelölte a <span class="gui">Strukturált navigáció engedélyezése a felolvasás közben</span> jelölőnégyzetet, a felolvasás közben használhatja a támogatott strukturált navigációs parancsokat az eredeti működésükhöz hasonló módon: A <span class="key"><kbd>H</kbd></span> és <span class="keyseq"><span class="key"><kbd>Shift</kbd></span>+<span class="key"><kbd>H</kbd></span></span> folytatja a felolvasást a következő vagy előző címsortól, a <span class="key"><kbd>P</kbd></span> és a <span class="keyseq"><span class="key"><kbd>Shift</kbd></span>+<span class="key"><kbd>P</kbd></span></span> folytatja a felolvasást a következő vagy előző bekezdéstől, a <span class="key"><kbd>T</kbd></span> és a <span class="keyseq"><span class="key"><kbd>Shift</kbd></span>+<span class="key"><kbd>T</kbd></span></span> folytatja a felolvasást a következő vagy előző táblázattól stb.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="say_all_announce_context" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="say_all_announce_context"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">A szövegkörnyezettel kapcsolatos információk bejelentése a felolvasás közben</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="app">Orka</span> a használt beállításoktól függően több információt tud kimondani a dokumentumtartalom felolvasása közben, például amikor rálép vagy elhagy egy idézetblokkot, listát, táblázatot, vagy egy más típusú elemet. A bejelentésekkel kapcsolatos beállítások egymástól függetlenül megadhatók a következő jelölőnégyzetek segítségével:</p>
 <div class="list"><div class="inner"><div class="region"><ul class="list">
 <li class="list"><p class="p">Idézetblokkok bejelentése felolvasás közben</p></li>
@@ -66,19 +64,22 @@
 <li class="list"><p class="p">Táblázatok bejelentése felolvasás közben</p></li>
 </ul></div></div></div>
 <p class="p">Alapbeállítás: bejelölve</p>
-<div class="note" title="Megjegyzés"><div class="inner"><div class="region"><div class="contents"><p class="p"> Ezeknek az információknak a bejelentése navigálás közben szintén beállítható. A beállítások megadásához hasonló jelölőnégyzeteket fog találni a <span class="gui">Beszéd</span> lapon. Ha bővebb információra van szüksége, olvassa el a <span class="link"><a href="preferences_speech.html#spoken_context" title="Kimondott szövegkörnyezet">Kimondott szövegkörnyezet</a></span> című fejezetet.</p></div></div></div></div>
+<div class="note" title="Megjegyzés">
+<svg width="24" height="24" version="1.1">
+ <path class="yelp-svg-fill" d="m4 3h16c0.554 0 1 0.446 1 1v11h-6v6h-11c-0.554 0-1-0.446-1-1v-16c0-0.554 0.446-1 1-1z"></path>
+ <path class="yelp-svg-fill" d="m17 16h4l-5 5v-4c0-0.554 0.446-1 1-1z"></path>
+</svg><div class="inner"><div class="region"><div class="contents"><p class="p"> Ezeknek az információknak a bejelentése navigálás közben szintén beállítható. A beállítások megadásához hasonló jelölőnégyzeteket fog találni a <span class="gui">Beszéd</span> lapon. Ha bővebb információra van szüksége, olvassa el a <span class="link"><a href="preferences_speech.html#spoken_context" title="Kimondott szövegkörnyezet">Kimondott szövegkörnyezet</a></span> című fejezetet.</p></div></div></div>
+</div>
 </div></div>
-</div></div>
-<div id="say_all_by" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Kimondás</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="say_all_by"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Kimondás</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">A <span class="gui">Kimondás</span> kombinált listamezőben megadhatja, hogy az <span class="app">Orka</span> egy mondatot, vagy egy teljes sort olvasson fel akkor, ha aktiválja a felolvasás parancsot.</p>
 <p class="p">Alapbeállítás: <span class="gui">Mondat</span></p>
 </div></div>
-</div></div>
-<div id="profiles" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Profilok</span></h2></div>
-<div class="region"><div class="contents">
+</div></section><section id="profiles"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Profilok</span></h2></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Az <span class="gui">Általános</span> lap alján található <span class="gui">Profilok</span> csoport vezérlőelemeinek segítségével lehetősége van többféle konfiguráció létrehozására és karbantartására.</p>
 <div class="list"><div class="inner"><div class="region"><ul class="list">
 <li class="list"><p class="p">Az <span class="gui">Aktív profil</span> kombinált listamező megjeleníti az éppen használt profilt, valamint lehetővé teszi egy másik betöltendő profil kiválasztását.</p></li>
@@ -87,84 +88,77 @@
 <li class="list"><p class="p">A <span class="gui">Kezdeti profil</span> kombinált listamezőben kiválaszthatja az <span class="app">Orka</span> minden indításakor automatikusan betöltendő profilt.</p></li>
 </ul></div></div></div>
 </div></div>
-</div></div>
-<div id="progress_bar_updates" class="sect"><div class="inner">
-<div class="hgroup"><h2 class="title"><span class="title">Folyamatjelző frissítésének felolvasása</span></h2></div>
+</div></section><section id="progress_bar_updates"><div class="inner">
+<div class="hgroup pagewide"><h2 class="title"><span class="title">Folyamatjelző frissítésének felolvasása</span></h2></div>
 <div class="region">
-<div class="contents"></div>
-<div id="progress_bar_updates_speak" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Folyamatjelző frissítésének kimondása</span></h3></div>
-<div class="region"><div class="contents">
+<div class="contents pagewide"></div>
+<section id="progress_bar_updates_speak"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Folyamatjelző frissítésének kimondása</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Folyamatjelző frissítésének kimondása</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> megadott időközönként felolvassa a folyamatjelzők állapotváltozását.</p>
 <p class="p">Alapbeállítás: bejelölve</p>
 </div></div>
-</div></div>
-<div id="progress_bar_updates_braille" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Folyamatjelző frissítésének megjelenítése a Braille-kijelzőn</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="progress_bar_updates_braille"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Folyamatjelző frissítésének megjelenítése a Braille-kijelzőn</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Folyamatjelző frissítésének megjelenítése a Braille-kijelzőn</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> megadott időközönként megjeleníti a frissíthető Braille-kijelzőn a folyamatjelzők állapotváltozását.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="progress_bar_updates_beep" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Hangjelzés a folyamatjelző frissülésekor</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="progress_bar_updates_beep"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Hangjelzés a folyamatjelző frissülésekor</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a <span class="gui">Hangjelzés a folyamatjelző frissülésekor</span> jelölőnégyzet be van jelölve, az <span class="app">Orka</span> megadott időközönként egy növekvő hangmagasságú hangjelzést játszik le, amikor a folyamatjelzők értéke növekszik.</p>
 <p class="p">Alapbeállítás: nincs bejelölve</p>
 </div></div>
-</div></div>
-<div id="progress_bar_updates_frequency" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Gyakoriság másodpercben</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="progress_bar_updates_frequency"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Gyakoriság másodpercben</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ezzel a léptetőgombbal megadhatja, hogy az <span class="app">Orka</span> milyen gyakran jelenítse meg a folyamatjelzők állapotváltozását.</p>
 <p class="p">Alapbeállítás: 10</p>
 </div></div>
-</div></div>
-<div id="progress_bar_updates_restrict" class="sect"><div class="inner">
-<div class="hgroup"><h3 class="title"><span class="title">Korlátozás erre</span></h3></div>
-<div class="region"><div class="contents">
+</div></section><section id="progress_bar_updates_restrict"><div class="inner">
+<div class="hgroup pagewide"><h3 class="title"><span class="title">Mire vonatkozik</span></h3></div>
+<div class="region"><div class="contents pagewide">
 <p class="p">Ha a folyamatjelzők állapotának felolvasása engedélyezve van, ebben a kombinált listamezőben megadhatja, hogy milyen esetekben legyenek kimondva a folyamatjelzők állapotváltozásai. A választható lehetőségek: <span class="gui">Mindent</span>, <span class="gui">Alkalmazás</span>, és <span class="gui">Ablak</span>.</p>
 <p class="p">Ha a <span class="gui">Mindent</span> lehetőséget választja, az <span class="app">Orka</span> minden folyamatjelző-állapotváltozást ki fog mondani, függetlenül azok helyétől.</p>
 <p class="p">Ha az <span class="gui">Alkalmazás</span> lehetőséget választja, az <span class="app">Orka</span> ki fogja mondani a fókuszban levő aktív alkalmazás folyamatjelző-állapotváltozásait, függetlenül attól, hogy az alkalmazás ablaka aktív-e.</p>
 <p class="p">Ha az <span class="gui">Ablak</span> lehetőséget választja, az <span class="app">Orka</span> csak az aktív ablak folyamatjelző-állapotváltozásait fogja kimondani.</p>
 <p class="p">Alapbeállítás: <span class="gui">Alkalmazás</span></p>
 </div></div>
-</div></div>
+</div></section>
 </div>
-</div></div>
-<div class="links nextlinks">
-<a class="nextlinks-prev" href="preferences_introduction.html" title="Az Orka beállításainak bemutatása">Előző</a><a class="nextlinks-next" href="preferences_voice.html" title="Hangbeállítások">Következő</a>
-</div>
-<div class="sect sect-links" role="navigation">
-<div class="hgroup"></div>
-<div class="contents"><div class="links guidelinks"><div class="inner">
+</div></section><nav class="prevnext pagewide"><div class="inner">
+<a href="preferences_introduction.html" title="Az Orka beállításainak bemutatása">Előző</a><a href="preferences_voice.html" title="Hangbeállítások">Következő</a>
+</div></nav><section class="links" role="navigation"><div class="inner">
+<div class="hgroup pagewide"></div>
+<div class="contents pagewide"><div class="links guidelinks"><div class="inner">
 <div class="title"><h2><span class="title">További információk</span></h2></div>
 <div class="region"><ul><li class="links "><a href="preferences.html#orca" title="Az Orka beállításai">Az Orka beállításai</a></li></ul></div>
 </div></div></div>
+</div></section>
 </div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer"><div class="sect about ui-expander" role="contentinfo">
-<div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
+<div class="clear"></div></article><footer><div class="inner pagewide"><footer class="about ui-expander" role="contentinfo"><div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"></div>
 <div class="inner">
 <div class="hgroup"><h2><span class="title">Névjegy</span></h2></div>
 <div class="region"><div class="contents">
-<div class="copyrights"><div class="copyright">© 2011, 2012, 2013, 2014, 2015, 2016. Hammer Attila</div></div>
-<div class="aboutblurb authors">
+<div class="copyrights"><div class="copyright">© 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021. Hammer Attila</div></div>
+<div class="credits">
+<div class="credits-authors">
 <div class="title"><span class="title">Írta</span></div>
 <ul class="credits"><li>Joanmarie Diggs</li></ul>
 </div>
-<div class="aboutblurb translators">
+<div class="credits-translators">
 <div class="title"><span class="title">Fordította</span></div>
 <ul class="credits"><li>Hammer Attila</li></ul>
 </div>
-<div class="aboutblurb license">
+<div class="credits-blank"></div>
+<div class="credits-blank"></div>
+</div>
+<div class="license">
 <div class="title"><span class="title">Licenc</span></div>
 <div class="contents"><p class="p">Creative Commons Share Alike 3.0</p></div>
 </div>
 </div></div>
-</div>
-</div></div>
-</div></body>
+</div></footer></div></footer>
+</div></main></body>
 </html>
