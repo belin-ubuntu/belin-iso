@@ -132,12 +132,15 @@ def workinchroot():
     if options.arch=='i386':
         os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     else:
-        os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz-'+kernelverzio[len(kernelverzio)-1]+' '+cddir+'/casper/vmlinuz')
+        os.system('cp '+workdir+'/squashfs-root/boot/vmlinuz '+cddir+'/casper/vmlinuz')
     os.system('chroot '+workdir+'/squashfs-root apt-get -qq update')
     if len(kernelverzio)>1:
+        print(kernelverzio)
+        input('Nyomj meg valamit!')
         kernelcmd='chroot '+workdir+'/squashfs-root apt-get -y -qq purge '
-        for i in range(0,len(kernelverzio)-1):
+        for i in range(1,len(kernelverzio)):
             kernelcmd=kernelcmd+'linux-image-'+kernelverzio[i]+' linux-headers-'+kernelverzio[i]+' linux-modules-'+kernelverzio[i]+' linux-modules-extra-'+kernelverzio[i]+' '
+            print(len(kernelverzio[i])+' kernelverzió eltávolítása.')
         os.system(kernelcmd)
 
     #os.system('rm '+cddir+'/casper/initrd.lz;mv '+cddir+'/casper/initrd.gz '+cddir+'/casper/initrd.lz')
@@ -155,7 +158,7 @@ def workinchroot():
             line=f.readline()
     print(_('Making new initrd.gz...'))
     if (len(kernelverzio)>1):
-        os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[len(kernelverzio)-1])
+        os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
     else:
         os.system('chroot . mkinitramfs -o initrd.gz '+kernelverzio[0])
     os.system('cp '+workdir+'/squashfs-root/boot/initrd.img '+cddir+'/casper/initrd')
