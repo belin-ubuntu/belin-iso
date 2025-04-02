@@ -1,0 +1,8 @@
+/pool/restricted/n/nvidia-graphics-drivers-418-server
+/pool/restricted/n/nvidia-graphics-drivers-450-server
+/pool/restricted/n/nvidia-graphics-drivers-470-server
+/pool/restricted/n/nvidia-graphics-drivers-515-server
+/pool/restricted/n/nvidia-graphics-drivers-525-server
+/pool/multiverse/n/nvidia-graphics-drivers-418-server
+/pool/multiverse/n/nvidia-graphics-drivers-450-server
+/pool/multiverse/n/nvidia-graphics-drivers-470-server
