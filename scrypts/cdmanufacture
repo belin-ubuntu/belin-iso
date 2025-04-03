@@ -140,7 +140,7 @@ def workinchroot():
         kernelcmd='chroot '+workdir+'/squashfs-root apt-get -y -qq purge '
         for i in range(1,len(kernelverzio)):
             kernelcmd=kernelcmd+'linux-image-'+kernelverzio[i]+' linux-headers-'+kernelverzio[i]+' linux-modules-'+kernelverzio[i]+' linux-modules-extra-'+kernelverzio[i]+' '
-            print(len(kernelverzio[i])+' kernelverzió eltávolítása.')
+            print(kernelverzio[i]+' kernelverzió eltávolítása.')
         os.system(kernelcmd)
 
     #os.system('rm '+cddir+'/casper/initrd.lz;mv '+cddir+'/casper/initrd.gz '+cddir+'/casper/initrd.lz')
